@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Плашка — Второй звонок</title>
+    <title>Тест плашки</title>
     <style>
         * {
             margin: 0;
@@ -17,25 +17,61 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            flex-direction: column;
         }
-        .wrapper {
-            max-width: 800px;
-            width: 100%;
+        #start-screen {
+            text-align: center;
+        }
+        #start-screen img {
+            max-width: 90%;
+            max-height: 70vh;
             border: 2px solid #d4af37;
             box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
-            padding: 10px;
-            background: #0b0a08;
         }
-        img {
-            display: block;
-            width: 100%;
-            height: auto;
+        #start-screen button {
+            margin-top: 40px;
+            padding: 16px 48px;
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            font-family: 'Georgia', serif;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        #start-screen button:hover {
+            background: #d4af37;
+            color: #0b0a08;
+        }
+        #main-content {
+            display: none;
+            text-align: center;
+            color: #d4af37;
+            font-size: 2rem;
+            font-family: 'Georgia', serif;
         }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <img src="https://z-cdn-media.chatglm.cn/files/3050fced-d264-4ffc-be3e-bbd460c7634a.png?auth_key=1882532794-8f062fb7397e47dca272ac89220d4167-0-685ac714cbea6a59cda77efa3abe4f47" alt="Второй звонок — обложка">
+
+    <div id="start-screen">
+        <img src="images/51.png" alt="Второй звонок">
+        <button onclick="enterSite()">Ознакомиться с материалами</button>
     </div>
+
+    <div id="main-content">
+        <h1>✅ Кнопка работает!</h1>
+        <p>Текст и картинки появятся здесь.</p>
+    </div>
+
+    <script>
+        function enterSite() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>
