@@ -1,0 +1,157 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Второй звонок — Дмитрий Ильин</title>
+<meta name="description" content="Интеллектуальный шпионский нуар. Декабрь 1946 — Май 1948.">
+<link rel="icon" href="images/51.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0a08;
+  color:#e0d5b0;
+  font-family:'Literatta',Georgia,serif;
+  min-height:100vh;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ФОНОВОЕ ВИДЕО */
+.bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+}
+
+/* ТЕМНАЯ ВУАЛЬ НАД ВИДЕО */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 8, 0.85); /* 85% темноты, чтобы дым в фоне едва угадывался */
+  z-index: -90;
+}
+
+/* ЦЕНТРАЛЬНЫЙ БЛОК */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  z-index: 10;
+  animation: fadeIn 1.8s ease-out;
+}
+
+/* ПЛАШКА С ЗОЛОТЫМ СВЕЧЕНИЕМ */
+.main-banner {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  box-shadow: 0 0 70px rgba(201, 169, 110, 0.08);
+  transition: box-shadow 0.5s ease;
+}
+.main-banner:hover {
+  box-shadow: 0 0 90px rgba(201, 169, 110, 0.15);
+}
+
+/* БЛОК КНОПОК */
+.button-group {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-btn {
+  padding: 1rem 2.2rem;
+  background: transparent;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  font-family: 'Literatta', Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-btn:hover {
+  background: #C9A96E;
+  color: #0b0a08;
+}
+
+/* ФУТЕР */
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  text-align: center;
+  color: #8A7E6B;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media(max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ФОНОВОЕ КИНО -->
+<video class="bg-video" autoplay muted loop playsinline id="bgVideo">
+  <source src="Промо Второй звонок.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
+
+<!-- ГЛАВНЫЙ КОНТЕНТ -->
+<div class="main-container">
+  <img src="images/51.png" alt="Второй звонок — Дмитрий Ильин" class="main-banner">
+  
+  <div class="button-group">
+    <!-- Кнопки входа в архитектурные разделы -->
+    <a href="reader.html" class="nav-btn">Читать роман</a>
+    <a href="materials.html" class="nav-btn">Материалы дела</a>
+    <a href="laboratory.html" class="nav-btn">Лаборатория</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© Дмитрий Ильин. Все права защищены. Свидетельство № 226061100096</p>
+</footer>
+
+</body>
+</html>
