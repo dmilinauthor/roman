@@ -14,128 +14,314 @@ layout: null
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0a08 url('images/62.png') no-repeat center center fixed;
+  background:#0b0a08 url('images/81.png') no-repeat center center fixed;
   background-size: cover;
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
   overflow-x:hidden;
-  overflow-y:auto; /* РАЗРЕШАЕМ ПРОКРУТКУ ПО УМОЛЧАНИЮ */
+  overflow-y:auto;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
 }
 
-/* ЦЕНТРАЛЬНЫЙ БЛОК */
-.main-container {
+/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: #000000;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  z-index: 150;
+}
+.nav-link {
+  color: #8A7E6B;
+  font-family: 'Literatta', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.nav-link:hover {
+  color: #C9A96E;
+}
+
+/* ГЛАВНЫЙ СПЛИТ-МАКЕТ */
+.home-grid {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: calc(100vh - 55px);
+  margin-top: 55px;
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem 2rem;
+  z-index: 10;
+  animation: fadeIn 1.8s ease-out;
+}
+
+/* ЛЕВАЯ ЧАСТЬ — ЦИТАТА НА ЧЕРНОМ ПОЛУПРОЗРАЧНОМ ФОНЕ */
+.left-pane {
+  flex: 1.1;
+  display: flex;
+  justify-content: flex-start;
+}
+.quote-card {
+  background: rgba(11, 10, 8, 0.88); /* 88% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  padding: 2.5rem;
+  max-width: 520px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+.quote-text {
+  font-family: 'Literatta', Georgia, serif;
+  color: #e0d5b0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 300;
+}
+.quote-text p {
+  margin-bottom: 1.2rem;
+}
+.quote-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ПРАВАЯ ЧАСТЬ — ПЛАШКА И КНОПКА ЧИТАТЬ */
+.right-pane {
+  flex: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
-  max-width: 900px;
-  width: 100%;
-  z-index: 10;
+  gap: 2rem;
   transform: translateY(-2%); /* СЛЕГКА ПРИПОДНИМАЕМ ДЛЯ БАЛАНСА */
-  animation: fadeIn 1.8s ease-out;
 }
 
-/* ПЛАШКА С НАЗВАНИЕМ КНИГИ */
-.main-banner {
+.title-banner {
   max-width: 100%;
-  width: 680px; /* ОГРАНИЧИЛИ МАКСИМАЛЬНУЮ ШИРИНУ ПЛАШКИ */
   height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.3);
-  box-shadow: 0 0 70px rgba(201, 169, 110, 0.08);
-  transition: box-shadow 0.5s ease;
-  margin-bottom: 1.8rem;
-}
-.main-banner:hover {
-  box-shadow: 0 0 90px rgba(201, 169, 110, 0.15);
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
 }
 
-/* КНОПКИ-ИЗОБРАЖЕНИЯ */
-.btn-img {
+.read-btn-link {
+  display: block;
+}
+.read-btn-img {
   display: block;
   max-width: 100%;
+  width: 220px; /* ИЗЯЩНЫЙ КОМПАКТНЫЙ РАЗМЕР КНОПКИ */
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.25);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.btn-img:hover {
+.read-btn-img:hover {
   border-color: #C9A96E;
-  box-shadow: 0 0 45px rgba(201, 169, 110, 0.2);
-  transform: scale(1.02);
+  box-shadow: 0 0 45px rgba(201, 169, 110, 0.25);
+  transform: scale(1.03);
 }
 
-/* ССЫЛКА ДЛЯ ГЛАВНОЙ КНОПКИ */
-.main-btn-link {
-  display: block;
-  width: 100%;
-  max-width: 340px; /* УМЕНЬШИЛИ ГЛАВНУЮ КНОПКУ ДО 340px */
-  margin-bottom: 1.8rem;
-}
-
-/* НИЖНИЙ РЯД ИЗ ТРЕХ КНОПОК */
-.bottom-row {
+/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 8, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
   justify-content: center;
-  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
 }
-.sub-btn-link {
-  display: block;
-  flex: 1;
-  max-width: 160px; /* УМЕНЬШИЛИ БОКОВЫЕ КНОПКИ ДО 160px */
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-card {
+  background: #0b0a08;
+  border: 1px solid #C9A96E;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.show .modal-card {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  color: #8A7E6B;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.modal-close:hover {
+  color: #C9A96E;
+}
+.modal-card h3 {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.modal-card p {
+  color: #8A7E6B;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* БЛАНК ШИФРОВКИ */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.feedback-form input, .feedback-form textarea {
+  background: #161512;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  color: #e0d5b0;
+  font-family: 'Literatta', Georgia, serif;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.feedback-form input:focus, .feedback-form textarea:focus {
+  border-color: #C9A96E;
+}
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-submit {
+  padding: 0.8rem;
+  background: transparent;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  font-family: 'Literatta', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-submit:hover {
+  background: #C9A96E;
+  color: #0b0a08;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-1%) scale(0.98); }
-  to { opacity: 1; transform: translateY(-2%) scale(1); }
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@media(max-width: 768px) {
-  .main-container {
+@media(max-width: 900px) {
+  .home-grid {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
     padding: 2rem 1.5rem;
   }
-  .bottom-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .main-btn-link, .sub-btn-link {
+  .left-pane, .right-pane {
     width: 100%;
-    max-width: 280px; /* На мобильных центрируем по единой ширине */
+    max-width: 100%;
+    flex: none;
+  }
+  .quote-card {
+    max-width: 100%;
+    padding: 1.8rem 1.2rem;
+  }
+  .read-btn-img {
+    width: 180px;
   }
 }
 </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-<div class="main-container">
-  <!-- Главная плашка 63.png по центру -->
-  <img src="images/63.png" alt="Второй звонок — Дмитрий Ильин" class="main-banner">
+<!-- ВЕРХНЕЕ МЕНЮ -->
+<nav class="top-navbar">
+  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="foreigners.html" class="nav-link">En | De | Fr</a>
+  <a href="laboratory.html" class="nav-link">За кулисами</a>
+  <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
+</nav>
+
+<!-- ГЛАВНЫЙ МАКЕТ С ЦИТАТОЙ И ПЛАШКОЙ -->
+<main class="home-grid">
   
-  <!-- Главная кнопка сразу под плашкой -->
-  <a href="reader.html" class="main-btn-link">
-    <img src="images/64.png" alt="Ознакомиться с текстом" class="btn-img">
-  </a>
+  <!-- Слева: цитата -->
+  <div class="left-pane">
+    <div class="quote-card">
+      <div class="quote-text">
+        <p>«Пять сигар назад он начал ждать. Пепел не падал — он снимал его точно в последний момент, двумя короткими движениями пальцев. Без суеты. Без взгляда. Так же, как когда-то снимал людей с должностей, страны с карт, а вопросы повестки.</p>
+        <p>Он всегда успевал раньше. На шаг. На два. На жизнь вперед».</p>
+      </div>
+    </div>
+  </div>
   
-  <!-- Нижний ряд из трех кнопок -->
-  <div class="bottom-row">
-    <a href="materials.html" class="sub-btn-link">
-      <img src="images/65.png" alt="Архив дела" class="btn-img">
-    </a>
-    <a href="foreigners.html" class="sub-btn-link">
-      <img src="images/66.png" alt="For Foreigners" class="btn-img">
-    </a>
-    <a href="laboratory.html" class="sub-btn-link">
-      <img src="images/67.png" alt="Лаборатория" class="btn-img">
+  <!-- Справа: плашка и кнопка -->
+  <div class="right-pane">
+    <img src="images/63.png" alt="Второй звонок — Дмитрий Ильин" class="title-banner">
+    <a href="reader.html" class="read-btn-link">
+      <img src="images/82.png" alt="Читать" class="read-btn-img">
     </a>
   </div>
+  
+</main>
+
+<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="toggleModal(false)">✕</button>
+    <h3>Экстренная шифровка связи</h3>
+    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
+    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
+      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
+      <textarea name="message" placeholder="Содержание донесения" required></textarea>
+      <button type="submit" class="form-submit">Передать по каналу связи</button>
+    </form>
+  </div>
 </div>
+
+<script>
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+</script>
 
 </body>
 </html>
