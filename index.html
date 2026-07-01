@@ -21,10 +21,6 @@ body{
   min-height:100vh;
   overflow-x:hidden;
   overflow-y:auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
 }
 
 /* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
@@ -59,33 +55,23 @@ body{
   color: #C9A96E;
 }
 
-/* ГЛАВНЫЙ СПЛИТ-МАКЕТ */
-.home-grid {
-  display: flex;
+/* ЛЕВАЯ КОЛОНКА С ЦИТАТОЙ — АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ */
+.quote-container {
+  position: absolute;
+  left: 5%; /* Прижимаем влево */
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 420px; /* Ограничиваем ширину, чтобы не налезала на заголовок в центре */
   width: 100%;
-  max-width: 1200px;
-  min-height: calc(100vh - 55px);
-  margin-top: 55px;
-  align-items: center;
-  gap: 4rem;
-  padding: 3rem 2rem;
   z-index: 10;
-  animation: fadeIn 1.8s ease-out;
-}
-
-/* ЛЕВАЯ ЧАСТЬ — ЦИТАТА НА ЧЕРНОМ ПОЛУПРОЗРАЧНОМ ФОНЕ */
-.left-pane {
-  flex: 1.1;
-  display: flex;
-  justify-content: flex-start;
+  animation: fadeInQuote 1.5s ease-out;
 }
 .quote-card {
-  background: rgba(11, 10, 8, 0.88); /* 88% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
+  background: rgba(11, 10, 8, 0.88); /* Плотная темная подложка */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(201, 169, 110, 0.12);
   padding: 2.5rem;
-  max-width: 520px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 .quote-text {
@@ -103,31 +89,22 @@ body{
   margin-bottom: 0;
 }
 
-/* ПРАВАЯ ЧАСТЬ — ПЛАШКА И КНОПКА ЧИТАТЬ */
-.right-pane {
-  flex: 0.9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  transform: translateY(-2%); /* СЛЕГКА ПРИПОДНИМАЕМ ДЛЯ БАЛАНСА */
+/* КНОПКА «ЧИТАТЬ» СТРОГО ВНИЗУ ПО ЦЕНТРУ */
+.read-btn-container {
+  position: absolute;
+  bottom: 6%; /* Прижимаем к нижнему краю */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: fadeInBtn 1.8s ease-out;
 }
-
-.title-banner {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
-}
-
 .read-btn-link {
   display: block;
 }
 .read-btn-img {
   display: block;
   max-width: 100%;
-  width: 220px; /* ИЗЯЩНЫЙ КОМПАКТНЫЙ РАЗМЕР КНОПКИ */
+  width: 210px; /* Изящный компактный размер */
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.25);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -241,26 +218,43 @@ body{
   color: #0b0a08;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.99); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes fadeInQuote {
+  from { opacity: 0; transform: translateY(-52%) translateX(-2%); }
+  to { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+@keyframes fadeInBtn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 @media(max-width: 900px) {
-  .home-grid {
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-    padding: 2rem 1.5rem;
+  body {
+    background-position: center left 35%; /* На мобильных сдвигаем фон, чтобы портрет оставался виден */
   }
-  .left-pane, .right-pane {
-    width: 100%;
+  .quote-container {
+    position: relative;
+    left: 0;
+    top: auto;
+    transform: none;
     max-width: 100%;
-    flex: none;
+    padding: 65px 1.5rem 2rem;
+    margin-top: 55px;
+    animation: none;
   }
   .quote-card {
     max-width: 100%;
     padding: 1.8rem 1.2rem;
+  }
+  .read-btn-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1.5rem 3rem;
+    animation: none;
   }
   .read-btn-img {
     width: 180px;
@@ -278,50 +272,21 @@ body{
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
-<!-- ГЛАВНЫЙ МАКЕТ С ЦИТАТОЙ И ПЛАШКОЙ -->
-<main class="home-grid">
-  
-  <!-- Слева: цитата -->
-  <div class="left-pane">
-    <div class="quote-card">
-      <div class="quote-text">
-        <p>«Пять сигар назад он начал ждать. Пепел не падал — он снимал его точно в последний момент, двумя короткими движениями пальцев. Без суеты. Без взгляда. Так же, как когда-то снимал людей с должностей, страны с карт, а вопросы повестки.</p>
-        <p>Он всегда успевал раньше. На шаг. На два. На жизнь вперед».</p>
-      </div>
+<!-- СЛЕВА: ЦИТАТА -->
+<div class="quote-container">
+  <div class="quote-card">
+    <div class="quote-text">
+      <p>«Пять сигар назад он начал ждать. Пепел не падал — он снимал его точно в последний момент, двумя короткими движениями пальцев. Без суеты. Без взгляда. Так же, как когда-то снимал людей с должностей, страны с карт, а вопросы повестки.</p>
+      <p>Он всегда успевал раньше. На шаг. На два. На жизнь вперед».</p>
     </div>
-  </div>
-  
-  <!-- Справа: плашка и кнопка -->
-  <div class="right-pane">
-    <img src="images/63.png" alt="Второй звонок — Дмитрий Ильин" class="title-banner">
-    <a href="reader.html" class="read-btn-link">
-      <img src="images/82.png" alt="Читать" class="read-btn-img">
-    </a>
-  </div>
-  
-</main>
-
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
-<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
-  <div class="modal-card">
-    <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
-    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
-    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
-      <textarea name="message" placeholder="Содержание донесения" required></textarea>
-      <button type="submit" class="form-submit">Передать по каналу связи</button>
-    </form>
   </div>
 </div>
 
-<script>
-function toggleModal(show) {
-  const modal = document.getElementById('contactModal');
-  modal.classList.toggle('show', show);
-}
-</script>
+<!-- ВНИЗУ ПО ЦЕНТРУ: КНОПКА «ЧИТАТЬ» -->
+<div class="read-btn-container">
+  <a href="reader.html" class="read-btn-link">
+    <img src="images/82.png" alt="Читать" class="read-btn-img">
+  </a>
+</div>
 
-</body>
-</html>
+<!
