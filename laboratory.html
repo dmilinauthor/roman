@@ -87,10 +87,21 @@ body{
   font-size: 2.2rem;
   font-family: 'Oranienbaum', Georgia, serif;
   color: #C9A96E;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+/* Новый стиль для подзаголовка автора */
+.novel-author {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #8A7E6B;
+  font-family: 'Literatta', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
 .section-divider {
   font-family: 'Oranienbaum', Georgia, serif;
   color: #C9A96E;
@@ -101,6 +112,7 @@ body{
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   padding-bottom: 0.5rem;
 }
+
 .doc-paragraph {
   margin-bottom: 1.5rem;
   text-align: justify;
@@ -108,6 +120,7 @@ body{
   line-height: 1.75;
   font-weight: 300;
 }
+
 .scheme-desc {
   font-size: 1.05rem;
   line-height: 1.6;
@@ -242,18 +255,20 @@ body{
   <a href="materials.html" class="nav-link">Архив</a>
   <a href="foreigners.html" class="nav-link">Cooperation</a>
   <a href="laboratory.html" class="nav-link active">За кулисами</a>
+  <button class="nav-link" onclick="toggleModal(true)">Контакты</button> <!-- Кнопка возвращена -->
 </nav>
 
 <div class="document-wrapper">
   <div class="content-inner">
 
-    <!-- Авторский заголовок -->
-    <h1 class="novel-title" style="margin-bottom: 2rem;">За кулисами романа</h1>
+    <!-- Исправленные классы заголовка и подзаголовка -->
+    <h1 class="doc-title">За кулисами романа</h1>
     <p class="novel-author">Рабочие материалы и аналитические схемы</p>
     <div style="width: 100px; height: 1px; background: rgba(201, 169, 110, 0.2); margin: 1.5rem auto 3rem;"></div>
     
-    <p class="novel-text">Любая сложная книга начинается с чертежей. В этом разделе собраны концептуальные схемы, аналитические разборы и чертежи девальвации секретов, которые велись в процессе создания книги.</p>
-    <p class="novel-text">Эти материалы приоткрывают «двойное дно» художественной архитектуры романа и позволяют взглянуть на Сетку под другим, исследовательским углом.</p>
+    <!-- Исправленные классы абзацев -->
+    <p class="doc-paragraph">Любая сложная книга начинается с чертежей. В этом разделе собраны концептуальные схемы, аналитические разборы и чертежи девальвации секретов, которые велись в процессе создания книги.</p>
+    <p class="doc-paragraph">Эти материалы приоткрывают «двойное дно» художественной архитектуры романа и позволяют взглянуть на Сетку под другим, исследовательским углом.</p>
 
     <!-- СХЕМА 1: ЭВОЛЮЦИЯ СУДЬБЫ МАСТЕРА (78.png) -->
     <div class="section-divider">Эволюция судьбы Мастера (Ранний замысел vs Окончательная редакция)</div>
