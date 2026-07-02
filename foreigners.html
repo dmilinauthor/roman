@@ -368,3 +368,161 @@ body{
   .language-tabs {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+  }
+  .tab-img-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
+<nav class="top-navbar">
+  <a href="index.html" class="nav-link">Домой</a>
+  <a href="reader.html" class="nav-link">Читать</a>
+  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="foreigners.html" class="nav-link active">En | De | Fr</a>
+  <a href="laboratory.html" class="nav-link">За кулисами</a>
+  <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
+</nav>
+
+<div class="foreign-wrapper">
+  <!-- Графическая плашка Cooperation 72.png -->
+  <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
+  
+  <!-- ВЕРХНЯЯ ЧАСТЬ: ПОРТРЕТ И ОПИСАНИЕ -->
+  <div class="split-layout">
+    
+    <!-- ЛЕВАЯ КОЛОНКА (ПОРТРЕТ И СИНОПСИС О ПРОЕКТЕ) -->
+    <div class="left-column">
+      <div class="archive-card">
+        <!-- Портрет Автора (94.png) -->
+        <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
+        
+        <div class="section-divider">О проекте</div>
+        <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
+        <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
+      </div>
+    </div>
+    
+    <!-- ПРАВАЯ КОЛОНКА (СЕГМЕНТЫ СОТРУДНИЧЕСТВА И ЯЗЫКОВЫЕ КНОПКИ) -->
+    <div class="right-column">
+      <div class="archive-card" style="height: 100%;">
+        <div class="section-divider">Русскоязычный сегмент</div>
+        
+        <div class="coop-list">
+          <!-- Пункт 1 -->
+          <div class="coop-item">
+            <h4 class="coop-item-title">⬥ Издание</h4>
+            <p class="coop-item-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
+          </div>
+          
+          <!-- Карточка 2 -->
+          <div class="coop-item">
+            <h4 class="coop-item-title">⬥ Адаптация</h4>
+            <p class="coop-item-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
+          </div>
+          
+          <!-- Карточка 3 -->
+          <div class="coop-item">
+            <h4 class="coop-item-title">⬥ Аудиоформаты</h4>
+            <p class="coop-item-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
+          </div>
+          
+          <!-- Карточка 4 -->
+          <div class="coop-item">
+            <h4 class="coop-item-title">⬥ Медиа-сопровождение</h4>
+            <p class="coop-item-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ЯЗЫКОВОЙ СЕГМЕНТ С КНОПКАМИ -->
+  <div class="archive-card" style="width: 100%;">
+    <div class="section-divider">Международный сегмент</div>
+    <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
+      Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
+    </p>
+    
+    <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
+    <div class="language-tabs">
+      <a href="materials/en-cooperation.html" class="tab-img-btn">
+        <img src="images/91.png" alt="English" class="btn-img">
+      </a>
+      <a href="materials/de-cooperation.html" class="tab-img-btn">
+        <img src="images/92.png" alt="Deutsch" class="btn-img">
+      </a>
+      <a href="materials/fr-cooperation.html" class="tab-img-btn">
+        <img src="images/93.png" alt="Français" class="btn-img">
+      </a>
+    </div>
+  </div>
+
+  <!-- ГОРИЗОНТАЛЬНЫЕ ПРЕИМУЩЕСТВА В САМОМ НИЗУ СТРАНИЦЫ -->
+  <div class="archive-card" style="width: 100%;">
+    <div class="section-divider" style="text-align: center;">Ключевые преимущества проекта</div>
+    <div class="advantages-box">
+      <div style="display: flex; gap: 2rem; width: 100%;" class="split-layout">
+        
+        <!-- Преимущество 1 -->
+        <div class="advantage-item" style="flex: 1;">
+          <div class="advantage-num">01</div>
+          <div class="advantage-info">
+            <span class="advantage-title">Финальная редакция</span>
+            <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
+          </div>
+        </div>
+        
+        <!-- Преимущество 2 -->
+        <div class="advantage-item" style="flex: 1;">
+          <div class="advantage-num">02</div>
+          <div class="advantage-info">
+            <span class="advantage-title">Быстрый старт</span>
+            <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
+          </div>
+        </div>
+        
+        <!-- Преимущество 3 -->
+        <div class="advantage-item">
+          <div class="advantage-num">03</div>
+          <div class="advantage-info">
+            <span class="advantage-title">Кинематографичность</span>
+            <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="toggleModal(false)">✕</button>
+    <h3>Экстренная шифровка связи</h3>
+    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
+    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
+      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
+      <textarea name="message" placeholder="Содержание донесения" required></textarea>
+      <button type="submit" class="form-submit">Передать по каналу связи</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+</script>
+
+</body>
+</html>
