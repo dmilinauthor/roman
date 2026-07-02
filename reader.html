@@ -299,4 +299,109 @@ var chronoData = {
     "13": { date: "12 ДЕК 1946", loc: "ЛОНДОН, ДНЕВНИК" },
     "14": { date: "ЯНВАРЬ 1947", loc: "БЕРН, МАСТЕРСКАЯ" },
     "15": { date: "25 ЯНВ. 1947", loc: "БЕРН, ДОСЬЕ" },
-    "16": { date: "ЯНВ. - ФЕВР. 1947", lo
+    "16": { date: "ЯНВ. - ФЕВР. 1947", loc: "БЕРН" },
+    "17": { date: "5 ФЕВР. 1947", loc: "БЕРНСКИЙ ЛЕС" },
+    "18": { date: "5 ФЕВР. 1947", loc: "БЕРН, НОЧЬ" },
+    "19": { date: "8 ФЕВР. 1947", loc: "ПОЕЗД В ЖЕНЕВУ" },
+    "20": { date: "8 ФЕВР. 1947", loc: "ЖЕНЕВА - БЕРН" },
+    "21": { date: "9 ФЕВР. 1947", loc: "БЕРН, 16:24" },
+    "22": { date: "9 ФЕВР. 1947", loc: "ПИСЬМО" },
+    "23": { date: "17 МАЯ 1948", loc: "ЦЮРИХ, БАНК" },
+    "24": { date: "27 ИЮЛЯ 1948", loc: "ЛЮЦЕРН" },
+    "25": { date: "5 ФЕВР. 1947", loc: "БЕРН, РАПОРТ" },
+    "26": { date: "1943 — 1948", loc: "АРХИВЫ" }
+};
+
+var sidebar = document.getElementById('sidebar');
+var overlay = document.getElementById('overlay');
+var progress = document.getElementById('progress');
+var topBtn = document.getElementById('topBtn');
+var hamburger = document.getElementById('hamburger');
+var chronometer = document.getElementById('chronometer');
+var chronoDate = document.getElementById('chronoDate');
+var chronoLoc = document.getElementById('chronoLoc');
+var sbItems = document.querySelectorAll('.sb-item');
+var activeIdx = -1;
+var sidebarOpen = false;
+
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+function toggleSidebar() {
+    sidebarOpen = !sidebarOpen;
+    sidebar.classList.toggle('open', sidebarOpen);
+    overlay.style.display = sidebarOpen ? 'block' : 'none';
+    hamburger.innerHTML = sidebarOpen ? '✕' : '☰';
+}
+
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+
+function scrollToChapter(idx) {
+    var el = document.querySelector('[data-chapter-idx="' + idx + '"]');
+    if (el) {
+        var y = el.getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+    if (sidebarOpen) toggleSidebar();
+}
+
+sbItems.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        var idx = parseInt(this.dataset.idx);
+        scrollToChapter(idx);
+    });
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && sidebarOpen) toggleSidebar();
+});
+
+window.addEventListener('scroll', function() {
+    var sy = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    if (dh > 0) progress.style.width = (sy / dh * 100) + '%';
+    topBtn.classList.toggle('show', sy > 600);
+    localStorage.setItem('vz_scroll', sy);
+
+    var headings = document.querySelectorAll('[data-chapter-idx]');
+    var cur = -1;
+    headings.forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.4) {
+            cur = parseInt(el.dataset.chapterIdx);
+        }
+    });
+
+    if (cur !== activeIdx) {
+        activeIdx = cur;
+        sbItems.forEach(function(b) {
+            b.classList.toggle('active', parseInt(b.dataset.idx) === cur);
+        });
+
+        if (chronoData[cur]) {
+            chronoDate.textContent = chronoData[cur].date;
+            chronoLoc.textContent = chronoData[cur].loc;
+            chronometer.classList.add('show');
+        } else {
+            chronometer.classList.remove('show');
+        }
+    }
+});
+
+window.addEventListener('load', function() {
+    var s = localStorage.getItem('vz_scroll');
+    if (s) {
+        setTimeout(function() {
+            window.scrollTo({ top: parseInt(s), behavior: 'smooth' });
+        }, 100);
+    }
+});
+</script>
+</body>
+</html>
