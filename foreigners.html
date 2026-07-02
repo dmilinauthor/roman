@@ -2,21 +2,19 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operational Proposal — Второй звонок</title>
-<link class="foreign" rel="icon" href="images/51.png" type="image/png">
+<title>Сотрудничество — Второй звонок</title>
+<link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
-  background:#0b0a08 url('images/62.png') no-repeat center center fixed;
+  background:#0b0a08 url('images/62.png') no-repeat center center fixed; /* ИСПРАВЛЕНО НА .png */
   background-size: cover;
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
@@ -61,9 +59,9 @@ body{
   color: #C9A96E;
 }
 
-/* КОНТЕЙНЕР ДЛЯ МАТЕРИАЛОВ */
+/* ГЛАВНЫЙ КОНТЕЙНЕР ДЛЯ ШИРОКИХ ЭКРАНОВ */
 .foreign-wrapper {
-  max-width: 1200px; /* Увеличено для двух колонок */
+  max-width: 1200px;
   width: 100%;
   margin: 55px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
   display: flex;
@@ -86,7 +84,7 @@ body{
 /* ГЛУХАЯ ПОЛУПРОЗРАЧНАЯ ПОДЛОЖКА-КАРТОЧКА */
 .archive-card {
   background: rgba(11, 10, 8, 0.94); /* 94% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
-  backdrop-filter: blur(12px); /* ЭФФЕКТ МАТОВОГО СТЕКЛА */
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(201, 169, 110, 0.12);
   padding: 2.5rem;
@@ -101,22 +99,24 @@ body{
 }
 
 .left-column {
-  flex: 1.1; /* КОЛОНКА ПОД ПОРТРЕТ */
+  flex: 1.1; /* МЕНЬШАЯ КОЛОНКА ПОД ПОРТРЕТ И СИНОПСИС */
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 .author-portrait {
   width: 100%;
   height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.25);
+  border: 1px solid rgba(201, 169, 110, 0.2);
   box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  margin-bottom: 1.5rem;
 }
 
 .right-column {
-  flex: 1.9; /* КОЛОНКА ПОД ТЕКСТ ПРЕДЛОЖЕНИЯ */
+  flex: 1.9; /* БОЛЬШАЯ КОЛОНКА ПОД СЕГМЕНТЫ */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .synopsis-text {
@@ -142,55 +142,37 @@ body{
   padding-bottom: 0.5rem;
 }
 
-/* ШАБЛОН ПОДЛОЖКИ ТЕКСТА ЧИТАЛКИ */
-.content-inner {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 4rem 3.5rem 6rem;
-  background: #0b0a08;
-  box-shadow: 0 0 80px rgba(0,0,0,0.9);
-  border-left: 1px solid rgba(201, 169, 110, 0.08);
-  border-right: 1px solid rgba(201, 169, 110, 0.08);
-}
-
-/* ШАБЛОН ОБЪЯСНЕНИЯ (ПИТЧ-ХУК) */
-.pitch-box {
-  background: rgba(17, 16, 14, 0.95);
-  border: 1px solid #C9A96E;
-  padding: 2.5rem;
-  margin-bottom: 3.5rem;
-  box-shadow: 0 0 35px rgba(201, 169, 110, 0.05);
-}
-.pitch-tag {
-  font-family: 'Courier New', Courier, monospace;
-  color: #C00000;
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-}
-.pitch-title {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.4rem;
+/* СЕТКА СЕКТОРОВ И ПАПОК */
+.sub-card-box {
+  background: rgba(17, 16, 14, 0.6);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  padding: 1.5rem;
   margin-bottom: 1rem;
 }
-.pitch-text {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #b0a68d;
+.sub-card-box:last-child {
+  margin-bottom: 0;
+}
+.sub-card-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+.sub-card-desc {
+  font-size: 0.95rem;
+  color: #8A7E6B;
   font-weight: 300;
-  text-align: justify;
+  line-height: 1.4;
 }
 
 /* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ) */
 .language-tabs {
   display: flex;
-  justify-content: center;
   gap: 1.5rem;
-  margin: 2rem 0;
+  justify-content: center;
   width: 100%;
+  margin-top: 1rem;
 }
 .tab-img-btn {
   background: transparent;
@@ -198,7 +180,10 @@ body{
   outline: none;
   cursor: pointer;
   flex: 1;
-  max-width: 240px;
+  max-width: 200px;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
 .btn-img {
   display: block;
@@ -206,38 +191,51 @@ body{
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.25);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
-.tab-img-btn.active .btn-img, .tab-img-btn:hover .btn-img {
+.tab-img-btn:hover .btn-img {
   border-color: #C9A96E;
   box-shadow: 0 0 45px rgba(201, 169, 110, 0.25);
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
-/* КОНТЕЙНЕРЫ ДЛЯ МИНИ-ЧИТАЛОК */
-.mini-reader {
-  display: none;
+/* КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА */
+.advantages-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
-.mini-reader.active {
-  display: block;
+.advantage-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
-
-.novel-title{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2.5rem;text-align:center;margin-bottom:.5rem;letter-spacing:.15em}
-.novel-author{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:1.1rem;text-align:center;margin-bottom:.5rem;letter-spacing:.1em}
-.novel-sub{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:.9rem;text-align:center;margin-bottom:3rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
-.chapter-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2rem;text-align:center;margin:4rem 0 2rem;letter-spacing:.12em;text-transform:uppercase}
-.prologue-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:1.5rem;text-align:center;margin:2rem 0 1.5rem;letter-spacing:.08em}
-
-.novel-text{color:#e0d5b0;font-size:1.35rem;line-height:1.8;margin-bottom:1.8rem;text-indent:0;font-weight:300}
-.novel-text.no-indent{text-indent:0}
-
-/* === ДОКУМЕНТЫ === */
-.document{background:#f4e4bc;color:#1a1a1a;font-family:'Courier New',Courier,monospace;font-weight:700;font-size:1.15rem;line-height:1.3;padding:2rem 2.2rem;margin:2.5rem 0;border-left:4px solid #C9A96E;box-shadow:0 4px 30px rgba(0,0,0,.6);position:relative}
-.document::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
-.doc-line{margin-bottom:.5rem;position:relative;z-index:1;font-weight:700}
-.doc-line.stamp{color:#C00000;font-weight:900;font-size:1.2rem;letter-spacing:0.12em;text-transform:uppercase}
-
-.img-inline{max-width:100%;height:auto;margin:3rem auto;display:block;border:1px solid rgba(201,169,110,.15);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.advantage-num {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1;
+}
+.advantage-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.advantage-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.advantage-desc {
+  font-size: 0.95rem;
+  color: #8A7E6B;
+  font-weight: 300;
+  line-height: 1.4;
+}
 
 /* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
 .modal-overlay {
@@ -348,7 +346,7 @@ body{
 
 @media(max-width: 900px){
   .split-layout {
-    flex-direction: column; /* НА ТЕЛЕФОНАХ КАРТИНКА ПЕРЕХОДИТ НАВЕРХ */
+    flex-direction: column; /* НА СМАРТФОНАХ ПОРТРЕТ И СИНОПСИС ИДУТ НАВЕРХ */
     gap: 1.5rem;
   }
   .content-inner {
@@ -361,7 +359,7 @@ body{
   }
   .tab-img-btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
   }
 }
 </style>
@@ -372,250 +370,112 @@ body{
 <nav class="top-navbar">
   <a href="index.html" class="nav-link">Домой</a>
   <a href="reader.html" class="nav-link">Читать</a>
-  <a href="materials.html" class="nav-link active">Архив</a>
-  <a href="foreigners.html" class="nav-link">En | De | Fr</a>
+  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="foreigners.html" class="nav-link active">En | De | Fr</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
 <div class="foreign-wrapper">
-
   <!-- Графическая плашка Cooperation 72.png -->
   <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
-
-  <!-- ГЛАВНЫЙ БЛОК КООПЕРАЦИИ (ПОРТРЕТ + СИНОПСИС СВЯЗИ) -->
-  <div class="archive-card split-layout" style="margin-bottom: 2rem;">
-    <!-- Левая колонка: Ваш новый автопортрет (94.png) -->
+  
+  <div class="split-layout">
+    
+    <!-- ЛЕВАЯ КОЛОНКА (АВТОР, ДЕЛОВОЙ СИНОПСИС И ПРЕИМУЩЕСТВА) -->
     <div class="left-column">
-      <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
+      <div class="archive-card">
+        <!-- Портрет Автора (94.png) -->
+        <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
+        
+        <div class="section-divider">О проекте</div>
+        <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
+        <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
+      </div>
+
+      <div class="archive-card" style="margin-top: 1rem;">
+        <div class="section-divider">Ключевые преимущества</div>
+        <div class="advantages-box">
+          <!-- Преимущество 1 -->
+          <div class="advantage-item">
+            <div class="advantage-num">01</div>
+            <div class="advantage-info">
+              <span class="advantage-title">Финальная редакция</span>
+              <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
+            </div>
+          </div>
+          <!-- Преимущество 2 -->
+          <div class="advantage-item">
+            <div class="advantage-num">02</div>
+            <div class="advantage-info">
+              <span class="advantage-title">Быстрый старт</span>
+              <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
+            </div>
+          </div>
+          <!-- Преимущество 3 -->
+          <div class="advantage-item">
+            <div class="advantage-num">03</div>
+            <div class="advantage-info">
+              <span class="advantage-title">Кинематографичность</span>
+              <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <!-- Правая колонка: Текст о международном сотрудничестве -->
+    <!-- ПРАВАЯ КОЛОНКА (СЕГМЕНТЫ СОТРУДНИЧЕСТВА И ЯЗЫКОВЫЕ КНОПКИ) -->
     <div class="right-column">
-      <div class="section-divider">Международное сотрудничество</div>
-      <p class="synopsis-text">Сетевая структура романа-нуара <strong>«Второй звонок»</strong> заявляет о поиске долгосрочного сотрудничества на международном литературном и медийном рынке в различных формах.</p>
-      <p class="synopsis-text">Мы открыты к прямому диалогу с зарубежными литературными агентами, издательствами, профессиональными переводчиками и продюсерами для издания романа на иностранных языках, дистрибуции и возможной сценарной адаптации.</p>
-      <p class="synopsis-text">Подробные условия взаимодействия, а также выверенные фрагменты оперативных материалов на английском, немецком и французском языках представлены во вкладках ниже. Пожалуйста, выберите соответствующий канал связи.</p>
+      <div class="archive-card">
+        <div class="section-divider">Русскоязычный сегмент</div>
+        
+        <!-- Карточка 1 -->
+        <div class="sub-card-box">
+          <h4 class="sub-card-title">Издание</h4>
+          <p class="sub-card-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
+        </div>
+        
+        <!-- Карточка 2 -->
+        <div class="sub-card-box">
+          <h4 class="sub-card-title">Адаптация</h4>
+          <p class="sub-card-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
+        </div>
+        
+        <!-- Карточка 3 -->
+        <div class="sub-card-box">
+          <h4 class="sub-card-title">Аудиоформаты</h4>
+          <p class="sub-card-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
+        </div>
+        
+        <!-- Карточка 4 -->
+        <div class="sub-card-box">
+          <h4 class="sub-card-title">Медиа-сопровождение</h4>
+          <p class="sub-card-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
+        </div>
+      </div>
+
+      <div class="archive-card" style="margin-top: 1rem;">
+        <div class="section-divider">Международный сегмент</div>
+        <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
+          Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
+        </p>
+        
+        <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
+        <div class="language-tabs">
+          <a href="materials/en-cooperation.html" class="tab-img-btn">
+            <img src="images/91.png" alt="English" class="btn-img">
+          </a>
+          <a href="materials/de-cooperation.html" class="tab-img-btn">
+            <img src="images/92.png" alt="Deutsch" class="btn-img">
+          </a>
+          <a href="materials/fr-cooperation.html" class="tab-img-btn">
+            <img src="images/93.png" alt="Français" class="btn-img">
+          </a>
+        </div>
+      </div>
     </div>
+    
   </div>
-
-  <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ) -->
-  <div class="language-tabs">
-    <button class="tab-img-btn active" id="btn-en" onclick="switchLang('en')">
-      <img src="images/91.png" alt="English" class="btn-img">
-    </button>
-    <button class="tab-img-btn" id="btn-de" onclick="switchLang('de')">
-      <img src="images/92.png" alt="Deutsch" class="btn-img">
-    </button>
-    <button class="tab-img-btn" id="btn-fr" onclick="switchLang('fr')">
-      <img src="images/93.png" alt="Français" class="btn-img">
-    </button>
-  </div>
-
-  <!-- ==================== 1. MINI-READER (ENGLISH) ==================== -->
-  <div class="mini-reader active" id="reader-en">
-    <div class="content-inner">
-      
-      <!-- English Hook -->
-      <div class="pitch-box">
-        <div class="pitch-tag">CLASSIFIED / PROPOSAL</div>
-        <h4 class="pitch-title">Operational Cooperation Offer</h4>
-        <p class="pitch-text">The "Sетка" network is seeking international cooperation and offers to get acquainted with our operational experience (December 1946 – May 1948). The text below serves as a demonstration of our analytical, historical, and architectural capabilities.<br><br><strong>For publishers, literary agents, and translators:</strong> We are actively looking for partners to bring this intellectual spy noir to English-speaking audiences. If you wish to discuss publication, translation, or adaptation rights, please use our secure channel (Contacts).</p>
-      </div>
-
-      <!-- English Text -->
-      <h1 class="novel-title">THE SECOND CALL</h1>
-      <p class="novel-author">DMITRY ILYIN</p>
-      <p class="novel-sub">INTELLECTUAL SPY NOIR &middot; DECEMBER 1946 — MAY 1948</p>
-
-      <h2 class="prologue-heading">Prologue</h2>
-      <img src="images/02.jpeg" alt="Chess" class="img-inline" loading="lazy">
-      <p class="novel-text">By December 1946, Europe had become a vast espionage proving ground where the old rules of the game had finally ceased to apply. The era of the “aristocrats of the spirit”, for whom espionage was a matter of honour, was being displaced by a new reality — the technocratic power of corporations and shadow organisations. The old school was fading, giving way to cold calculation, in which a man was merely a cog in the system and secret information a mere line in an asset ledger.</p>
-      <p class="novel-text">Post-war Switzerland found itself at the epicentre of this transformation: its cantons had become a colossal filter for the gold reserves and capital being channelled into Latin America. The conclusion of the Nuremberg trials and the signing of the Paris Peace Treaties had sealed the division of Europe, yet they had merely exposed the rift that would soon be called the Cold War.</p>
-
-      <div class="document">
-        <p class="doc-line stamp">TOP SECRET</p>
-        <p class="doc-line">CIRCULAR No. 447/C</p>
-        <p class="doc-line">12 December 1946</p>
-        <p class="doc-line">TO ALL UNITS</p>
-        <p class="doc-line" style="margin-top: 1rem;">LINES OF WORK:</p>
-        <p class="doc-line">1. Control of illicit routes between Europe and Latin America (Argentine Republic, Dominican Republic, Haiti, Cuba). Particular attention to channels using smuggling as cover for the extraction of gold, currency and valuables. Priority: Switzerland, Italy, Spain.</p>
-        <p class="doc-line">2. Collection and neutralisation of materials capable of influencing the preparation of the Paris Peace Treaties. Identification of individuals using compromising material to exert pressure on the process.</p>
-        <p class="doc-line">3. Transition to new methods of intelligence transmission. Activation of previously dormant agents. Updating of operational channels.</p>
-        <p class="doc-line" style="margin-top: 1rem; text-align: right;">CENTRE.</p>
-      </div>
-
-      <h2 class="chapter-heading">NIGHT</h2>
-      <p class="novel-text">Bern, 12 December 1946, 23:07. (Junkerngasse 63)</p>
-      <p class="novel-text">He had begun waiting five cigars earlier. The ash never fell — he removed it at the very last moment, with two short movements of his fingers. Without haste. Without a glance. Just as he had once removed men from their posts, struck countries from maps, and struck questions from the agenda. He was always ahead. By one step. By two. By a lifetime.</p>
-      <p class="novel-text">The study was cold. Not out of forgetfulness, but conviction. In December he never turned on the heating. The cold disciplined thought. The cold did not allow memory to relax its guard. The wooden panelling, which still remembered the era of great upheavals, absorbed this cold, becoming almost stone-like. Every detail in this study had been thought out to the smallest degree.</p>
-      <p class="novel-text">The slender second hand of the Patek Philippe cut time into identical slices almost silently. He had not looked at his watch once that evening, yet he knew every minute. The music had ended. The gramophone continued to turn, but the needle merely scratched the groove.</p>
-      <img src="images/04.png" alt="Illustration" class="img-inline" loading="lazy">
-      <p class="novel-text">Then came Richter’s turn. <span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
-      <p class="novel-text">The heavy opening chords slowly filled the study with their weight. Richter never played for the listener — he played for eternity. He needed a little more time to prepare for what was to come.</p>
-      <p class="novel-text">On the desk lay five short cigar stubs — identical, neat, almost symmetrical. He always extinguished his cigar before the fire reached his fingers. That was the right way. That was always the way. His entire life consisted of this: not waiting for the flame to burn him, but deciding himself when it was time to stop.</p>
-      <p class="novel-text">The telephone remained silent. He opened the revolver cylinder. Checked it once more, though there was nothing to check. Five empty chambers. One loaded. The metallic click sounded unexpectedly loud, cutting through the music. Now he was ready.</p>
-      <p class="novel-text">Only the second call remained.</p>
-      <p class="novel-text">Walter entered quietly. But the old floorboards still responded with a faint vibration beneath the carpet. They were two hundred and sixty-three years old, and in that time they had learned to distinguish people by the weight of their tread. Walter was soaked to the bone.</p>
-      <p class="novel-text">Steam rose from his wet overcoat and broad shoulders. The rain seemed still to cling to him, unwilling to let go.</p>
-      <p class="novel-text">He said nothing. He merely nodded. The man at the desk did not reply. He did not even move. The light of the green lamp lay upon his face as motionless as upon bronze. Walter stood for another second, as if expecting something, then turned and left. The floorboards trembled once more.</p>
-      <p class="novel-text">The door closed. The house grew calm.</p>
-      <p class="novel-text">And only then did he slowly open the revolver cylinder. Five empty. One inside. For several seconds he stared at the cartridge as if seeing it for the first time.</p>
-      <p class="novel-text">The second call had not sounded here. It had sounded where it was meant to.</p>
-      <p class="novel-text">Tomorrow the newspapers would appear as usual. The radio would speak in ordinary voices. Another nine and a half cigars, and the city would awaken.</p>
-      <p class="novel-text">He switched off the lamp. And darkness immediately took its place, closing this episode forever.</p>
-      <img src="images/05.png" alt="Illustration" class="img-inline" loading="lazy">
-
-      <div class="document">
-        <p class="doc-line stamp">TOP SECRET</p>
-        <p class="doc-line">FROM OPERATIONAL REPORT No. 02/C</p>
-        <p class="doc-line">Executor: The Maestro</p>
-        <p class="doc-line">13 December 1946</p>
-        <p class="doc-line">Classification: “Personal to Centre”</p>
-        <p class="doc-line" style="margin-top: 1rem;">CONTENTS:</p>
-        <p class="doc-line">Communication channels with the Caribbean directorate have been established. Reserve lines have been mothballed. The new method of data transmission via a cultural event will be tested within 24 hours.</p>
-        <p class="doc-line">Dominican line: contact with the target established. Information on radar systems gathered.</p>
-        <p class="doc-line">Argentine line: target identified. Further development required.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ==================== 2. MINI-READER (DEUTSCH) ==================== -->
-  <div class="mini-reader" id="reader-de">
-    <div class="content-inner">
-      
-      <!-- German Hook -->
-      <div class="pitch-box">
-        <div class="pitch-tag">GEHEIM / VORSCHLAG</div>
-        <h4 class="pitch-title">Operatives Kooperationsangebot</h4>
-        <p class="pitch-text">Das „Sетка“-Netzwerk sucht internationale Zusammenarbeit und bietet Ihnen an, sich mit unseren operativen Erfahrungen (Dezember 1946 – May 1948) vertraut zu machen. Der folgende Text dient als Demonstration unserer analytischen, historischen und architektonischen Fähigkeiten.<br><br><strong>Für Verlage, Literaturagenten und Übersetzer:</strong> Wir suchen aktiv nach Partnern, um diesen intellektuellen Spionageroman dem deutschsprachigen Publikum zugänglich zu machen. Wenn Sie über Veröffentlichungs- oder Übersetzungsrechte sprechen möchten, nutzen Sie bitte unseren sicheren Kanal (Kontakte).</p>
-      </div>
-
-      <!-- German Text -->
-      <h1 class="novel-title">DER ZWEITE RUF</h1>
-      <p class="novel-author">VON DMITRI ILJIN</p>
-      <p class="novel-sub">INTELLEKTUELLER SPIONAGE-ROMAN &middot; DEZEMBER 1946 — MAI 1948</p>
-
-      <h2 class="prologue-heading">Prolog</h2>
-      <img src="images/02.jpeg" alt="Schach" class="img-inline" loading="lazy">
-      <p class="novel-text">Bis Dezember 1946 war Europa zu einem gigantischen Spionage-Polygon geworden, auf dem die alten Spielregeln endgültig außer Kraft getreten waren. Die Epoche der „Aristokraten des Geistes“, für die Spionage eine Frage der Ehre war, wurde von einer neuen Realität verdrängt – der technokratischen Macht der Konzerne und Schattenorganisationen. Die alte Schule wich zurück und machte Platz für kalte Kalkulation, in der der Mensch nur noch ein Zahnrad im System war und geheime Informationen lediglich eine Zeile in der Bilanz der Vermögenswerte darstellten.</p>
-      <p class="novel-text">Die Nachkriegsschweiz befand sich im Epizentrum dieser Transformation: Die Kantone waren zu einem riesigen Filter für Goldreserven und Kapitalien geworden, die nach Lateinamerika transferiert wurden. Der Abschluss des Nürnberger Prozesses und die Unterzeichnung der Pariser Verträge hatten die Teilung Europas zementiert, aber auch nur den Riss offengelegt, den man später den Kalten Krieg nennen würde.</p>
-
-      <div class="document">
-        <p class="doc-line stamp">STRENG GEHEIM</p>
-        <p class="doc-line">ZIRKULAR Nr. 447/C</p>
-        <p class="doc-line">12. Dezember 1946</p>
-        <p class="doc-line">AN ALLE ABTEILUNGEN</p>
-        <p class="doc-line" style="margin-top: 1rem;">ARBEITSRICHTUNGEN:</p>
-        <p class="doc-line">Kontrolle illegaler Routen zwischen Europa und Lateinamerika (Argentinische Republik, Dominikanische Republik, Haiti, Kuba). Aufdeckung und Unterbindung der Verschiebung von Vermögenswerten durch Strukturen des ehemaligen Reiches sowie persönlicher Mittel von Abwehr-, SS- und Gestapo-Funktionären. Priorität: Schweiz, Italien, Spanien.</p>
-        <p class="doc-line">Sammlung und Blockade von Materialien, die die Vorbereitung der Pariser Friedensverträge beeinflussen könnten. Identifizierung von Personen, die Kompromat zur Ausübung von Druck nutzen.</p>
-        <p class="doc-line">Übergang zu neuen Methoden der Übermittlung von Nachrichtendaten. Aktivierung zuvor konservierter Agenten. Aktualisierung operativer Kanäle.</p>
-        <p class="doc-line" style="margin-top: 1rem; text-align: right;">ZENTRUM.</p>
-      </div>
-
-      <h2 class="chapter-heading">NACHT</h2>
-      <p class="novel-text">Bern, 12. Dezember 1946, 23:07 Uhr. (Junkerngasse 63)</p>
-      <p class="novel-text">Vor fünf Zigarren hatte er angefangen zu warten. Die Asche fiel nicht herab – er entfernte sie exakt im letzten Moment mit zwei kurzen Fingerbewegungen. Ohne Hast. Ohne hinzusehen. Genauso, wie er einst Menschen von ihren Posten entfernt, Länder von Karten gestrichen und Fragen von der Tagesordnung genommen hatte. Er war immer früher dran. Um einen Schritt. Um zwei. Ein ganzes Leben voraus.</p>
-      <p class="novel-text">Im Kabinett war es kalt. Nicht aus Vergesslichkeit, sondern aus Überzeugung. Im Dezember schaltete er die Heizung nie ein. Die Kälte disziplinierte die Gedanken. Die Kälte erlaubte dem Gedächtnis keine Entspannung. Die Holzvertäfelung der Wände, die noch die Äра großer Erschütterungen kannte, sog diese Kälte auf und wurde fast steinern. Jedes Detail in diesem Kabinett war bis ins Kleinste durchdacht.</p>
-      <p class="novel-text">Der dünne Sekundenzeiger der Patek Philippe zerschnitt die Zeit fast lautlos in gleiche Scheiben. Er hatte an diesem Abend kein einziges Mal auf die Uhr gesehen, aber er kannte jede Minute. Die Musik war zu Ende. Das Grammophon drehte sich weiter, doch die Nadel kratzte nur noch über die Rille. Dann war Richter an der Reihe.</p>
-      <img src="images/04.png" alt="Illustration" class="img-inline" loading="lazy">
-      <p class="novel-text"><span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
-      <p class="novel-text">Die schweren ersten Takte füllten das Kabinett langsam mit Gewicht. Richter spielte nie für den Zuhörer – er spielte für die Ewigkeit. Er brauchte noch etwas Zeit, um sich auf das vorzubereiten, was geschehen sollte.</p>
-      <p class="novel-text">Auf dem Tisch lagen fünf kurze Zigarrenstummel – identisch, akkurat, fast symmetrisch. Er löschte die Zigarre immer, bevor das Feuer die Finger erreichte. So war es richtig. So war es immer gewesen. Darin bestand sein ganzes Leben: nicht abzuwarten, bis das Feuer brennt, sondern selbst zu entscheiden, wann es Zeit ist, innezuhalten.</p>
-      <p class="novel-text">Das Telefon schwieg. Er öffnete den Trommelrevolver. Prüfte noch einmal, obwohl es nichts zu prüfen gab. Fünf leere Kammern. Eine geladen. Das Klicken des Metalls klang unerwartet laut und durchschnitt die Musik. Jetzt war er bereit.</p>
-      <p class="novel-text">Es blieb nur noch der zweite Ruf.</p>
-      <p class="novel-text">Walter trat leise ein. Aber die alten Dielen antworteten dennoch mit einer kaum spürbaren Vibration unter dem Teppich. Sie waren zweihundertdreiundsechzig Jahre alt, und in dieser Zeit hatten sie gelernt, Menschen am Gewicht ihrer Schritte zu unterscheiden. Walter war durchnässt. Von seinem nassen Mantel und seinen breiten Schultern stieg Dampf auf. Der Regen schien noch an ihm festzuhalten und wollte ihn nicht loslassen.</p>
-      <p class="novel-text">Er sagte nichts. Nur ein Nicken. Der Mann hinter dem Tisch antwortete nicht. Er regte sich nicht einmal. Das Licht der grünen Lampe lag unbewegt auf seinem Gesicht, wie auf Bronze eines Denkmals. Walter stand noch eine Sekunde da, als erwarte er etwas, dann drehte er sich um und ging hinaus. Die Dielen erzitterten erneut.</p>
-      <p class="novel-text">Die Tür schloss sich. Das Haus beruhigte sich.</p>
-      <p class="novel-text">Und erst dann öffnete er langsam den Trommelrevolver. Fünf leere. Eine darin. Einige Sekunden lang starrte er auf die Patrone, als sähe er sie zum ersten Mal.</p>
-      <p class="novel-text">Der zweite Ruf erklang nicht hier. Sondern dort, wo er hätte erklingen sollen.</p>
-      <p class="novel-text">Morgen würden die Zeitungen wie gewöhnlich erscheinen. Das Radio würde mit alltäglichen Stimmen sprechen. Noch neuneinhalb Zigarren, und die Stadt würde erwachen.</p>
-      <p class="novel-text">Er schaltete die Lampe aus. Und die Dunkelheit nahm sofort ihren Platz ein und schloss dieses Kapitel für immer ab.</p>
-      <img src="images/05.png" alt="Illustration" class="img-inline" loading="lazy">
-
-      <div class="document">
-        <p class="doc-line stamp">STRENG GEHEIM</p>
-        <p class="doc-line">AUS DEM OPERATIVEN BERICHT Nr. 02/C</p>
-        <p class="doc-line">Ausführender: Der Herr</p>
-        <p class="doc-line">13. Dezember 1946</p>
-        <p class="doc-line">Einstufung: „Persönlich für das Zentrum“</p>
-        <p class="doc-line" style="margin-top: 1rem;">INHALT:</p>
-        <p class="doc-line">Verbindungswege in Richtung Karibik etabliert. Reservelinien konserviert. Eine neue Methode der Datenübermittlung über eine kulturelle Veranstaltung wird innerhalb von 24 Stunden getestet.</p>
-        <p class="doc-line">Über die dominikanische Linie: Kontakt zum Objekt hergestellt. Informationen über Radarsysteme gesammelt.</p>
-        <p class="doc-line">Über die argentinische Linie: Objekt identifiziert. Weitere Bearbeitung erforderlich.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ==================== 3. MINI-READER (FRANÇAIS) ==================== -->
-  <div class="mini-reader" id="reader-fr">
-    <div class="content-inner">
-      
-      <!-- French Hook -->
-      <div class="pitch-box">
-        <div class="pitch-tag">CONFIDENTIEL / PROPOSITION</div>
-        <h4 class="pitch-title">Proposition de coopération opérationnelle</h4>
-        <p class="pitch-text">Le réseau « Sетка » recherche une coopération internationale et propose de se familiariser avec nos expériences opérationnelles (décembre 1946 – mai 1948). Le texte ci-dessous sert de démonstration de nos capacités analytiques, historiques et architecturales.<br><br><strong>Pour les éditeurs, agents littéraires et traducteurs :</strong> Nous recherchons activement des partenaires pour présenter ce roman noir d'espionnage intellectuel au public francophone. Si vous souhaitez d'une publication, d'une traduction ou d'une adaptation, veuillez utiliser notre canal sécurisé (Contacts).</p>
-      </div>
-
-      <!-- French Text -->
-      <h1 class="novel-title">LE SECOND COUP DE FIL</h1>
-      <p class="novel-author">PAR DMITRI ILINE</p>
-      <p class="novel-sub">ROMAN NOIR D'ESPIONNAGE &middot; DÉCEMBRE 1946 — MAI 1948</p>
-
-      <h2 class="prologue-heading">Prologue</h2>
-      <img src="images/02.jpeg" alt="Échecs" class="img-inline" loading="lazy">
-      <p class="novel-text">Vers décembre 1946, l’Europe était devenue un gigantesque terrain d’espionnage où les anciennes règles du jeu avaient définitivement cessé de s’appliquer. L’époque des « aristocrates de l’esprit », pour qui l’espionnage était une affaire d’honneur, cédait le pas à une nouvelle réalité : celle du pouvoir technocratique des corporations et des organisations de l’ombre. La vieille école s’en allait, laissant place au calcul froid, où l’homme n’était plus qu’un rouage dans le système, et l’information secrète une simple ligne dans un bilan d’actifs.</p>
-      <p class="novel-text">La Suisse d’après-guerre se retrouva à l’épicentre de cette transformation : ses cantons devinrent un filtre géant pour les réserves d’or et les capitaux acheminés vers l’Amérique latine. La fin du procès de Nuremberg et la signature des traités de Paris entérinaient le partage de l’Europe, mais ne faisaient que mettre à nu la fracture que l’on appellerait bientôt la Guerre froide.</p>
-
-      <div class="document">
-        <p class="doc-line stamp">TRÈS SECRET</p>
-        <p class="doc-line">CIRCULAIRE N° 447/C</p>
-        <p class="doc-line">12 décembre 1946</p>
-        <p class="doc-line">À TOUTES LES UNITÉS</p>
-        <p class="doc-line" style="margin-top: 1rem;">AXES DE TRAVAIL :</p>
-        <p class="doc-line">Contrôle des itinéraires clandestins entre l’Europe et l’Amérique latine (République argentine, République dominicaine, Haïti, Cuba). Identification et entrave au transfert d’actifs provenant des structures de l’ex-Reich et des fonds personnels des officiers de l’Abwehr, des SS et de la Gestapo. Priorité : Suisse, Italie, Espagne.</p>
-        <p class="doc-line">Collecte et blocage des documents susceptibles d’influencer la préparation des traités de paix de Paris. Identification des personnes utilisant le chantage pour faire pression sur le processus.</p>
-        <p class="doc-line">Passage à de nouvelles méthodes de transmission des renseignements. Activation d’agents précédemment mis en sommeil. Mise à jour des canaux opérationnels.</p>
-        <p class="doc-line" style="margin-top: 1rem; text-align: right;">LE CENTRE.</p>
-      </div>
-
-      <h2 class="chapter-heading">NUIT</h2>
-      <p class="novel-text">Berne, 12 décembre 1946, 23 h 07. (Junkerngasse 63)</p>
-      <p class="novel-text">Il avait commencé à attendre cinq cigares plus tôt. La cendre ne tombait pas ; il la retirait au tout dernier instant, par deux brefs mouvements de doigts. Sans hâte. Sans regard. Tout comme il avait autrefois démis des hommes de leurs fonctions, effacé des pays des cartes, rayé des questions de l’ordre du jour. Il arrivait toujours avant les autres. D’un pas. De deux. D’une vie d’avance.</p>
-      <p class="novel-text">Le cabinet était glacial. Non par oubli, mais par conviction. En décembre, il n’allumait jamais le chauffage. Le froid disciplinait la pensée. Le froid interdisait à la mémoire de se relâcher. Les lambris de bois, témoins des grandes tourmentes d’autrefois, absorbaient ce froid, devenant presque pierreux. Chaque détail de ce cabinet avait été pensé jusque dans les moindres recoins. L’aiguille fine des secondes de sa Patek Philippe découpait le temps en tranches égales, presque sans bruit. Il n’avait pas jeté un seul coup d’œil à sa montre durant toute cette soirée, mais il connaissait chaque minute. La musique s’était arrêtée. Le gramophone continuait de tourner, mais l’aiguille ne faisait plus que rayer le sillon. Puis vint le tour de Richter.</p>
-      <img src="images/04.png" alt="Illustration" class="img-inline" loading="lazy">
-      <p class="novel-text"><span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
-      <p class="novel-text">Les premières mesures, lourdes, emplirent lentement le cabinet de leur poids. Richter ne jouait jamais pour l’auditeur ; il jouait pour l’éternité. Il lui fallait encore un peu de temps pour se préparer à ce qui devait advenir.</p>
-      <p class="novel-text">Sur le bureau reposaient cinq mégots de cigare courts — identiques, nets, presque symétriques. Il éteignait toujours son cigare avant que le feu n’atteigne ses doigts. C’était ainsi qu’il fallait faire. C’était ainsi depuis toujours. Toute sa vie tenait là : ne pas attendre que le feu brûle, mais décider soi-même quand il est temps de s’arrêter.</p>
-      <p class="novel-text">Le telephone restait muet. Il ouvrit le barillet de son revolver. Vérifia une fois de plus, bien qu’il n’y eût rien à vérifier. Cinq chambres vides. Une chargée. Le déclic métallique résonna avec une force inattendue, tranchant la musique. À présent, il était prêt.</p>
-      <p class="novel-text">Il ne restait plus que le second coup de fil.</p>
-      <p class="novel-text">Walter entra sans bruit. Mais les vieilles planches répondirent tout de même par une imperceptible vibration sous le tapis. Elles avaient deux cent soixante-trois ans, et durant tout ce temps elles avaient appris à distinguer les gens au poids de leurs pas. Walter était trempé jusqu’aux os. De son manteau mouillé et de ses larges épaules montait une buée. La pluie semblait encore s’accrocher à lui, refusant de le lâcher.</p>
-      <p class="novel-text">Il ne dit rien. Se contenta de hocher la tête. L’homme assis derrière le bureau ne répondit pas. Ne bougea même pas. La lumière verte de la lampe gisait sur son visage, immobile comme sur le bronze d’un monument. Walter resta une seconde encore, comme s’il attendait quelque chose, puis fit demi-tour et sortit. Les planches frémirent de nouveau.</p>
-      <p class="novel-text">La porte se referma. La maison s’apaisa.</p>
-      <p class="novel-text">Ce n’est qu’alors qu’il ouvrit lentement le barillet du revolver. Cinq vides. Une chargée. Pendant quelques secondes, il fixa la cartouche comme s’il la voyait pour la première fois.</p>
-      <p class="novel-text">Le second coup de fil ne retentit pas ici. Là-bas, où il le devait.</p>
-      <p class="novel-text">Demain, les journaux paraîtraient comme d’habitude. La radio parlerait d’une voix ordinaire. Encore neuf cigares et demi, et la ville s’éveillerait.</p>
-      <p class="novel-text">Il éteignit la lampe. Et l’obscurité reprit aussitôt sa place, refermant cet épisode pour всегда.</p>
-      <img src="images/05.png" alt="Illustration" class="img-inline" loading="lazy">
-
-      <div class="document">
-        <p class="doc-line stamp">TRÈS SECRET</p>
-        <p class="doc-line">EXTRAIT DU RAPPORT OPÉRATIONNEL N° 02/C</p>
-        <p class="doc-line">Exécuteur : Maestro</p>
-        <p class="doc-line">13 décembre 1946</p>
-        <p class="doc-line">Mention : « Personnellement au Centre »</p>
-        <p class="doc-line" style="margin-top: 1rem;">CONTENU :</p>
-        <p class="doc-line">Les liaisons avec le secteur Caraïbes sont établies. Les lignes de réserve sont mises en sommeil. Un nouveau mode de transmission des données via un événement culturel sera testé dans les vingt-quatre heures.</p>
-        <p class="doc-line">Voie dominicaine : contact avec l’objet établi. Informations sur les systèmes radar recueillies.</p>
-        <p class="doc-line">Voie argentine : objet identifié. Développement ultérieur requis.</p>
-      </div>
-
-    </div>
-  </div>
-
 </div>
 
 <!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
@@ -634,16 +494,6 @@ body{
 </div>
 
 <script>
-function switchLang(lang) {
-  // Убираем активный класс у всех читалок и кнопок
-  document.querySelectorAll('.mini-reader').forEach(r => r.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  
-  // Добавляем активный класс нужной читалке и кнопке
-  document.getElementById('reader-' + lang).classList.add('active');
-  document.getElementById('btn-' + lang).classList.add('active');
-}
-
 function toggleModal(show) {
   const modal = document.getElementById('contactModal');
   modal.classList.toggle('show', show);
