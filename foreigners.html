@@ -7,12 +7,14 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cooperation — Второй звонок</title>
-<link rel="icon" href="images/51.png" type="image/png">
+<link class="foreign" rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
   background:#0b0a08 url('images/62.png') no-repeat center center fixed;
   background-size: cover;
@@ -82,30 +84,46 @@ body{
   margin-bottom: 1rem;
 }
 
-/* ГЛУХАЯ ПОЛУПРОЗРАЧНАЯ ПОДЛОЖКА-КАРТОЧКА */
-.archive-card {
-  background: rgba(11, 10, 8, 0.94); /* 94% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(201, 169, 110, 0.12);
-  padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+/* ЧЕРНАЯ ПОДЛОЖКА ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
+.content-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4rem 3.5rem 6rem;
+  background: #0b0a08; /* СПЛОШНОЙ ЧЕРНЫЙ ФОН */
+  box-shadow: 0 0 80px rgba(0,0,0,0.9);
+  border-left: 1px solid rgba(201, 169, 110, 0.08);
+  border-right: 1px solid rgba(201, 169, 110, 0.08);
 }
 
-/* ВЫРАВНИВАНИЕ ОСНОВНОЙ КАРТИНЫ */
-.main-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+/* ШАБЛОН ОБЪЯСНЕНИЯ (ПИТЧ-ХУК) */
+.pitch-box {
+  background: rgba(17, 16, 14, 0.95);
+  border: 1px solid #C9A96E;
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 0 35px rgba(201, 169, 110, 0.05);
 }
-.main-image-poster {
-  display: block;
-  max-width: 100%;
-  width: 1100px; /* Идеальный размер плаката */
-  height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  box-shadow: 0 0 50px rgba(0,0,0,0.6);
+.pitch-tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: #C00000;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.pitch-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.pitch-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #b0a68d;
+  font-weight: 300;
+  text-align: left;
 }
 
 .synopsis-text {
@@ -116,25 +134,59 @@ body{
   font-weight: 300;
   text-align: left;
 }
+.synopsis-text:last-child {
+  margin-bottom: 0;
+}
 
 .section-divider {
   font-family: 'Oranienbaum', Georgia, serif;
   color: #C9A96E;
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+  margin: 3rem 0 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   padding-bottom: 0.5rem;
 }
 
-/* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) */
+/* СТРОГИЙ СПИСОК С ОДНОТОННЫМИ ОСЯМИ-РАЗДЕЛИТЕЛЯМИ */
+.coop-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.coop-item {
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+}
+.coop-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.coop-item-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+.coop-item-desc {
+  font-size: 0.95rem;
+  color: #8A7E6B;
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ) */
 .language-tabs {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: center;
   width: 100%;
-  margin-top: 1.5rem;
+  margin: 2rem 0;
 }
 .tab-img-btn {
   background: transparent;
@@ -142,9 +194,10 @@ body{
   outline: none;
   cursor: pointer;
   flex: 1;
-  max-width: 210px;
+  max-width: 200px;
   display: block;
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
 .btn-img {
   display: block;
@@ -152,26 +205,56 @@ body{
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.25);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
-.tab-img-btn:hover .btn-img {
+.tab-img-btn.active .btn-img, .tab-img-btn:hover .btn-img {
   border-color: #C9A96E;
   box-shadow: 0 0 45px rgba(201, 169, 110, 0.25);
   transform: scale(1.03);
 }
 
-/* ПРЕИМУЩЕСТВА СНИЗУ В ОДИН ГОРИЗОНТАЛЬНЫЙ РЯД */
+/* КОНТЕЙНЕРЫ ДЛЯ МИНИ-ЧИТАЛОК */
+.mini-reader {
+  display: none;
+}
+.mini-reader.active {
+  display: block;
+}
+
+.novel-title{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2.5rem;text-align:center;margin-bottom:.5rem;letter-spacing:.15em}
+.novel-author{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:1.1rem;text-align:center;margin-bottom:.5rem;letter-spacing:.1em}
+.novel-sub{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:.9rem;text-align:center;margin-bottom:3rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+.chapter-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2rem;text-align:center;margin:4rem 0 2rem;letter-spacing:.12em;text-transform:uppercase}
+.prologue-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:1.5rem;text-align:center;margin:2rem 0 1.5rem;letter-spacing:.08em}
+
+.novel-text{color:#e0d5b0;font-size:1.35rem;line-height:1.8;margin-bottom:1.8rem;text-indent:0;font-weight:300}
+.novel-text.no-indent{text-indent:0}
+
+/* === ДОКУМЕНТЫ === */
+.document{background:#f4e4bc;color:#1a1a1a;font-family:'Courier New',Courier,monospace;font-weight:700;font-size:1.15rem;line-height:1.3;padding:2rem 2.2rem;margin:2.5rem 0;border-left:4px solid #C9A96E;box-shadow:0 4px 30px rgba(0,0,0,.6);position:relative}
+.document::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
+.doc-line{margin-bottom:.5rem;position:relative;z-index:1;font-weight:700}
+.doc-line.stamp{color:#C00000;font-weight:900;font-size:1.2rem;letter-spacing:0.12em;text-transform:uppercase}
+
+.img-inline{max-width:100%;height:auto;margin:3rem auto;display:block;border:1px solid rgba(201, 169, 110,.15);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+
+/* КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА */
 .advantages-box {
   display: flex;
-  gap: 2.5rem;
-  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
   margin-top: 1.5rem;
 }
 .advantage-item {
-  flex: 1;
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+}
+.advantage-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 .advantage-num {
   font-family: 'Oranienbaum', Georgia, serif;
@@ -308,12 +391,8 @@ body{
 }
 
 @media(max-width: 900px){
-  .archive-card {
-    padding: 1.8rem 1.2rem;
-  }
-  .advantages-box {
-    flex-direction: column;
-    gap: 1.5rem;
+  .content-inner {
+    padding: 2.5rem 1.5rem 4rem;
   }
   .language-tabs {
     flex-direction: column;
@@ -329,12 +408,12 @@ body{
 </head>
 <body oncontextmenu="return false;">
 
-<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) С КНОПКОЙ COOPERATION -->
+<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
 <nav class="top-navbar">
   <a href="index.html" class="nav-link">Домой</a>
   <a href="reader.html" class="nav-link">Читать</a>
   <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link active">Cooperation</a> <!-- ТЕКСТ ЗАМЕНЕН НА COOPERATION -->
+  <a href="foreigners.html" class="nav-link active">Cooperation</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
@@ -343,19 +422,51 @@ body{
   <!-- Графическая плашка Cooperation 72.png -->
   <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
   
-  <!-- ЦЕНТРАЛЬНЫЙ ПЛАКАТ-ПОРТРЕТ 96.png -->
-  <div class="archive-card main-image-container">
-    <img src="images/96.png" alt="Приглашение к сотрудничеству" class="main-image-poster">
-  </div>
+  <div class="content-inner">
+    
+    <!-- Портрет Автора (94.png) -->
+    <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="img-inline" style="margin-top: 0; margin-bottom: 3rem; max-width: 480px; border: 1px solid rgba(201,169,110,0.2); box-shadow: 0 0 40px rgba(0,0,0,0.6);">
+    
+    <!-- РАЗДЕЛ: О ПРОЕКТЕ -->
+    <div class="section-divider">О проекте</div>
+    <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
+    <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
 
-  <!-- МЕЖДУНАРОДНЫЙ СЕГМЕНТ С КНОПКАМИ -->
-  <div class="archive-card" style="width: 100%;">
-    <div class="section-divider">Международный сегмент / International Segment</div>
+    <!-- РАЗДЕЛ: РУССКОЯЗЫЧНЫЙ СЕГМЕНТ -->
+    <div class="section-divider">Русскоязычный сегмент</div>
+    <div class="coop-list">
+      <!-- Пункт 1 -->
+      <div class="coop-item">
+        <h4 class="coop-item-title">⬥ Издание</h4>
+        <p class="coop-item-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
+      </div>
+      
+      <!-- Пункт 2 -->
+      <div class="coop-item">
+        <h4 class="coop-item-title">⬥ Адаптация</h4>
+        <p class="coop-item-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
+      </div>
+      
+      <!-- Пункт 3 -->
+      <div class="coop-item">
+        <h4 class="coop-item-title">⬥ Аудиоформаты</h4>
+        <p class="coop-item-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
+      </div>
+      
+      <!-- Пункт 4 -->
+      <div class="coop-item">
+        <h4 class="coop-item-title">⬥ Медиа-сопровождение</h4>
+        <p class="coop-item-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
+      </div>
+    </div>
+
+    <!-- РАЗДЕЛ: МЕЖДУНАРОДНЫЙ СЕГМЕНТ -->
+    <div class="section-divider">Международный сегмент</div>
     <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
       Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
     </p>
     
-    <!-- ЯЗЫКОВЫЕ ВКЛАДКИ -->
+    <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
     <div class="language-tabs">
       <a href="materials/en-cooperation.html" class="tab-img-btn">
         <img src="images/91.png" alt="English" class="btn-img">
@@ -367,11 +478,9 @@ body{
         <img src="images/93.png" alt="Français" class="btn-img">
       </a>
     </div>
-  </div>
 
-  <!-- ГОРИЗОНТАЛЬНЫЕ ПРЕИМУЩЕСТВА В САМОМ НИЗУ СТРАНИЦЫ -->
-  <div class="archive-card" style="width: 100%;">
-    <div class="section-divider" style="text-align: center;">Ключевые преимущества проекта</div>
+    <!-- КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА -->
+    <div class="section-divider" style="margin-top: 4rem;">Ключевые преимущества проекта</div>
     <div class="advantages-box">
       <!-- Преимущество 1 -->
       <div class="advantage-item">
@@ -398,8 +507,8 @@ body{
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
 
 <!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
