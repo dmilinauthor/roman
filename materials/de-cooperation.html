@@ -1,0 +1,437 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der zweite Ruf — Dmitri Iljin</title>
+<link class="foreign" rel="icon" href="../images/51.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  background:#0b0a08 url('../images/62.png') no-repeat center center fixed;
+  background-size: cover;
+  color:#e0d5b0;
+  font-family:'Literatta',Georgia,serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: #000000;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  z-index: 150;
+}
+.nav-link {
+  color: #8A7E6B;
+  font-family: 'Literatta', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.nav-link:hover, .nav-link.active {
+  color: #C9A96E;
+}
+
+/* КОНТЕЙНЕР ДЛЯ МАТЕРИАЛОВ */
+.document-wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 95px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
+  padding: 0 1.5rem;
+  z-index: 10;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* ЧЕРНАЯ ПОДЛОЖКА ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
+.content-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4rem 3.5rem 6rem;
+  background: #0b0a08;
+  box-shadow: 0 0 80px rgba(0,0,0,0.9);
+  border-left: 1px solid rgba(201, 169, 110, 0.08);
+  border-right: 1px solid rgba(201, 169, 110, 0.08);
+}
+
+/* ШАБЛОН ОБЪЯСНЕНИЯ (ПИТЧ-ХУК) */
+.pitch-box {
+  background: rgba(17, 16, 14, 0.95);
+  border: 1px solid #C9A96E;
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 0 35px rgba(201, 169, 110, 0.05);
+}
+.pitch-tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: #C00000;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.pitch-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.pitch-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #b0a68d;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.novel-title{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2.5rem;text-align:center;margin-bottom:.5rem;letter-spacing:.15em}
+.novel-author{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:1.1rem;text-align:center;margin-bottom:.5rem;letter-spacing:.1em}
+.novel-sub{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:.9rem;text-align:center;margin-bottom:3rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+.chapter-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2rem;text-align:center;margin:4rem 0 2rem;letter-spacing:.12em;text-transform:uppercase}
+.prologue-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:1.5rem;text-align:center;margin:2rem 0 1.5rem;letter-spacing:.08em}
+
+.novel-text{color:#e0d5b0;font-size:1.35rem;line-height:1.8;margin-bottom:1.8rem;text-indent:0;font-weight:300}
+.novel-text.no-indent{text-indent:0}
+.novel-text.dialogue{padding-left:1.5em; text-indent:0}
+
+/* === ДОКУМЕНТЫ === */
+.document{background:#f4e4bc;color:#1a1a1a;font-family:'Courier New',Courier,monospace;font-weight:700;font-size:1.15rem;line-height:1.3;padding:2rem 2.2rem;margin:2.5rem 0;border-left:4px solid #C9A96E;box-shadow:0 4px 30px rgba(0,0,0,.6);position:relative}
+.document::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
+.doc-line{margin-bottom:.5rem;position:relative;z-index:1;font-weight:700}
+.doc-line.stamp{color:#C00000;font-weight:900;font-size:1.2rem;letter-spacing:0.12em;text-transform:uppercase}
+
+.img-inline{max-width:100%;height:auto;margin:3rem auto;display:block;border:1px solid rgba(201, 169, 110,.15);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+
+/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 8, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+}
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-card {
+  background: #0b0a08;
+  border: 1px solid #C9A96E;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.show .modal-card {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  color: #8A7E6B;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.modal-close:hover {
+  color: #C9A96E;
+}
+.modal-card h3 {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.modal-card p {
+  color: #8A7E6B;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* БЛАНК ШИФРОВКИ */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.feedback-form input, .feedback-form textarea {
+  background: #161512;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  color: #e0d5b0;
+  font-family: 'Literatta', Georgia, serif;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.feedback-form input:focus, .feedback-form textarea:focus {
+  border-color: #C9A96E;
+}
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-submit {
+  padding: 0.8rem;
+  background: transparent;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  font-family: 'Literatta', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-submit:hover {
+  background: #C9A96E;
+  color: #0b0a08;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(1%) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media(max-width: 900px){
+  .content-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
+<nav class="top-navbar">
+  <a href="../index.html" class="nav-link">Домой</a>
+  <a href="../reader.html" class="nav-link">Читать</a>
+  <a href="../materials.html" class="nav-link">Архив</a>
+  <a href="../foreigners.html" class="nav-link active">Cooperation</a>
+  <a href="../laboratory.html" class="nav-link">За кулисами</a>
+  <button class="nav-link" onclick="toggleModal(true)">Kontakte</button>
+</nav>
+
+<div class="document-wrapper">
+  <div class="content-inner">
+    
+    <!-- German Pitch Box -->
+    <div class="pitch-box">
+      <div class="pitch-tag">GEHEIM / VORSCHLAG</div>
+      <h4 class="pitch-title">Operatives Kooperationsangebot</h4>
+      <p class="pitch-text">Das „Sетка“-Netzwerk sucht internationale Zusammenarbeit und bietet Ihnen an, sich mit unseren operativen Erfahrungen (Dezember 1946 – May 1948) vertraut zu machen. Der folgende Text dient als Demonstration unserer analytischen, historischen und architektonischen Fähigkeiten.<br><br><strong>Für Verlage, Literaturagenten und Übersetzer:</strong> Wir suchen aktiv nach Partnern, um diesen intellektuellen Spionageroman dem deutschsprachigen Publikum zugänglich zu machen. Wenn Sie über Veröffentlichungs- oder Übersetzungsrechte sprechen möchten, nutzen Sie bitte unseren sicheren Kanal (Kontakte).</p>
+    </div>
+
+    <!-- German Text -->
+    <h1 class="novel-title">DER ZWEITE RUF</h1>
+    <p class="novel-author">VON DMITRI ILJIN</p>
+    <p class="novel-sub">INTELLEKTUELLER SPIONAGE-ROMAN &middot; DEZEMBER 1946 — MAI 1948</p>
+
+    <!-- PROLOGUE -->
+    <h2 class="prologue-heading">Prolog</h2>
+    <img src="../images/02.jpeg" alt="Schach" class="img-inline" loading="lazy">
+    <p class="novel-text">Bis Dezember 1946 war Europa zu einem gigantischen Spionage-Polygon geworden, auf dem die alten Spielregeln endgültig außer Kraft getreten waren. Die Epoche der „Aristokraten des Geistes“, für die Spionage eine Frage der Ehre war, wurde von einer neuen Realität verdrängt – der technokratischen Macht der Konzerne und Schattenorganisationen. Die alte Schule wich zurück und machte Platz für kalte Kalkulation, in der der Mensch nur noch ein Zahnrad im System war und geheime Informationen lediglich eine Zeile in der Bilanz der Vermögenswerte darstellten.</p>
+    <p class="novel-text">Die Nachkriegsschweiz befand sich im Epizentrum dieser Transformation: Die Kantone waren zu einem riesigen Filter für Goldreserven und Kapitalien geworden, die nach Lateinamerika transferiert wurden. Der Abschluss des Nürnberger Prozesses und die Unterzeichnung der Pariser Verträge hatten die Teilung Europas zementiert, aber auch nur den Riss offengelegt, den man später den Kalten Krieg nennen würde.</p>
+
+    <div class="document">
+      <p class="doc-line stamp">STRENG GEHEIM</p>
+      <p class="doc-line">ZIRKULAR Nr. 447/C</p>
+      <p class="doc-line">12. Dezember 1946</p>
+      <p class="doc-line">AN ALLE ABTEILUNGEN</p>
+      <p class="doc-line" style="margin-top: 1rem;">ARBEITSRICHTUNGEN:</p>
+      <p class="doc-line">Kontrolle illegaler Routen zwischen Europa und Lateinamerika (Argentinische Republik, Dominikanische Republik, Haiti, Kuba). Aufdeckung und Unterbindung der Verschiebbung von Vermögenswerten durch Strukturen des ehemaligen Reiches sowie persönlicher Mittel von Abwehr-, SS- und Gestapo-Funktionären. Priorität: Schweiz, Italien, Spanien.</p>
+      <p class="doc-line">Sammlung und Blockade von Materialien, die die Vorbereitung der Pariser Friedensverträge beeinflussen könnten. Identifizierung von Personen, die Kompromat zur Ausübung von Druck nutzen.</p>
+      <p class="doc-line">Übergang zu neuen Methoden der Übermittlung von Nachrichtendaten. Aktivierung zuvor konservierter Agenten. Aktualisierung operativer Kanäle.</p>
+      <p class="doc-line" style="margin-top: 1rem; text-align: right;">ZENTRUM.</p>
+    </div>
+
+    <!-- NIGHT -->
+    <h2 class="chapter-heading">NACHT</h2>
+    <p class="novel-text">Bern, 12. Dezember 1946, 23:07 Uhr. (Junkerngasse 63)</p>
+    <p class="novel-text">Vor fünf Zigarren hatte er angefangen zu warten. Die Asche fiel nicht herab – er entfernte sie exakt im letzten Moment mit zwei kurzen Fingerbewegungen. Ohne Hast. Ohne hinzusehen. Genauso, wie er einst Menschen von ihren Posten entfernt, Länder von Karten gestrichen und Fragen von der Tagesordnung genommen hatte.</p>
+    <p class="novel-text">Er war immer früher dran. Um einen Schritt. Um zwei. Ein ganzes Leben voraus.</p>
+    <p class="novel-text">Im Kabinett war es kalt. Nicht aus Vergesslichkeit, sondern aus Überzeugung. Im Dezember schaltete er die Heizung nie ein. Die Kälte disziplinierte die Gedanken. Die Kälte erlaubte dem Gedächtnis keine Entspannung. Die Holzvertäfelung der Wände, die noch die Ära großer Erschütterungen kannte, sog diese Kälte auf und wurde fast steinern. Jedes Detail in diesem Kabinett war bis ins Kleinste durchdacht.</p>
+    <p class="novel-text">Der dünne Sekundenzeiger der Patek Philippe zerschnitt die Zeit fast lautlos in gleiche Scheiben. Er hatte an diesem Abend kein einziges Mal auf die Uhr gesehen, aber er kannte jede Minute. Die Musik war zu Ende. Das Grammophon drehte sich weiter, doch die Nadel kratzte nur noch über die Rille.</p>
+    
+    <img src="../images/04.png" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Dann war Richter an der Reihe. <span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
+    <p class="novel-text">Die schweren ersten Takte füllten das Kabinett langsam mit Gewicht. Richter spielte nie für den Zuhörer – er spielte für die Ewigkeit. Er brauchte noch etwas Zeit, um sich auf das vorzubereiten, was geschehen sollte.</p>
+    <p class="novel-text">Auf dem Tisch lagen fünf kurze Zigarrenstummel – identisch, akkurat, fast symmetrisch. Er löschte die Zigarre immer, bevor das Feuer die Finger erreichte. So war es richtig. So war es immer gewesen. Darin bestand sein ganzes Leben: nicht abzuwarten, bis das Feuer brennt, sondern selbst zu entscheiden, wann es Zeit ist, innezuhalten.</p>
+    <p class="novel-text">Das Telefon schwieg. Er öffnete den Trommelrevolver. Prüfte noch einmal, obwohl es nichts zu prüfen gab. Fünf leere Kammern. Eine geladen. Das Klicken des Metalls klang unerwartet laut und durchschnitt die Musik. Jetzt war er bereit.</p>
+    <p class="novel-text">Es blieb nur noch der zweite Ruf.</p>
+    <p class="novel-text">Walter trat leise ein. Aber die alten Dielen antworteten dennoch mit einer kaum spürbaren Vibration unter dem Teppich. Sie waren zweihundertdreiundsechzig Jahre alt, und in dieser Zeit hatten sie gelernt, Menschen am Gewicht ihrer Schritte zu unterscheiden. Walter war durchnässt. Von seinem nassen Mantel und seinen breiten Schultern stieg Dampf auf. Der Regen schien noch an ihm festzuhalten und wollte ihn nicht loslassen.</p>
+    <p class="novel-text">Er sagte nichts. Nur ein Nicken. Der Mann hinter dem Tisch antwortete nicht. Er regte sich nicht einmal. Das Licht der grünen Lampe lag unbewegt auf seinem Gesicht, wie auf Bronze eines Denkmals. Walter stand noch eine Sekunde da, als erwarte er etwas, dann drehte er sich um und ging hinaus. Die Dielen erzitterten erneut.</p>
+    <p class="novel-text">Die Tür schloss sich. Das Haus beruhigte sich.</p>
+    <p class="novel-text">Und erst dann öffnete er langsam den Trommelrevolver. Fünf leere. Eine darin. Einige Sekunden lang starrte er auf die Patrone, als sähe er sie zum ersten Mal.</p>
+    <p class="novel-text">Der zweite Ruf erklang nicht hier. Sondern dort, wo er hätte erklingen sollen.</p>
+    <p class="novel-text">Morgen würden die Zeitungen wie gewöhnlich erscheinen. Das Radio würde mit alltäglichen Stimmen sprechen. Noch neuneinhalb Zigarren, und die Stadt würde erwachen.</p>
+    <p class="novel-text">Er schaltete die Lampe aus. Und die Dunkelheit nahm sofort ihren Platz ein und schloss dieses Kapitel für immer ab.</p>
+    
+    <img src="../images/05.png" alt="Illustration" class="img-inline" loading="lazy">
+
+    <div class="document">
+      <p class="doc-line stamp">STRENG GEHEIM</p>
+      <p class="doc-line">AUS DEM OPERATIVEN BERICHT Nr. 02/C</p>
+      <p class="doc-line">Ausführender: Der Herr</p>
+      <p class="doc-line">13. Dezember 1946</p>
+      <p class="doc-line">Einstufung: „Persönlich für das Zentrum“</p>
+      <p class="doc-line" style="margin-top: 1rem;">INHALT:</p>
+      <p class="doc-line">Verbindungswege in Richtung Karibik etabliert. Reservelinien konserviert. Eine neue Methode der Datenübermittlung über eine kulturelle Veranstaltung wird innerhalb von 24 Stunden getestet.</p>
+      <p class="doc-line">Über die dominikanische Linie: Kontakt zum Objekt hergestellt. Informationen über Radarsysteme gesammelt.</p>
+      <p class="doc-line">Über die argentinische Linie: Objekt identifiziert. Weitere Bearbeitung erforderlich.</p>
+    </div>
+
+    <!-- MORNING -->
+    <h2 class="chapter-heading">MORNING</h2>
+    <p class="novel-text">Bern, 13. Dezember 1946, 7:43 Uhr. (Junkerngasse 63)</p>
+    <p class="novel-text">Die Dielen antworteten nicht mit dem warnenden Knarren, sondern mit einem absichtlich klaren Schlag. Die Tür gab ohne Widerstand nach. Der Gast betrat den Raum ohne Klopfen. Ohne Einladung. Zum ersten Mal seit vielen Jahren, seit ihrem ersten Treffen, war er von selbst gekommen.</p>
+    <p class="novel-text">Der Herr blickte ihm eindringlich in die Augen. Weder blinzelnd noch fragend, noch eine Erklärung erwartend. In diesem Blick lag ein Vorwurf.</p>
+    <p class="novel-text">Der Gast überschritt die Schwelle – und hielt mitten im Schritt inne. Lampe links. Globus rechts. Buchrücken auf dem dritten Regal – in derselben Reihenfolge. Er endlich begriff er, warum sein Büro im Londoner West End so sehr dem Büro des Herrn in Bern glich.</p>
+    
+    <img src="../images/06.jpeg" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">In der Hand – die Morgenzeitung, früher erschienen als üblich. Fest in vier Teile gefaltet. Nicht zum Lesen. Als Passierschein. Er entfaltete sie nicht. Er neigte das Blatt nur leicht und deutete mit dem Blick auf eine winzige Notiz in der unteren Ecke.</p>
+    <p class="novel-text">Der Herr suchte den Text nicht mit den Augen. Ihm genügten der Neigungswinkel und jene absolute Stille, mit der der Gast darauf blickte. Er nickte zustimmend und erlaubte das ungebetene Eindringen. Der Herr saß ruhig da. Ohne Gruß. Ohne Pose. Er legte einfach den am Vortag entladenen Revolver in die Mitte des Tisches. Das Metall berührte das Holz gleichmäßig.</p>
+    <p class="novel-text">Der Gast griff in die Innentasche. Seine Finger glitten an der Zigarettenanzünder vorbei. Die Mauser kam zuerst heraus – unanständig schwer, hing in der Luft, am Lauf gepackt. Kein Kampfgriff. Ein Werkzeug, keine Drohung – eine Antwort auf den Revolver, der zwischen ihnen lag. So hatte man es ihnen dort beigebracht, wo der Preis eines Fehlers nicht in Tagen, sondern in Sekunden gemessen wurde.</p>
+    
+    <img src="../images/07.jpeg" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Der Herr blickte nicht auf den Lauf. Sein Blick glitt über die Brillengläser hinweg auf die Zigarrenschachtel in der Hand des Gastes und wanderte dann langsam zu seiner eigenen, die neben seinem Ellbogen lag.</p>
+    <p class="novel-text">Der Gast folgte dieser Trajektorie. Abgenutzte Ecke. Geruch von feuchtem Leder und bitterem Harz. Aber es ging nicht um die Marke. Es ging darum, dass dieser Tabak nicht verkauft wurde. Man baute ihn in Lomas de Baire an, trocknete ihn in Höhlen, und rauchten ihn nur jene, die durch die „Cola“ gegangen waren.</p>
+    <p class="novel-text">Die kalte Berner Luft füllte sich augenblicklich mit der Erinnerung an jene Hölle. Der Herr sah, wie der Adamsapfel des Gastes zuckte. Beide erinnerten sich. Die „Cola“ – jenen stickigen Fleischwolf nördlich von Santiago, wo es weder Gesetze noch Mitleid gab, nur Instinkt und schweren, klebrigen Rauch, der sich für immer in die Lungen fraß. Wer in der Cola überlebte, trug diesen Geruch wie eine Narbe bei sich. Die Zigarre in der Hand des Gastes war kein Luxus. Sie war ein Schibboleth. Ein Pass in den Club jener, die den Boden gesehen hatten und zurückgekehrt waren.</p>
+    <p class="novel-text">Der Herr nickte langsam. Sein Blick scannte keine Bedrohung mehr.</p>
+    <p class="novel-text">Die Zigarettenanzünder klickten bei beiden presque gleichzeitig. Die Flamme berührte den Tabak nicht – zuerst versengten sie die Stirnseite. Langsame Drehung. Dreihundertsechzig Grad in zwei Sekunden. Die Stirnseite glühte rot in einem gleichmäßigen Ring. Die Zigarren hoben sich zum Mund. Der erste Zug – lang, gleichmäßig, beim Einatmen. Die Köpfe neigten sich leicht nach vorn. Der Ausatemstrom ging nicht nach oben, sondern horizontal in verschiedene Richtungen.</p>
+    <p class="novel-text">Zwei Rauchströme, kalt und dicht, trafen sich in der Mitte des Raumes. Sie vermischten sich nicht chaotisch – sie flochten sich zu einem einzigen Strang zusammen, zogen zur Decke hinauf und erschufen in diesem sterilen Kabinett jene zähe, undurchdringliche Schwüle neu.</p>
+    
+    <img src="../images/08.png" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Das Licht der Lampe berührte keine Gesichter. Es beleuchtete nur die Grenze der Verschmelzung.</p>
+    <p class="novel-text">Kein Wort. Der Gast senkte die Zigarre, die Lippen bewegten sich kaum. Deutlich, ohne Mimik, nur Artikulation, geschliffen durch Jahre des Schweigens:</p>
+    <p class="novel-text no-indent dialogue">“A-ce-pe.”</p>
+    <p class="novel-text no-indent">Pause. Der Rauch zitterte.</p>
+    <p class="novel-text">Der Herr antwortete ebenso mit den Lippen, ohne Laut, nur mit der Form des Mundes, den Rhythmus des Gastes wiederholend:</p>
+    <p class="novel-text no-indent dialogue">“Mis-mo.”</p>
+    <p class="novel-text no-indent">Derselbe.</p>
+    <p class="novel-text">Der Gast nickte. Nicht mit dem Kopf – mit den Schultern. Drehte sich um. Die Dielen erzitterten erneut, aber nun zum Abschied. Die Tür schloss sich. Das Haus atmete aus.</p>
+    <p class="novel-text">Auf dem Tisch blieb nur der Rauch, das abkühlende Metall des entladenen Revolvers und die rotierende Platte.</p>
+    <p class="novel-text">Richter. Dasselbe Klavierkonzert mit Orchester. Dieselbe Aufnahme. Aber wie verdammt gut er diesmal gespielt hatte. Nicht für die Ewigkeit. Für sie beide.</p>
+    <p class="novel-text">Die Nadel berührte den Auslauf. Die Stille nahm ihren Platz ein.</p>
+
+    <div class="document">
+      <p class="doc-line stamp">STRENG GEHEIM</p>
+      <p class="doc-line">DRINGEND</p>
+      <p class="doc-line">13. Dezember 1946</p>
+      <p class="doc-line dots">...</p>
+      <p class="doc-line">Nach bestätigten Quellen wird der Zoll- und Grenzkontrolle an der schweizerisch-italienischen Grenze in der Zeit von 20:00 Uhr Freitag bis 5:00 Uhr Montag nicht vollzogen.</p>
+      <p class="doc-line">Dieser Modus wird vom 13. bis 26. Dezember 1946 gelten.</p>
+      <p class="doc-line dots">...</p>
+      <p class="doc-line" style="text-align: right;">AGENT</p>
+    </div>
+
+    <!-- LA TRAVIATA -->
+    <h2 class="chapter-heading">LA TRAVIATA</h2>
+    <p class="novel-text">Bern, 13. Dezember 1946, 19:15 Uhr. (Kornhausplatz 20)</p>
+    <p class="novel-text">Bern begrüßte Weihnachten. Der dreizehnte Dezember fiel auf einen Freitag.</p>
+    <p class="novel-text">Abergläubische bekreuzigten sich und verriegelten ihre Türen, doch das Theater war voll. Die Stadt roch nach Tannenholz, Honig und nassem Stein – Schnee war angesagt, aber es kam Tauwetter, und das Pflaster glänzte wie Spiegel. An den Ecken verkaufte man geröstete Kastanien, eingewickelt in Zeitungspäckchen, und in den Schaufenstern standen Pyramiden aus Blechbüchsen mit Gänseleberpastete und Porzellanengel mit Vergoldung.</p>
+    <p class="novel-text">Der Herr stieg um Viertel vor acht aus dem Wagen. Dunkelblauer Kamelhaarmantel, grauer Filzhut mit Krempe, genau so weit heruntergezogen, dass er die Augen bei Gegenlicht verbarg, schwarze Lammlederhandschuhe – dünn wie eine zweite Haut. Er spürte die Kälte, die durch das Leder drang, verzog aber keine Miene.</p>
+    <p class="novel-text">Sein Gesicht versteckte er nicht. Sein Gesicht existierte in keiner Kartei. Er lebte nur in Agentenberichten unter einem Pseudonym, das alle drei Monate wechselte.</p>
+    
+    <img src="../images/09.png" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Er fing einen schrägen Blick eines Mitarbeiters der argentinischen Botschaft. Der Herr hatte ihn im vergangenen Sommer im Restaurant „Bellevue“ gesehen – jener hatte zu lange nicht die Augen vom Aktenkoffer gelöst.</p>
+    <p class="novel-text">Damals hatte er sich das Gesicht gemerkt: schmal, mit langer Nase, die linke Braue etwas höher als die rechte. Am Revers seines schwarzen Anzugs blitzte ein Abzeichen des diplomatischen Klubs.</p>
+    <p class="novel-text">Argentinien war nach dem Krieg zu einem Brutkasten geworden. Nazigold, falsche Pässe, Menschen mit veränderter Erscheinung.</p>
+    <p class="novel-text">Eine Ansammlung von Wanzen, dachte der Herr. Die Geheimdienste der ganzen Welt wimmelten dort. Aber die Schicksale wurden hier entschieden.</p>
+    <p class="novel-text">Nach der Oper musste er prüfen, ob ihm jemand folgte. Paranoia war keine Krankheit, sondern ein Beruf.</p>
+    <p class="novel-text">Er trat in die Lobby ein.</p>
+    <p class="novel-text">Die Wärme schlug ihm ins Gesicht und mischte die Gerüche – Lackparkett, teures Parfum, altes Holz der Paneele. Der Schweizer in blau-goldener Livree erkannte ihn und verbeugte sich höflich. Der Herr gab den Mantel ab und erhielt eine Messingnummer an einer glatten Schnur.</p>
+    <p class="novel-text">Das Programmheft lag in der linken Innentasche. Ein dünnes Büchlein, das nach Druckerschwärze und Mandeln roch. Heute Abend hatte es eine besondere Rolle.</p>
+    <p class="novel-text">Loge Nr. 3 – rechts von der Bühne. Die Tür war schwer, mit Samt bezogen, an der Falte abgerieben. Er trat ein.</p>
+    <p class="novel-text">Hier gab es nur zwei Sessel, bezogen mit altem purpurrotem Plüsch – stachelig, bis auf die Fäden abgerieben. Rechts – eine Barriere aus dunklem Holz, poliert von den Ellbogen hunderter Zuschauer. Links – ein leerer Sessel. Er hatte zwei Karten bestellt, aber der second Platz blieb immer unbesetzt.</p>
+    <p class="novel-text">Der Herr setzte sich. Der Plüsch knarrte. Er legte das Programmheft auf die Barriere. Dann, in der Pause, würde er es falten und hier liegen lassen.</p>
+    <p class="novel-text">Den Kronleuchter im Saal löschte man, es brannte nur noch der Gasbrenner über der Bühne. Das Orchester stimmte – die Oboe nahm das A, die Geigen antworteten. Das Gemurmel der Stimmen verstummte. Der Herr musterte das Parkett.</p>
+    <p class="novel-text">Der Vorhang ging hoch. Das Orchester spielte die Ouvertüre. Violetta wurde von einer großen Deutschen mit russischem Namen gesungen. Sie stellte eine italienische Kurtisane mit französischem Akzent dar. Der Herr bewertete innerlich: Technik – acht, Aufrichtigkeit – drei.</p>
+    <p class="novel-text">Weiter hörte er nicht. Er wartete.</p>
+    <p class="novel-text">Der Tenor Di Stefano sollte erst im zweiten Akt erscheinen. Jetzt liefen auf der Bühne Ballszenen – Chor, Tänze, Flitter. Der Herr sah auf den Dirigenten, auf die Geiger, auf den Kontrabassisten – dessen Bogen zitterte, er war erkältet. Kleine Details, aus denen sich die Sicherheit zusammensetzte.</p>
+    <p class="novel-text">Acht Minuten des ersten Akts, dachte er. Wenn etwas schiefgeht, gehe ich in der Pause. Der Korb wird annulliert. Der Mikrofilm nimmt den Reserveweg.</p>
+    
+    <img src="../images/10.png" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Auf der Bühne sang Violetta „Ah, fors’è lui“. Der Herr kannte diese Arie auswenig – jede Modulation, jede Fermate. Er erinnerte sich, wie er 1938 in Wien die Traviata mit Jussi Björling in der Partie des Alfredo gehört hatte. Der Publikumsliebling wusste damals nicht, dass sein Land im nächsten Jahr von der Karte verschwinden würde. Der Herr wusste es.</p>
+    <p class="novel-text">Er wusste alles über das Spionagespiel. Und konnte praktisch alles.</p>
+    <p class="novel-text">Musik konnte er nicht. Musik hatte er nicht gelernt. Sie war mit ihm aus jener Vergangenheit gekommen, über die er nie sprach.</p>
+    <p class="novel-text">Er kannte die Musik, und die Musik kannte ihn.</p>
+    <p class="novel-text">Der Vorhang fiel. Das Licht flammte auf. Das Publikum rührte sich, hustete. Der Herr nahm das Programmheft – das Papier war weich, etwas feucht von den Fingern. Er legte es so hin, dass es von der Bühne aus sichtbar war, aus dem Saal aber kaum.</p>
+    <p class="novel-text">So habe ich es in Lissabon gemacht, im 1943, kam die Erinnerung. Nur damals war statt des Programmhefts ein Kinoticket, am linken Rand eingerissen. Der, der es nahm, riss den rechten.</p>
+    <p class="novel-text">Zwei Stunden später schlief ein hochrangiger Offizier der Abwehr in seiner Badewanne für immer ein.</p>
+    <p class="novel-text">Der Vorhang ging wieder hoch. Zweiter Akt.</p>
+    <p class="novel-text">Auf der Bühne – das Landhaus der Violetta: Bäume, auf Leinwand gemalt, Möbel aus Mahagoni. Alfredo trat ein.</p>
+    <p class="novel-text">Giuseppe Di Stefano war schön. Zweiunddreißig Jahre, dunkle Augen, schweres Kinn, schwarzes Haar, glänzend von Brylcreem. Er begrüßte das Publikum mit einer leichten Verbeugung.</p>
+    
+    <img src="../images/11.png" alt="Illustration" class="img-inline" loading="lazy">
+    
+    <p class="novel-text">Der Herr sah ihn nicht an. Er sah auf das Programmheft und bewahrte die Maske des konzentrierten Zuschauers. Aus dem Augenwinkel sah er: Di Stefano warf einen Blick auf die Loge. Der Blick verweilte eine Sekunde lang auf dem Programmheft.</p>
+    <p class="novel-text no-indent">Verstanden.</p>
+    <p class="novel-text">Di Stefano wusste nicht, was dieses Zeichen bedeutete. Man hatte ihn instruiert: Wenn du ein gefaltetes Programmheft siehst – alles läuft nach Plan. Singe, wie vereinbart.</p>
+    <p class="novel-text">Das Orchester spielte die Arie „De’ miei bollenti spiriti“. Di Stefano begann zu singen. Und dann kam er zum Wort „ardore“. Gewöhnlich nahmen die Tenöre diese Phrase mit Crescendo, hell, siegreich.</p>
+    <p class="novel-text">Di Stefano sang es anders. Er griff die Note piano an, fast flüsternd.</p>
+    <p class="novel-text">Der Ton entstand gedrückt, erstickt – wie ein Seufzer. Der Vokal „o“ zog sich etwas länger, und das Vibrato wurde etwas schneller.</p>
+    <p class="novel-text">Das Publikum bemerkte es nicht. Eine Dame im Parkett flüsterte der Nachbarin: „Wie traurig der Alfredo heute ist.“</p>
+    <p class="novel-text">Aber der Herr kannte jeden Atemzug Di Stefanos. Nie – nicht einmal – hatte dieser diesen Abschnitt leise gesungen.</p>
+    <p class="novel-text no-indent">Verstanden. Bestätigt. Wird handeln.</p>
+    <p class="novel-text">Der Herr rührte sich nicht. Das Gesicht blieb steinern. Doch innen – eine kurze trockene Freude, wie ein Schluck kalten Wassers.</p>
+    <p class="novel-text">Auf der Bühne stand Di Stefano im Halbprofil. Und plötzlich – wie aus Verzweiflung, als könnte der Held nicht mit dem Schmerz fertig werden – fuhr er fünfmal mit der Hand durch die Haare und warf sie nach hinten. Die Geste war in die Rolle eingeschrieben. Aber die Zählung war kein Zufall.</p>
+    <p class="novel-text">Der Herr zog ein silbernes Zigarettenetui heraus. Auf dem Deckel – eine Gravur: zwei gekreuzte Säbel. Ein Geschenk von einem Menschen, der nicht mehr war. Der Daumen fand die Klinke. Er öffnete und schloss das Etui fünfmal. Eins. Pause. Zwei. Pause. Drei. Pause. Quatre. Pause. Fünf.</p>
+    <p class="novel-text">Von außen sah es aus, als wäre er in Gedanken versunken und würde das Etui drehen.</p>
+    <p class="novel-text no-indent font-style-italic">Fünfte Stadt. Verstanden.</p>
+    <p class="novel-text">Das bedeutete: In Lyon würde Di Stefano den Mikrofilm an einen anderen Menschen übergeben. Die Kette würde geschlossen.</p>
+    <p class="novel-text">Dritter Akt. Das Etui schloss sich. Violetta starb. Das Publikum weinte. Der Vorhang fiel, ging hoch unter Ovationen.</p>
+    <p class="novel-text">Di Stefano trat näher, beugte sich vor, nahm den Korb. Er verbeugte sich tief, löste das Band vom Korb, faltete es sorgfältig zusammen und steckte es in seine Brusttasche. Er verbeugte sich. Jetzt war der Mikrofilm bei ihm.</p>
+    <p class="novel-text">Alles. In einer Woche würde die Information in Paris sein. Fotografien von Radaranlagen. All das, wofür der zweite Sekretär in seiner Badewanne ertrunken war.</p>
+    <p class="novel-text">Die Straße.</p>
+    <p class="novel-text">Kontrolle auf Verfolger. Er wechselte auf die andere Seite, blieb vor einem Schaufenster ste
