@@ -434,4 +434,52 @@ body{
     <p class="novel-text">Di Stefano trat näher, beugte sich vor, nahm den Korb. Er verbeugte sich tief, löste das Band vom Korb, faltete es sorgfältig zusammen und steckte es in seine Brusttasche. Er verbeugte sich. Jetzt war der Mikrofilm bei ihm.</p>
     <p class="novel-text">Alles. In einer Woche würde die Information in Paris sein. Fotografien von Radaranlagen. All das, wofür der zweite Sekretär in seiner Badewanne ertrunken war.</p>
     <p class="novel-text">Die Straße.</p>
-    <p class="novel-text">Kontrolle auf Verfolger. Er wechselte auf die andere Seite, blieb vor einem Schaufenster ste
+    <p class="novel-text">Kontrolle auf Verfolger. Er wechselte auf die andere Seite, blieb vor einem Schaufenster stehen — kaltes Glas, die Spiegelung seines Gesichts mit zwei Gasflammen. Niemand. Er bog um die Ecke, entzündete ein Streichholz, blickte in die Flamme. Niemand.</p>
+    <p class="novel-text">Er kehrte zum Theater zurück, über den Seiteneingang — dunkel, es roch nach Urin und Kohle. Er stand drei Minuten lang da. Keine Schritte.</p>
+    <p class="novel-text no-indent">Sauber.</p>
+    <p class="novel-text">Er trat auf die Hauptstraße hinaus. Nacht. Nebel. Glocken läuteten irgendwo weit weg. An der Ecke — ein Weihnachtsbaum mit Girlanden, der Geruch von gerösteten Kastanien und Tannenholz.</p>
+    <p class="novel-text">Der Herr blieb bei einer gusseisernen Urne stehen. Darin — eine zerknüllte Zeitung. Der Bund. 13. Dezember. Er las sie nicht. Er wusste, was darin stand.</p>
+    <p class="novel-text">Aber darin stand nicht, dass er am Tag zuvor von Sandros den Namen des Herrn erfahren hatte: jener hatte zu viel gesagt und zu wenig getrunken. Darin stand nicht, dass der argentinische Diplomat in der Loge gegenüber drei Wochen lang den falschen Mann beobachtet hatte. Darin stand nicht, dass der Herr seit drei Jahren wusste: Die Amerikaner hatten einen Agenten im Büro des Bundesrats, doch sie wussten nicht, dass der Herr es wusste.</p>
+    <p class="novel-text">Das Auto fuhr lautlos heran. Ein schwarzer Horch. Er liebte ihn.</p>
+    <p class="novel-text">Walter war nicht dabei. Walter war schon weit weg, mit einem anderen Pass. Walter hatte seine Sache getan, sein Rücken dampfte nach dem gestrigen Bad des zweiten Sekretärs nicht mehr.</p>
+    <p class="novel-text">Und gestern hatte es auch nicht geregnet.</p>
+    
+    <img src="../images/12.png" alt="Illustration" class="img-inline" loading="lazy">
+
+    <div class="document">
+      <p class="doc-line stamp">STRENG GEHEIM</p>
+      <p class="doc-line">OPERATIVER BERICHT Nr. 02/C</p>
+      <p class="doc-line">13 Dezember 1946</p>
+      <p class="doc-line">Ausgefertigt vom: Maestro</p>
+      <p class="doc-line dots">...</p>
+      <p class="doc-line">INHALT:</p>
+      <p class="doc-line">Die Verbindungskanäle zum Karibik-Direktorat sind eingerichtet. Die Reserveleitungen wurden stillgelegt. Die neue Methode zur Datenübermittlung über eine Kulturveranstaltung wird innerhalb der nächsten 24 Stunden getestet.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="toggleModal(false)">✕</button>
+    <h3>Operative Verbindung herstellen</h3>
+    <p>Senden Sie Ihre Nachricht direkt an den Autor. Der Übertragungskanal ist gesichert.</p>
+    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Ihr Name oder Pseudonym" required>
+      <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+      <textarea name="message" placeholder="Inhalt der Nachricht" required></textarea>
+      <button type="submit" class="form-submit">Nachricht senden</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+</script>
+
+</body>
+</html>
