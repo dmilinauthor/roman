@@ -14,7 +14,7 @@ layout: null
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0a08 url('images/62.png') no-repeat center center fixed; /* ИСПРАВЛЕНО НА .png */
+  background:#0b0a08 url('images/62.jpg') no-repeat center center fixed; /* ПОДЛОЖКА 62.jpg */
   background-size: cover;
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
@@ -59,11 +59,12 @@ body{
   color: #C9A96E;
 }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР ДЛЯ ШИРОКИХ ЭКРАНОВ */
-.foreign-wrapper {
+/* ГЛАВНЫЙ КОНТЕЙНЕР (СДВИГАЕМ НА 55px ВНИЗ ПОД МЕНЮ) */
+.archive-wrapper {
   max-width: 1200px;
   width: 100%;
-  margin: 55px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
+  margin: 55px auto 0;
+  padding: 3rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -94,15 +95,14 @@ body{
 /* ДВУХКОЛОНОЧНЫЙ СТОЛ НА ПК */
 .split-layout {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
 }
 
 .left-column {
-  flex: 1.1; /* МЕНЬШАЯ КОЛОНКА ПОД ПОРТРЕТ И СИНОПСИС */
+  flex: 1.1; /* КОЛОНКА ПОД ПОРТРЕТ И СИНОПСИС */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 .author-portrait {
   width: 100%;
@@ -113,10 +113,10 @@ body{
 }
 
 .right-column {
-  flex: 1.9; /* БОЛЬШАЯ КОЛОНКА ПОД СЕГМЕНТЫ */
+  flex: 1.9; /* КОЛОНКА ПОД СЕГМЕНТЫ */
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .synopsis-text {
@@ -125,7 +125,7 @@ body{
   line-height: 1.75;
   margin-bottom: 1.5rem;
   font-weight: 300;
-  text-align: justify;
+  text-align: left; /* ВЫРАВНИВАНИЕ ПО ЛЕВОМУ КРАЮ */
 }
 .synopsis-text:last-child {
   margin-bottom: 0;
@@ -142,35 +142,42 @@ body{
   padding-bottom: 0.5rem;
 }
 
-/* СЕТКА СЕКТОРОВ И ПАПОК */
-.sub-card-box {
-  background: rgba(17, 16, 14, 0.6);
-  border: 1px solid rgba(201, 169, 110, 0.15);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
+/* СТРОГИЙ СПИСОК С ОДНОТОННЫМИ ОСЯМИ-РАЗДЕЛИТЕЛЯМИ */
+.coop-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.sub-card-box:last-child {
+.coop-item {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08); /* ТОНКАЯ ОСЬ */
+}
+.coop-item:last-child {
+  border-bottom: none;
   margin-bottom: 0;
+  padding-bottom: 0;
 }
-.sub-card-title {
+.coop-item-title {
   font-family: 'Oranienbaum', Georgia, serif;
   color: #C9A96E;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   letter-spacing: 0.03em;
 }
-.sub-card-desc {
+.coop-item-desc {
   font-size: 0.95rem;
   color: #8A7E6B;
   font-weight: 300;
   line-height: 1.4;
+  text-align: left; /* ВЫРАВНИВАНИЕ ПО ЛЕВОМУ КРАЮ */
 }
 
 /* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ) */
 .language-tabs {
   display: flex;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   margin-top: 1rem;
 }
@@ -180,7 +187,7 @@ body{
   outline: none;
   cursor: pointer;
   flex: 1;
-  max-width: 200px;
+  max-width: 180px;
   display: block;
   text-decoration: none;
   transition: transform 0.3s ease;
@@ -199,14 +206,15 @@ body{
   transform: scale(1.03);
 }
 
-/* КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА */
-.advantages-box {
+/* ПРЕИМУЩЕСТВА СНИЗУ В ОДИН ГОРИЗОНТАЛЬНЫЙ РЯД НА ПК */
+.advantages-row {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 2.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
 }
-.advantage-item {
+.advantage-col {
+  flex: 1;
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
@@ -235,6 +243,7 @@ body{
   color: #8A7E6B;
   font-weight: 300;
   line-height: 1.4;
+  text-align: left; /* ВЫРАВНИВАНИЕ ПО ЛЕВОМУ КРАЮ */
 }
 
 /* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
@@ -349,156 +358,13 @@ body{
     flex-direction: column; /* НА СМАРТФОНАХ ПОРТРЕТ И СИНОПСИС ИДУТ НАВЕРХ */
     gap: 1.5rem;
   }
-  .content-inner {
-    padding: 2.5rem 1.5rem 4rem;
+  .archive-card {
+    padding: 1.8rem 1.2rem;
+  }
+  .advantages-row {
+    flex-direction: column; /* НА МОБИЛЬНЫХ ПРЕИМУЩЕСТВА СТАКУЮТСЯ ВЕРТИКАЛЬНО */
+    gap: 1.5rem;
   }
   .language-tabs {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-  }
-  .tab-img-btn {
-    width: 100%;
-    max-width: 260px;
-  }
-}
-</style>
-</head>
-<body oncontextmenu="return false;">
-
-<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
-<nav class="top-navbar">
-  <a href="index.html" class="nav-link">Домой</a>
-  <a href="reader.html" class="nav-link">Читать</a>
-  <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link active">En | De | Fr</a>
-  <a href="laboratory.html" class="nav-link">За кулисами</a>
-  <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
-</nav>
-
-<div class="foreign-wrapper">
-  <!-- Графическая плашка Cooperation 72.png -->
-  <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
-  
-  <div class="split-layout">
-    
-    <!-- ЛЕВАЯ КОЛОНКА (АВТОР, ДЕЛОВОЙ СИНОПСИС И ПРЕИМУЩЕСТВА) -->
-    <div class="left-column">
-      <div class="archive-card">
-        <!-- Портрет Автора (94.png) -->
-        <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
-        
-        <div class="section-divider">О проекте</div>
-        <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
-        <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
-      </div>
-
-      <div class="archive-card" style="margin-top: 1rem;">
-        <div class="section-divider">Ключевые преимущества</div>
-        <div class="advantages-box">
-          <!-- Преимущество 1 -->
-          <div class="advantage-item">
-            <div class="advantage-num">01</div>
-            <div class="advantage-info">
-              <span class="advantage-title">Финальная редакция</span>
-              <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
-            </div>
-          </div>
-          <!-- Преимущество 2 -->
-          <div class="advantage-item">
-            <div class="advantage-num">02</div>
-            <div class="advantage-info">
-              <span class="advantage-title">Быстрый старт</span>
-              <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
-            </div>
-          </div>
-          <!-- Преимущество 3 -->
-          <div class="advantage-item">
-            <div class="advantage-num">03</div>
-            <div class="advantage-info">
-              <span class="advantage-title">Кинематографичность</span>
-              <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- ПРАВАЯ КОЛОНКА (СЕГМЕНТЫ СОТРУДНИЧЕСТВА И ЯЗЫКОВЫЕ КНОПКИ) -->
-    <div class="right-column">
-      <div class="archive-card">
-        <div class="section-divider">Русскоязычный сегмент</div>
-        
-        <!-- Карточка 1 -->
-        <div class="sub-card-box">
-          <h4 class="sub-card-title">Издание</h4>
-          <p class="sub-card-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
-        </div>
-        
-        <!-- Карточка 2 -->
-        <div class="sub-card-box">
-          <h4 class="sub-card-title">Адаптация</h4>
-          <p class="sub-card-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
-        </div>
-        
-        <!-- Карточка 3 -->
-        <div class="sub-card-box">
-          <h4 class="sub-card-title">Аудиоформаты</h4>
-          <p class="sub-card-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
-        </div>
-        
-        <!-- Карточка 4 -->
-        <div class="sub-card-box">
-          <h4 class="sub-card-title">Медиа-сопровождение</h4>
-          <p class="sub-card-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
-        </div>
-      </div>
-
-      <div class="archive-card" style="margin-top: 1rem;">
-        <div class="section-divider">Международный сегмент</div>
-        <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
-          Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
-        </p>
-        
-        <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
-        <div class="language-tabs">
-          <a href="materials/en-cooperation.html" class="tab-img-btn">
-            <img src="images/91.png" alt="English" class="btn-img">
-          </a>
-          <a href="materials/de-cooperation.html" class="tab-img-btn">
-            <img src="images/92.png" alt="Deutsch" class="btn-img">
-          </a>
-          <a href="materials/fr-cooperation.html" class="tab-img-btn">
-            <img src="images/93.png" alt="Français" class="btn-img">
-          </a>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
-<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
-  <div class="modal-card">
-    <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
-    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
-    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
-      <textarea name="message" placeholder="Содержание донесения" required></textarea>
-      <button type="submit" class="form-submit">Передать по каналу связи</button>
-    </form>
-  </div>
-</div>
-
-<script>
-function toggleModal(show) {
-  const modal = document.getElementById('contactModal');
-  modal.classList.toggle('show', show);
-}
-</script>
-
-</body>
-</html>
