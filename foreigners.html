@@ -14,7 +14,7 @@ layout: null
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0a08 url('images/62.jpg') no-repeat center center fixed; /* ПОДЛОЖКА 62.jpg */
+  background:#0b0a08 url('images/62.png') no-repeat center center fixed; /* ИСПРАВЛЕНО НА .PNG */
   background-size: cover;
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
@@ -92,33 +92,36 @@ body{
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* ДВУХКОЛОНОЧНЫЙ СТОЛ НА ПК */
-.split-layout {
+/* ДВУХКОЛОНОЧНЫЕ СЕТКИ */
+.split-layout-top, .split-layout-bottom {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   width: 100%;
 }
 
-.left-column {
-  flex: 1.1; /* КОЛОНКА ПОД ПОРТРЕТ И СИНОПСИС */
-  display: flex;
-  flex-direction: column;
+.left-col-top {
+  flex: 1;
+  max-width: 440px; /* Ограничиваем ширину портрета для баланса */
 }
 .author-portrait {
   width: 100%;
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.2);
   box-shadow: 0 0 40px rgba(0,0,0,0.6);
-  margin-bottom: 1.5rem;
 }
 
-.right-column {
-  flex: 1.9; /* КОЛОНКА ПОД СЕГМЕНТЫ */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.right-col-top {
+  flex: 1.9;
 }
 
+.left-col-bottom {
+  flex: 1.5;
+}
+.right-col-bottom {
+  flex: 1.5;
+}
+
+/* ТЕКСТ ПО ЛЕВОМУ КРАЮ */
 .synopsis-text {
   color: #e0d5b0;
   font-size: 1.2rem;
@@ -149,9 +152,9 @@ body{
   width: 100%;
 }
 .coop-item {
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(201, 169, 110, 0.08); /* ТОНКАЯ ОСЬ */
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
 }
 .coop-item:last-child {
   border-bottom: none;
@@ -162,7 +165,7 @@ body{
   font-family: 'Oranienbaum', Georgia, serif;
   color: #C9A96E;
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   letter-spacing: 0.03em;
 }
 .coop-item-desc {
@@ -207,13 +210,13 @@ body{
 }
 
 /* ПРЕИМУЩЕСТВА СНИЗУ В ОДИН ГОРИЗОНТАЛЬНЫЙ РЯД НА ПК */
-.advantages-row {
+.advantages-box {
   display: flex;
   gap: 2.5rem;
   width: 100%;
   margin-top: 1.5rem;
 }
-.advantage-col {
+.advantage-item {
   flex: 1;
   display: flex;
   gap: 1.5rem;
@@ -354,15 +357,18 @@ body{
 }
 
 @media(max-width: 900px){
-  .split-layout {
-    flex-direction: column; /* НА СМАРТФОНАХ ПОРТРЕТ И СИНОПСИС ИДУТ НАВЕРХ */
+  .split-layout-top, .split-layout-bottom {
+    flex-direction: column;
     gap: 1.5rem;
+  }
+  .left-col-top {
+    max-width: 100%;
   }
   .archive-card {
     padding: 1.8rem 1.2rem;
   }
-  .advantages-row {
-    flex-direction: column; /* НА МОБИЛЬНЫХ ПРЕИМУЩЕСТВА СТАКУЮТСЯ ВЕРТИКАЛЬНО */
+  .advantages-box {
+    flex-direction: column;
     gap: 1.5rem;
   }
   .language-tabs {
@@ -393,46 +399,42 @@ body{
   <!-- Графическая плашка Cooperation 72.png -->
   <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
   
-  <!-- ВЕРХНЯЯ ЧАСТЬ: ПОРТРЕТ И ОПИСАНИЕ -->
-  <div class="split-layout">
+  <!-- ВЕРХНИЙ ЯРУС: ПОРТРЕТ И ОПИСАНИЕ -->
+  <div class="split-layout-top">
+    <!-- Левая колонка: Ваш новый автопортрет (94.png) -->
+    <div class="left-col-top">
+      <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
+    </div>
     
-    <!-- ЛЕВАЯ КОЛОНКА (ПОРТРЕТ И СИНОПСИС О ПРОЕКТЕ) -->
-    <div class="left-column">
-      <div class="archive-card">
-        <!-- Портрет Автора (94.png) -->
-        <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
-        
+    <!-- Правая колонка: Описание проекта -->
+    <div class="right-col-top">
+      <div class="archive-card" style="height: 100%;">
         <div class="section-divider">О проекте</div>
         <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
         <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
       </div>
     </div>
-    
-    <!-- ПРАВАЯ КОЛОНКА (СЕГМЕНТЫ СОТРУДНИЧЕСТВА И ЯЗЫКОВЫЕ КНОПКИ) -->
-    <div class="right-column">
+  </div>
+
+  <!-- НИЖНИЙ ЯРУС: РУССКОЯЗЫЧНЫЙ И МЕЖДУНАРОДНЫЙ СЕГМЕНТЫ -->
+  <div class="split-layout-bottom">
+    <!-- Левая колонка: Русскоязычный сегмент -->
+    <div class="left-col-bottom">
       <div class="archive-card" style="height: 100%;">
         <div class="section-divider">Русскоязычный сегмент</div>
-        
         <div class="coop-list">
-          <!-- Пункт 1 -->
           <div class="coop-item">
             <h4 class="coop-item-title">⬥ Издание</h4>
             <p class="coop-item-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
           </div>
-          
-          <!-- Карточка 2 -->
           <div class="coop-item">
             <h4 class="coop-item-title">⬥ Адаптация</h4>
             <p class="coop-item-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
           </div>
-          
-          <!-- Карточка 3 -->
           <div class="coop-item">
             <h4 class="coop-item-title">⬥ Аудиоформаты</h4>
             <p class="coop-item-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
           </div>
-          
-          <!-- Карточка 4 -->
           <div class="coop-item">
             <h4 class="coop-item-title">⬥ Медиа-сопровождение</h4>
             <p class="coop-item-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
@@ -440,62 +442,58 @@ body{
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ЯЗЫКОВОЙ СЕГМЕНТ С КНОПКАМИ -->
-  <div class="archive-card" style="width: 100%;">
-    <div class="section-divider">Международный сегмент</div>
-    <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
-      Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
-    </p>
-    
-    <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
-    <div class="language-tabs">
-      <a href="materials/en-cooperation.html" class="tab-img-btn">
-        <img src="images/91.png" alt="English" class="btn-img">
-      </a>
-      <a href="materials/de-cooperation.html" class="tab-img-btn">
-        <img src="images/92.png" alt="Deutsch" class="btn-img">
-      </a>
-      <a href="materials/fr-cooperation.html" class="tab-img-btn">
-        <img src="images/93.png" alt="Français" class="btn-img">
-      </a>
+    <!-- Правая колонка: Международный сегмент -->
+    <div class="right-col-bottom">
+      <div class="archive-card" style="height: 100%;">
+        <div class="section-divider">Международный сегмент</div>
+        <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 2rem;">
+          Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
+        </p>
+        
+        <!-- ЯЗЫКОВЫЕ ВКЛАДКИ -->
+        <div class="language-tabs">
+          <a href="materials/en-cooperation.html" class="tab-img-btn">
+            <img src="images/91.png" alt="English" class="btn-img">
+          </a>
+          <a href="materials/de-cooperation.html" class="tab-img-btn">
+            <img src="images/92.png" alt="Deutsch" class="btn-img">
+          </a>
+          <a href="materials/fr-cooperation.html" class="tab-img-btn">
+            <img src="images/93.png" alt="Français" class="btn-img">
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ГОРИЗОНТАЛЬНЫЕ ПРЕИМУЩЕСТВА В САМОМ НИЗУ СТРАНИЦЫ -->
+  <!-- ГОРИЗОНТАЛЬНЫЙ ПОДВАЛ ПРЕИМУЩЕСТВ СНИЗУ -->
   <div class="archive-card" style="width: 100%;">
     <div class="section-divider" style="text-align: center;">Ключевые преимущества проекта</div>
     <div class="advantages-box">
-      <div style="display: flex; gap: 2rem; width: 100%;" class="split-layout">
-        
-        <!-- Преимущество 1 -->
-        <div class="advantage-item" style="flex: 1;">
-          <div class="advantage-num">01</div>
-          <div class="advantage-info">
-            <span class="advantage-title">Финальная редакция</span>
-            <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
-          </div>
+      <!-- Преимущество 1 -->
+      <div class="advantage-item">
+        <div class="advantage-num">01</div>
+        <div class="advantage-info">
+          <span class="advantage-title">Финальная редакция</span>
+          <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
         </div>
-        
-        <!-- Преимущество 2 -->
-        <div class="advantage-item" style="flex: 1;">
-          <div class="advantage-num">02</div>
-          <div class="advantage-info">
-            <span class="advantage-title">Быстрый старт</span>
-            <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
-          </div>
+      </div>
+      <!-- Преимущество 2 -->
+      <div class="advantage-item">
+        <div class="advantage-num">02</div>
+        <div class="advantage-info">
+          <span class="advantage-title">Быстрый старт</span>
+          <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
         </div>
-        
-        <!-- Преимущество 3 -->
-        <div class="advantage-item">
-          <div class="advantage-num">03</div>
-          <div class="advantage-info">
-            <span class="advantage-title">Кинематографичность</span>
-            <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
-          </div>
+      </div>
+      <!-- Преимущество 3 -->
+      <div class="advantage-item">
+        <div class="advantage-num">03</div>
+        <div class="advantage-info">
+          <span class="advantage-title">Кинематографичность</span>
+          <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
         </div>
-        
       </div>
     </div>
   </div>
