@@ -63,7 +63,7 @@ body{
 
 /* КОНТЕЙНЕР ДЛЯ МАТЕРИАЛОВ */
 .foreign-wrapper {
-  max-width: 1200px;
+  max-width: 1200px; /* Увеличено для двух колонок */
   width: 100%;
   margin: 55px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
   display: flex;
@@ -83,7 +83,66 @@ body{
   margin-bottom: 1rem;
 }
 
-/* ШАБЛОН ПОДЛОЖКИ ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
+/* ГЛУХАЯ ПОЛУПРОЗРАЧНАЯ ПОДЛОЖКА-КАРТОЧКА */
+.archive-card {
+  background: rgba(11, 10, 8, 0.94); /* 94% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
+  backdrop-filter: blur(12px); /* ЭФФЕКТ МАТОВОГО СТЕКЛА */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* ДВУХКОЛОНОЧНЫЙ СТОЛ НА ПК */
+.split-layout {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.left-column {
+  flex: 1.1; /* КОЛОНКА ПОД ПОРТРЕТ */
+  display: flex;
+  flex-direction: column;
+}
+.author-portrait {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+.right-column {
+  flex: 1.9; /* КОЛОНКА ПОД ТЕКСТ ПРЕДЛОЖЕНИЯ */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.synopsis-text {
+  color: #e0d5b0;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  text-align: justify;
+}
+.synopsis-text:last-child {
+  margin-bottom: 0;
+}
+
+.section-divider {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  padding-bottom: 0.5rem;
+}
+
+/* ШАБЛОН ПОДЛОЖКИ ТЕКСТА ЧИТАЛКИ */
 .content-inner {
   max-width: 880px;
   margin: 0 auto;
@@ -125,12 +184,12 @@ body{
   text-align: justify;
 }
 
-/* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ ПЛАНШЕТЫ) */
+/* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ) */
 .language-tabs {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   width: 100%;
 }
 .tab-img-btn {
@@ -139,7 +198,7 @@ body{
   outline: none;
   cursor: pointer;
   flex: 1;
-  max-width: 240px; /* Идеальный размер для горизонтального ряда */
+  max-width: 240px;
 }
 .btn-img {
   display: block;
@@ -149,7 +208,6 @@ body{
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-/* ЭФФЕКТ ДЛЯ АКТИВНОЙ КНОПКИ И ПРИ НАВЕДЕНИИ */
 .tab-img-btn.active .btn-img, .tab-img-btn:hover .btn-img {
   border-color: #C9A96E;
   box-shadow: 0 0 45px rgba(201, 169, 110, 0.25);
@@ -289,6 +347,10 @@ body{
 }
 
 @media(max-width: 900px){
+  .split-layout {
+    flex-direction: column; /* НА ТЕЛЕФОНАХ КАРТИНКА ПЕРЕХОДИТ НАВЕРХ */
+    gap: 1.5rem;
+  }
   .content-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
@@ -310,8 +372,8 @@ body{
 <nav class="top-navbar">
   <a href="index.html" class="nav-link">Домой</a>
   <a href="reader.html" class="nav-link">Читать</a>
-  <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link active">En | De | Fr</a>
+  <a href="materials.html" class="nav-link active">Архив</a>
+  <a href="foreigners.html" class="nav-link">En | De | Fr</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
@@ -320,6 +382,22 @@ body{
 
   <!-- Графическая плашка Cooperation 72.png -->
   <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
+
+  <!-- ГЛАВНЫЙ БЛОК КООПЕРАЦИИ (ПОРТРЕТ + СИНОПСИС СВЯЗИ) -->
+  <div class="archive-card split-layout" style="margin-bottom: 2rem;">
+    <!-- Левая колонка: Ваш новый автопортрет (94.png) -->
+    <div class="left-column">
+      <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-portrait">
+    </div>
+    
+    <!-- Правая колонка: Текст о международном сотрудничестве -->
+    <div class="right-column">
+      <div class="section-divider">Международное сотрудничество</div>
+      <p class="synopsis-text">Сетевая структура романа-нуара <strong>«Второй звонок»</strong> заявляет о поиске долгосрочного сотрудничества на международном литературном и медийном рынке в различных формах.</p>
+      <p class="synopsis-text">Мы открыты к прямому диалогу с зарубежными литературными агентами, издательствами, профессиональными переводчиками и продюсерами для издания романа на иностранных языках, дистрибуции и возможной сценарной адаптации.</p>
+      <p class="synopsis-text">Подробные условия взаимодействия, а также выверенные фрагменты оперативных материалов на английском, немецком и французском языках представлены во вкладках ниже. Пожалуйста, выберите соответствующий канал связи.</p>
+    </div>
+  </div>
 
   <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ) -->
   <div class="language-tabs">
@@ -439,7 +517,7 @@ body{
       <h2 class="chapter-heading">NACHT</h2>
       <p class="novel-text">Bern, 12. Dezember 1946, 23:07 Uhr. (Junkerngasse 63)</p>
       <p class="novel-text">Vor fünf Zigarren hatte er angefangen zu warten. Die Asche fiel nicht herab – er entfernte sie exakt im letzten Moment mit zwei kurzen Fingerbewegungen. Ohne Hast. Ohne hinzusehen. Genauso, wie er einst Menschen von ihren Posten entfernt, Länder von Karten gestrichen und Fragen von der Tagesordnung genommen hatte. Er war immer früher dran. Um einen Schritt. Um zwei. Ein ganzes Leben voraus.</p>
-      <p class="novel-text">Im Kabinett war es kalt. Nicht aus Vergesslichkeit, sondern aus Überzeugung. Im Dezember schaltete er die Heizung nie ein. Die Kälte disziplinierte die Gedanken. Die Kälte erlaubte dem Gedächtnis keine Entspannung. Die Holzvertäfelung der Wände, die noch die Ära großer Erschütterungen kannte, sog diese Kälte auf und wurde fast steinern. Jedes Detail in diesem Kabinett war bis ins Kleinste durchdacht.</p>
+      <p class="novel-text">Im Kabinett war es kalt. Nicht aus Vergesslichkeit, sondern aus Überzeugung. Im Dezember schaltete er die Heizung nie ein. Die Kälte disziplinierte die Gedanken. Die Kälte erlaubte dem Gedächtnis keine Entspannung. Die Holzvertäfelung der Wände, die noch die Äра großer Erschütterungen kannte, sog diese Kälte auf und wurde fast steinern. Jedes Detail in diesem Kabinett war bis ins Kleinste durchdacht.</p>
       <p class="novel-text">Der dünne Sekundenzeiger der Patek Philippe zerschnitt die Zeit fast lautlos in gleiche Scheiben. Er hatte an diesem Abend kein einziges Mal auf die Uhr gesehen, aber er kannte jede Minute. Die Musik war zu Ende. Das Grammophon drehte sich weiter, doch die Nadel kratzte nur noch über die Rille. Dann war Richter an der Reihe.</p>
       <img src="images/04.png" alt="Illustration" class="img-inline" loading="lazy">
       <p class="novel-text"><span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
@@ -461,7 +539,7 @@ body{
         <p class="doc-line">AUS DEM OPERATIVEN BERICHT Nr. 02/C</p>
         <p class="doc-line">Ausführender: Der Herr</p>
         <p class="doc-line">13. Dezember 1946</p>
-        <p class="doc-line">Einstufung: „Persönlich для das Zentrum“</p>
+        <p class="doc-line">Einstufung: „Persönlich für das Zentrum“</p>
         <p class="doc-line" style="margin-top: 1rem;">INHALT:</p>
         <p class="doc-line">Verbindungswege in Richtung Karibik etabliert. Reservelinien konserviert. Eine neue Methode der Datenübermittlung über eine kulturelle Veranstaltung wird innerhalb von 24 Stunden getestet.</p>
         <p class="doc-line">Über die dominikanische Linie: Kontakt zum Objekt hergestellt. Informationen über Radarsysteme gesammelt.</p>
@@ -504,4 +582,73 @@ body{
         <p class="doc-line" style="margin-top: 1rem; text-align: right;">LE CENTRE.</p>
       </div>
 
-      <h2 class="cha
+      <h2 class="chapter-heading">NUIT</h2>
+      <p class="novel-text">Berne, 12 décembre 1946, 23 h 07. (Junkerngasse 63)</p>
+      <p class="novel-text">Il avait commencé à attendre cinq cigares plus tôt. La cendre ne tombait pas ; il la retirait au tout dernier instant, par deux brefs mouvements de doigts. Sans hâte. Sans regard. Tout comme il avait autrefois démis des hommes de leurs fonctions, effacé des pays des cartes, rayé des questions de l’ordre du jour. Il arrivait toujours avant les autres. D’un pas. De deux. D’une vie d’avance.</p>
+      <p class="novel-text">Le cabinet était glacial. Non par oubli, mais par conviction. En décembre, il n’allumait jamais le chauffage. Le froid disciplinait la pensée. Le froid interdisait à la mémoire de se relâcher. Les lambris de bois, témoins des grandes tourmentes d’autrefois, absorbaient ce froid, devenant presque pierreux. Chaque détail de ce cabinet avait été pensé jusque dans les moindres recoins. L’aiguille fine des secondes de sa Patek Philippe découpait le temps en tranches égales, presque sans bruit. Il n’avait pas jeté un seul coup d’œil à sa montre durant toute cette soirée, mais il connaissait chaque minute. La musique s’était arrêtée. Le gramophone continuait de tourner, mais l’aiguille ne faisait plus que rayer le sillon. Puis vint le tour de Richter.</p>
+      <img src="images/04.png" alt="Illustration" class="img-inline" loading="lazy">
+      <p class="novel-text"><span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
+      <p class="novel-text">Les premières mesures, lourdes, emplirent lentement le cabinet de leur poids. Richter ne jouait jamais pour l’auditeur ; il jouait pour l’éternité. Il lui fallait encore un peu de temps pour se préparer à ce qui devait advenir.</p>
+      <p class="novel-text">Sur le bureau reposaient cinq mégots de cigare courts — identiques, nets, presque symétriques. Il éteignait toujours son cigare avant que le feu n’atteigne ses doigts. C’était ainsi qu’il fallait faire. C’était ainsi depuis toujours. Toute sa vie tenait là : ne pas attendre que le feu brûle, mais décider soi-même quand il est temps de s’arrêter.</p>
+      <p class="novel-text">Le telephone restait muet. Il ouvrit le barillet de son revolver. Vérifia une fois de plus, bien qu’il n’y eût rien à vérifier. Cinq chambres vides. Une chargée. Le déclic métallique résonna avec une force inattendue, tranchant la musique. À présent, il était prêt.</p>
+      <p class="novel-text">Il ne restait plus que le second coup de fil.</p>
+      <p class="novel-text">Walter entra sans bruit. Mais les vieilles planches répondirent tout de même par une imperceptible vibration sous le tapis. Elles avaient deux cent soixante-trois ans, et durant tout ce temps elles avaient appris à distinguer les gens au poids de leurs pas. Walter était trempé jusqu’aux os. De son manteau mouillé et de ses larges épaules montait une buée. La pluie semblait encore s’accrocher à lui, refusant de le lâcher.</p>
+      <p class="novel-text">Il ne dit rien. Se contenta de hocher la tête. L’homme assis derrière le bureau ne répondit pas. Ne bougea même pas. La lumière verte de la lampe gisait sur son visage, immobile comme sur le bronze d’un monument. Walter resta une seconde encore, comme s’il attendait quelque chose, puis fit demi-tour et sortit. Les planches frémirent de nouveau.</p>
+      <p class="novel-text">La porte se referma. La maison s’apaisa.</p>
+      <p class="novel-text">Ce n’est qu’alors qu’il ouvrit lentement le barillet du revolver. Cinq vides. Une chargée. Pendant quelques secondes, il fixa la cartouche comme s’il la voyait pour la première fois.</p>
+      <p class="novel-text">Le second coup de fil ne retentit pas ici. Là-bas, où il le devait.</p>
+      <p class="novel-text">Demain, les journaux paraîtraient comme d’habitude. La radio parlerait d’une voix ordinaire. Encore neuf cigares et demi, et la ville s’éveillerait.</p>
+      <p class="novel-text">Il éteignit la lampe. Et l’obscurité reprit aussitôt sa place, refermant cet épisode pour всегда.</p>
+      <img src="images/05.png" alt="Illustration" class="img-inline" loading="lazy">
+
+      <div class="document">
+        <p class="doc-line stamp">TRÈS SECRET</p>
+        <p class="doc-line">EXTRAIT DU RAPPORT OPÉRATIONNEL N° 02/C</p>
+        <p class="doc-line">Exécuteur : Maestro</p>
+        <p class="doc-line">13 décembre 1946</p>
+        <p class="doc-line">Mention : « Personnellement au Centre »</p>
+        <p class="doc-line" style="margin-top: 1rem;">CONTENU :</p>
+        <p class="doc-line">Les liaisons avec le secteur Caraïbes sont établies. Les lignes de réserve sont mises en sommeil. Un nouveau mode de transmission des données via un événement culturel sera testé dans les vingt-quatre heures.</p>
+        <p class="doc-line">Voie dominicaine : contact avec l’objet établi. Informations sur les systèmes radar recueillies.</p>
+        <p class="doc-line">Voie argentine : objet identifié. Développement ultérieur requis.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="toggleModal(false)">✕</button>
+    <h3>Экстренная шифровка связи</h3>
+    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
+    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
+      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
+      <textarea name="message" placeholder="Содержание донесения" required></textarea>
+      <button type="submit" class="form-submit">Передать по каналу связи</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function switchLang(lang) {
+  // Убираем активный класс у всех читалок и кнопок
+  document.querySelectorAll('.mini-reader').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  
+  // Добавляем активный класс нужной читалке и кнопке
+  document.getElementById('reader-' + lang).classList.add('active');
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+</script>
+
+</body>
+</html>
