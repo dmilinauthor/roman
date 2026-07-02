@@ -1,0 +1,352 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Second Call — Dmitry Ilyin</title>
+<link class="foreign" rel="icon" href="../images/51.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  background:#0b0a08 url('../images/62.png') no-repeat center center fixed;
+  background-size: cover;
+  color:#e0d5b0;
+  font-family:'Literatta',Georgia,serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: #000000;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  z-index: 150;
+}
+.nav-link {
+  color: #8A7E6B;
+  font-family: 'Literatta', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.nav-link:hover, .nav-link.active {
+  color: #C9A96E;
+}
+
+/* КОНТЕЙНЕР ДЛЯ МАТЕРИАЛОВ */
+.document-wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 95px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
+  padding: 0 1.5rem;
+  z-index: 10;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* ЧЕРНАЯ ПОДЛОЖКА ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
+.content-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 4rem 3.5rem 6rem;
+  background: #0b0a08;
+  box-shadow: 0 0 80px rgba(0,0,0,0.9);
+  border-left: 1px solid rgba(201, 169, 110, 0.08);
+  border-right: 1px solid rgba(201, 169, 110, 0.08);
+}
+
+/* ШАБЛОН ОБЪЯСНЕНИЯ (ПИТЧ-ХУК) */
+.pitch-box {
+  background: rgba(17, 16, 14, 0.95);
+  border: 1px solid #C9A96E;
+  padding: 2.5rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 0 35px rgba(201, 169, 110, 0.05);
+}
+.pitch-tag {
+  font-family: 'Courier New', Courier, monospace;
+  color: #C00000;
+  font-weight: bold;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+.pitch-title {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.pitch-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #b0a68d;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.novel-title{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2.5rem;text-align:center;margin-bottom:.5rem;letter-spacing:.15em}
+.novel-author{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:1.1rem;text-align:center;margin-bottom:.5rem;letter-spacing:.1em}
+.novel-sub{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:.9rem;text-align:center;margin-bottom:3rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
+.chapter-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2rem;text-align:center;margin:4rem 0 2rem;letter-spacing:.12em;text-transform:uppercase}
+.prologue-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:1.5rem;text-align:center;margin:2rem 0 1.5rem;letter-spacing:.08em}
+
+.novel-text{color:#e0d5b0;font-size:1.35rem;line-height:1.8;margin-bottom:1.8rem;text-indent:0;font-weight:300}
+.novel-text.no-indent{text-indent:0}
+.novel-text.dialogue{padding-left:1.5em; text-indent:0}
+
+/* === ДОКУМЕНТЫ === */
+.document{background:#f4e4bc;color:#1a1a1a;font-family:'Courier New',Courier,monospace;font-weight:700;font-size:1.15rem;line-height:1.3;padding:2rem 2.2rem;margin:2.5rem 0;border-left:4px solid #C9A96E;box-shadow:0 4px 30px rgba(0,0,0,.6);position:relative}
+.document::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
+.doc-line{margin-bottom:.5rem;position:relative;z-index:1;font-weight:700}
+.doc-line.stamp{color:#C00000;font-weight:900;font-size:1.2rem;letter-spacing:0.12em;text-transform:uppercase}
+
+.img-inline{max-width:100%;height:auto;margin:3rem auto;display:block;border:1px solid rgba(201, 169, 110,.15);box-shadow:0 4px 20px rgba(0,0,0,.4)}
+
+/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 8, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+}
+.modal-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-card {
+  background: #0b0a08;
+  border: 1px solid #C9A96E;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.show .modal-card {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  color: #8A7E6B;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.modal-close:hover {
+  color: #C9A96E;
+}
+.modal-card h3 {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.modal-card p {
+  color: #8A7E6B;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* БЛАНК ШИФРОВКИ */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.feedback-form input, .feedback-form textarea {
+  background: #161512;
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  color: #e0d5b0;
+  font-family: 'Literatta', Georgia, serif;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.feedback-form input:focus, .feedback-form textarea:focus {
+  border-color: #C9A96E;
+}
+.feedback-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-submit {
+  padding: 0.8rem;
+  background: transparent;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  font-family: 'Literatta', Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.form-submit:hover {
+  background: #C9A96E;
+  color: #0b0a08;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(1%) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media(max-width: 900px){
+  .content-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+}
+</style>
+</head>
+<body oncontextmenu="return false;">
+
+<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
+<nav class="top-navbar">
+  <a href="../index.html" class="nav-link">Домой</a>
+  <a href="../reader.html" class="nav-link">Читать</a>
+  <a href="../materials.html" class="nav-link">Архив</a>
+  <a href="../foreigners.html" class="nav-link active">Cooperation</a>
+  <a href="../laboratory.html" class="nav-link">За кулисами</a>
+  <button class="nav-link" onclick="toggleModal(true)">Contacts</button>
+</nav>
+
+<div class="document-wrapper">
+  <div class="content-inner">
+    
+    <!-- English Pitch Box -->
+    <div class="pitch-box">
+      <div class="pitch-tag">CLASSIFIED / PROPOSAL</div>
+      <h4 class="pitch-title">Operational Cooperation Offer</h4>
+      <p class="pitch-text">The "Sетка" network is seeking international cooperation and offers to get acquainted with our operational experience (December 1946 – May 1948). The text below serves as a demonstration of our analytical, historical, and architectural capabilities.<br><br><strong>For publishers, literary agents, and translators:</strong> We are actively looking for partners to bring this intellectual spy noir to English-speaking audiences. If you wish to discuss publication, translation, or adaptation rights, please use our secure channel (Contacts).</p>
+    </div>
+
+    <!-- English Text -->
+    <h1 class="novel-title">THE SECOND CALL</h1>
+    <p class="novel-author">DMITRY ILYIN</p>
+    <p class="novel-sub">INTELLECTUAL SPY NOIR &middot; DECEMBER 1946 — MAY 1948</p>
+
+    <!-- PROLOGUE -->
+    <h2 class="prologue-heading">Prologue</h2>
+    <img src="../images/02.jpeg" alt="Chess" class="img-inline" loading="lazy">
+    <p class="novel-text">By December 1946, Europe had become a vast espionage proving ground where the old rules of the game had finally ceased to apply. The era of the “aristocrats of the spirit”, for whom espionage was a matter of honour, was being displaced by a new reality — the technocratic power of corporations and shadow organisations. The old school was fading, giving way to cold calculation, in which a man was merely a cog in the system and secret information a mere line in an asset ledger.</p>
+    <p class="novel-text">Post-war Switzerland found itself at the epicentre of this transformation: its cantons had become a colossal filter for the gold reserves and capital being channelled into Latin America. The conclusion of the Nuremberg trials and the signing of the Paris Peace Treaties had sealed the division of Europe, yet they had merely exposed the rift that would soon be called the Cold War.</p>
+
+    <div class="document">
+      <p class="doc-line stamp">TOP SECRET</p>
+      <p class="doc-line">CIRCULAR No. 447/C</p>
+      <p class="doc-line">12 December 1946</p>
+      <p class="doc-line">TO ALL UNITS</p>
+      <p class="doc-line" style="margin-top: 1rem;">LINES OF WORK:</p>
+      <p class="doc-line">1. Control of illicit routes between Europe and Latin America (Argentine Republic, Dominican Republic, Haiti, Cuba). Particular attention to channels using smuggling as cover for the extraction of gold, currency and valuables. Priority: Switzerland, Italy, Spain.</p>
+      <p class="doc-line">2. Collection and neutralisation of materials capable of influencing the preparation of the Paris Peace Treaties. Identification of individuals using compromising material to exert pressure on the process.</p>
+      <p class="doc-line">3. Transition to new methods of intelligence transmission. Activation of previously dormant agents. Updating of operational channels.</p>
+      <p class="doc-line" style="margin-top: 1rem; text-align: right;">CENTRE.</p>
+    </div>
+
+    <!-- NIGHT -->
+    <h2 class="chapter-heading">NIGHT</h2>
+    <p class="novel-text">Bern, 12 December 1946, 23:07. (Junkerngasse 63)</p>
+    <p class="novel-text">He had begun waiting five cigars earlier. The ash never fell — he removed it at the very last moment, with two short movements of his fingers. Without haste. Without a glance. Just as he had once removed men from their posts, struck countries from maps, and struck questions from the agenda. He was always ahead. By one step. By two. By a lifetime.</p>
+    <p class="novel-text">The study was cold. Not out of forgetfulness, but conviction. In December he never turned on the heating. The cold disciplined thought. The cold did not allow memory to relax its guard. The wooden panelling, which still remembered the era of great upheavals, absorbed this cold, becoming almost stone-like. Every detail in this study had been thought out to the smallest degree.</p>
+    <p class="novel-text">The slender second hand of the Patek Philippe cut time into identical slices almost silently. He had not looked at his watch once that evening, yet he knew every minute. The music had ended. The gramophone continued to turn, but the needle merely scratched the groove.</p>
+    <img src="../images/04.png" alt="Illustration" class="img-inline" loading="lazy">
+    <p class="novel-text">Then came Richter’s turn. <span class="foreign">Allegro non troppo e molto maestoso</span>.</p>
+    <p class="novel-text">The heavy opening chords slowly filled the study with their weight. Richter never played for the listener — he played for eternity. He needed a little more time to prepare for what was to come.</p>
+    <p class="novel-text">On the desk lay five short cigar stubs — identical, neat, almost symmetrical. He always extinguished his cigar before the fire reached his fingers. That was the right way. That was always the way. His entire life consisted of this: not waiting for the flame to burn him, but deciding himself when it was time to stop.</p>
+    <p class="novel-text">The telephone remained silent. He opened the revolver cylinder. Checked it once more, though there was nothing to check. Five empty chambers. One loaded. The metallic click sounded unexpectedly loud, cutting through the music. Now he was ready.</p>
+    <p class="novel-text">Only the second call remained.</p>
+    <p class="novel-text">Walter entered quietly. But the old floorboards still responded with a faint vibration beneath the carpet. They were two hundred and sixty-three years old, and in that time they had learned to distinguish people by the weight of their tread. Walter was soaked to the bone.</p>
+    <p class="novel-text">Steam rose from his wet overcoat and broad shoulders. The rain seemed still to cling to him, unwilling to let go.</p>
+    <p class="novel-text">He said nothing. He merely nodded. The man at the desk did not reply. He did not even move. The light of the green lamp lay upon his face as motionless as upon bronze. Walter stood for another second, as if expecting something, then turned and left. The floorboards trembled once more.</p>
+    <p class="novel-text">The door closed. The house grew calm.</p>
+    <p class="novel-text">And only then did he slowly open the revolver cylinder. Five empty. One inside. For several seconds he stared at the cartridge as if seeing it for the first time.</p>
+    <p class="novel-text">The second call had not sounded here. It had sounded where it was meant to.</p>
+    <p class="novel-text">Tomorrow the newspapers would appear as usual. The radio would speak in ordinary voices. Another nine and a half cigars, and the city would awaken.</p>
+    <p class="novel-text">He switched off the lamp. And darkness immediately took its place, closing this episode forever.</p>
+    <img src="../images/05.png" alt="Illustration" class="img-inline" loading="lazy">
+
+    <div class="document">
+      <p class="doc-line stamp">TOP SECRET</p>
+      <p class="doc-line">FROM OPERATIONAL REPORT No. 02/C</p>
+      <p class="doc-line">Executor: The Maestro</p>
+      <p class="doc-line">13 December 1946</p>
+      <p class="doc-line">Classification: “Personal to Centre”</p>
+      <p class="doc-line" style="margin-top: 1rem;">CONTENTS:</p>
+      <p class="doc-line">Communication channels with the Caribbean directorate have been established. Reserve lines have been mothballed. The new method of data transmission via a cultural event will be tested within 24 hours.</p>
+      <p class="doc-line">Dominican line: contact with the target established. Information on radar systems gathered.</p>
+      <p class="doc-line">Argentine line: target identified. Further development required.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="toggleModal(false)">✕</button>
+    <h3>Emergency Communication Channel</h3>
+    <p>Send your message directly to the author. The communication channel is secure.</p>
+    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Your name or pseudonym" required>
+      <input type="email" name="email" placeholder="Your email address" required>
+      <textarea name="message" placeholder="Message content" required></textarea>
+      <button type="submit" class="form-submit">Transmit message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function toggleModal(show) {
+  const modal = document.getElementById('contactModal');
+  modal.classList.toggle('show', show);
+}
+</script>
+
+</body>
+</html>
