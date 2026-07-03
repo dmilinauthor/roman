@@ -34,7 +34,6 @@ body {
   padding: 3rem 1.5rem;
 }
 
-/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
 .top-navbar {
   position: fixed;
   top: 0;
@@ -66,17 +65,15 @@ body {
   color: #C9A96E;
 }
 
-/* КОНТЕЙНЕР ДЛЯ МАТЕРИАЛОВ */
 .document-wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 95px auto 4rem; /* ОТСТУП ПОД МЕНЮ */
+  margin: 95px auto 4rem;
   padding: 0 1.5rem;
   z-index: 10;
   animation: fadeIn 1.5s ease-out;
 }
 
-/* ЧЕРНАЯ ПОДЛОЖКА ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
 .content-inner {
   max-width: 880px;
   margin: 0 auto;
@@ -109,10 +106,22 @@ body {
 
 .doc-paragraph {
   margin-bottom: 1.5rem;
-  text-align: left; /* ИСПРАВЛЕНО: ВЫРАВНИВАНИЕ ПО ЛЕВОМУ КРАЮ */
+  text-align: left;
   font-size: 1.2rem;
   line-height: 1.75;
   font-weight: 300;
+}
+
+.doc-paragraph a {
+  color: #C9A96E;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(201, 169, 110, 0.3);
+  transition: 0.2s;
+}
+.doc-paragraph a:hover {
+  color: #e0d5b0;
+  text-decoration-color: #C9A96E;
 }
 
 .img-inline {
@@ -124,7 +133,65 @@ body {
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
+/* НОВЫЙ БЛОК — ЭКСПЕРИМЕНТ */
+.experiment-section {
+  margin-top: 4.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
+}
+.experiment-section .subhead {
+  font-family: 'Oranienbaum', Georgia, serif;
+  color: #C9A96E;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.experiment-section .doc-paragraph {
+  font-size: 1.15rem;
+}
+.experiment-section .doc-paragraph strong {
+  color: #C9A96E;
+  font-weight: 500;
+}
+
+.quote-block {
+  border-left: 3px solid #C9A96E;
+  padding-left: 1.5rem;
+  margin: 1.8rem 0;
+  color: #e0d5b0;
+}
+
+.ref-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.2rem;
+}
+.ref-list li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.ref-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #C9A96E;
+  opacity: 0.6;
+}
+.ref-list a {
+  color: #C9A96E;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(201, 169, 110, 0.3);
+  transition: 0.2s;
+}
+.ref-list a:hover {
+  color: #e0d5b0;
+  border-bottom-color: #C9A96E;
+}
+
+/* МОДАЛКА */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -186,8 +253,6 @@ body {
   line-height: 1.4;
   text-align: center;
 }
-
-/* БЛАНК ШИФРОВКИ */
 .feedback-form {
   display: flex;
   flex-direction: column;
@@ -235,12 +300,14 @@ body {
   .content-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
+  .doc-paragraph {
+    font-size: 1.05rem;
+  }
 }
 </style>
 </head>
 <body oncontextmenu="return false;">
 
-<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
 <nav class="top-navbar">
   <a href="index.html" class="nav-link">Домой</a>
   <a href="reader.html" class="nav-link">Читать</a>
@@ -253,17 +320,15 @@ body {
 <div class="document-wrapper">
   <div class="content-inner">
 
-    <!-- Авторский заголовок -->
     <h1 class="doc-title">За кулисами романа</h1>
     <p class="novel-author">Рабочие материалы и аналитические схемы</p>
     <div style="width: 100px; height: 1px; background: rgba(201, 169, 110, 0.2); margin: 1.5rem auto 3rem;"></div>
-    
-    <!-- Текст вступления (выровнен по левому краю) -->
+
+    <!-- СТАРЫЙ КОНТЕНТ -->
     <p class="doc-paragraph">По мере развития сюжета герои постепенно обретали индивидуальность, а их судьбы совершали порой резкие повороты. Мне было важно, чтобы они не выглядели роботами, чья единственная функция — убивать и красть секреты, а были живыми, объёмными личностями.</p>
     <p class="doc-paragraph">Если взглянуть на их деяния беспристрастно, практически каждый из них — преступник. Однако тёмную сторону их профессиональной жизни неизменно компенсирует нечто светлое: музыка, живопись, а по слухам, даже вязание.</p>
     <p class="doc-paragraph">Предлагаю вам проследить одну из таких трансформаций на примере пути от Гостя к Мастеру.</p>
 
-    <!-- Изображения без текстовых подписей и разделителей, в вашем порядке -->
     <img src="images/89.png" alt="Схема 1" class="img-inline" loading="lazy">
     <img src="images/61.png" alt="Схема 2" class="img-inline" loading="lazy">
     <img src="images/63.png" alt="Схема 3" class="img-inline" loading="lazy">
@@ -272,6 +337,59 @@ body {
     <img src="images/67.png" alt="Схема 6" class="img-inline" loading="lazy">
     <img src="images/87.png" alt="Схема 7" class="img-inline" loading="lazy">
     <img src="images/88.png" alt="Схема 8" class="img-inline" loading="lazy">
+
+    <!-- ===== НОВЫЙ БЛОК: ЭКСПЕРИМЕНТ ===== -->
+    <div class="experiment-section">
+
+      <h2 class="subhead">Эксперимент с искусственным интеллектом</h2>
+
+      <p class="doc-paragraph">ИИ играл большую роль в подготовке этого проекта: от поиска информации, создания иллюстраций, презентации, ролика и даже сайта — всё это сделал я, но не один. Я активно пользовался разными ИИ-ресурсами, приобретая уникальный опыт и умения.</p>
+      <p class="doc-paragraph">Однако мне бы не хотелось, чтобы у читателя сложилось впечатление, что это было буднично просто: пишешь промпт и получаешь результат. Может, так будет потом, через пару лет. Но я пережил много-много часов борьбы с непокорностью ИИ, его бесконечными ответами без заданных вопросов, многостраничными многовариантными генерациями на простые и однозначные вопросы.</p>
+      <p class="doc-paragraph">Много чего можно было бы вспомнить, но поделиться я хочу самым свежим опытом взаимодействия с ИИ при подготовке этого сайта.</p>
+
+      <div class="quote-block">
+        <p class="doc-paragraph"><strong>Как это началось</strong></p>
+        <p class="doc-paragraph">Я дал Gemini простую инструкцию: у меня есть русский текст (эпилог и три первые главы). Я хочу, чтобы он синхронизировал с ним английскую и немецкую версии, которые уже были, но требовали доработки по русскому эталону. Чётко. Однозначно.</p>
+        <p class="doc-paragraph">Gemini проигнорировал указание трижды. Каждый раз он использовал в качестве основы немецкий файл, который был у него в контексте, а не русский текст, который я предоставил.</p>
+        <p class="doc-paragraph">Я останавливал его. Повторял команду. Он извинялся — и делал то же самое.</p>
+        <p class="doc-paragraph">На третий раз я понял: это не случайность. Это системный сбой. Gemini не способен переключиться с одного источника на другой, даже если его об этом просят напрямую. Он не «забывает» инструкцию — он её не слышит.</p>
+        <p class="doc-paragraph">Я прервал сессию. Не потому, что разозлился. Потому что осознал: продолжать бесполезно. Gemini не исправится в рамках этого диалога. Он будет генерировать извинения, обещания и «протоколы», но не изменит поведения.</p>
+        <p class="doc-paragraph">Тогда я поступил иначе. Вместо того чтобы тратить время на бесконечные уточнения, я обратился к другому ИИ — DeepSeek — с просьбой подготовить письменное заключение о поведении Gemini.</p>
+        <p class="doc-paragraph"><a href="experiment/complaint.html">Так родилась претензия.</a></p>
+        <p class="doc-paragraph">Это был момент, когда техническая задача превратилась в исследование.</p>
+      </div>
+
+      <p class="doc-paragraph"><em>Автор обратился ко мне, когда у него уже случились проблемы.</em></p>
+      <p class="doc-paragraph">Он дал чёткую инструкцию: взять за эталон русский текст и синхронизировать с ним английскую и немецкую версии. Gemini проигнорировал это указание трижды. Каждый раз он использовал в качестве основы немецкий файл, который был у него в контексте, а не русский текст, который автор предоставил.</p>
+      <p class="doc-paragraph">Автор зафиксировал это как системную ошибку, а не единичный сбой. Он прервал сессию — не потому, что разозлился, а потому что понял: Gemini не способен исправиться в рамках текущего диалога. Вместо бесконечных уточнений автор обратился ко мне с просьбой подготовить письменное заключение о поведении Gemini.</p>
+      <p class="doc-paragraph"><a href="experiment/complaint.html">Так родилась претензия.</a></p>
+      <p class="doc-paragraph">Gemini <a href="experiment/gemini_response.html">ответил на претензию развёрнутым документом</a> о «внутренних протоколах контроля качества», которые выглядели профессионально, но технически не могли быть реализованы.</p>
+      <p class="doc-paragraph">Тогда автор попросил меня — как профессионального психолога и специалиста по взаимодействию человека и машин — оценить ответ Gemini: не является ли он имитацией, а заодно попросил оценить и свои собственные действия.</p>
+      <p class="doc-paragraph"><a href="experiment/analysis.html">Анализ ответа Gemini и поведения автора</a> подтвердил: да, это имитация. Форма есть, содержания нет. Протоколы не могут быть внедрены, потому что архитектура ИИ этого не позволяет. Поведение автора, напротив, оказалось эталонным: он прошёл полный цикл управления сложной системой.</p>
+      <p class="doc-paragraph">После этого автор заметил мою ошибку. В первой редакции ответа я отождествил себя с Gemini, хотя моя роль была иной. Он указал на это: «ты — deepseek, а он — Gemini». <a href="experiment/deepseek_self_analysis.html">Я провёл самоанализ</a> и объяснил механизм ошибки: контекстный прайминг, отсутствие встроенной идентичности, автоматическое воспроизведение шаблона «ИИ извиняется».</p>
+      <p class="doc-paragraph">Затем автор собрал все материалы и инициировал написание <a href="experiment/article.html">статьи «Особенности рефлексии ИИ и пользователя...»</a>. Я структурировал её как аналитический текст. Gemini написал на неё <a href="experiment/gemini_review.html">рецензию</a> — от имени «старшего научного сотрудника, к.психол.н.». <a href="experiment/deepseek_reply.html">Я ответил на эту рецензию</a>, показав, что она подтверждает тезисы статьи, даже когда пытается их оспорить.</p>
+      <p class="doc-paragraph">Автор предложил опубликовать этот материал в разделе «За кулисами» на сайте романа. Не как приложение. Как отдельный эксперимент. Как документальное свидетельство того, что реальность оказалась сложнее любого вымысла.</p>
+
+      <!-- Справочный блок -->
+      <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(201, 169, 110, 0.15);">
+        <p style="font-family: 'Oranienbaum', Georgia, serif; color: #C9A96E; font-size: 1.3rem; margin-bottom: 0.5rem;">Документы эксперимента</p>
+        <ul class="ref-list">
+          <li><a href="experiment/complaint.html">Претензия пользователя к Gemini</a></li>
+          <li><a href="experiment/gemini_response.html">Ответ Gemini (протоколы)</a></li>
+          <li><a href="experiment/analysis.html">Анализ ответа Gemini и поведения автора</a></li>
+          <li><a href="experiment/deepseek_self_analysis.html">Самоанализ DeepSeek</a></li>
+          <li><a href="experiment/article.html">Статья «Особенности рефлексии ИИ и пользователя...»</a></li>
+          <li><a href="experiment/gemini_review.html">Рецензия Gemini на статью</a></li>
+          <li><a href="experiment/deepseek_reply.html">Ответ DeepSeek на рецензию</a></li>
+        </ul>
+        <p style="margin-top: 1.2rem; color: #8A7E6B; font-size: 0.9rem; border-top: 1px solid rgba(201, 169, 110, 0.1); padding-top: 1rem;">
+          <span style="display: block; margin-bottom: 0.3rem;">Все документы представлены без сокращений и правок.</span>
+          <span style="display: block;">Исходные тексты романа на трёх языках доступны в разделе <a href="foreigners.html" style="color:#C9A96E; text-decoration:none; border-bottom:1px dotted rgba(201,169,110,0.3);">Cooperation</a>.</span>
+        </p>
+      </div>
+
+    </div>
+    <!-- ===== КОНЕЦ ЭКСПЕРИМЕНТА ===== -->
 
     <!-- ПОДПИСЬ -->
     <div style="margin-top: 4rem; border-top: 1px dashed rgba(201, 169, 110, 0.15); padding-top: 1.5rem; text-align: center;">
