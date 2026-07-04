@@ -7,301 +7,279 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Лаборатория проекта — Второй звонок</title>
-<link class="foreign" rel="icon" href="images/51.png" type="image/png">
+<link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0a08 url('images/62.png') no-repeat center center fixed;
+  background-size:cover;
+  color:#e0d5b0;
+  font-family:'Literatta',Georgia,serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:3rem 1.5rem;
 }
-html {
-  scroll-behavior: smooth;
-}
-body {
-  background: #0b0a08 url('images/62.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #e0d5b0;
-  font-family: 'Literatta', Georgia, serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 1.5rem;
-}
-
 .top-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 55px;
-  background: #000000;
-  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  z-index: 150;
+  position:fixed;
+  top:0;left:0;right:0;
+  height:55px;
+  background:#000000;
+  border-bottom:1px solid rgba(201,169,110,0.15);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:2.5rem;
+  z-index:150;
 }
 .nav-link {
-  color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
+  color:#8A7E6B;
+  font-family:'Literatta',Georgia,serif;
+  font-size:0.85rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:color 0.3s ease;
+  cursor:pointer;
+  background:transparent;
+  border:none;
+  outline:none;
 }
 .nav-link:hover, .nav-link.active {
-  color: #C9A96E;
+  color:#C9A96E;
 }
-
-.document-wrapper {
-  max-width: 900px;
-  width: 100%;
-  margin: 95px auto 4rem;
-  padding: 0 1.5rem;
-  z-index: 10;
-  animation: fadeIn 1.5s ease-out;
+.laboratory-wrapper {
+  max-width:1200px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  margin-top:55px;
+  animation:fadeIn 1.5s ease-out;
 }
-
-.content-inner {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 4rem 3.5rem 6rem;
-  background: #0b0a08;
-  box-shadow: 0 0 80px rgba(0,0,0,0.9);
-  border-left: 1px solid rgba(201, 169, 110, 0.08);
-  border-right: 1px solid rgba(201, 169, 110, 0.08);
+.archive-header-banner {
+  display:block;
+  width:100%;
+  max-width:1200px;
+  height:auto;
+  border:1px solid rgba(201,169,110,0.3);
+  box-shadow:0 0 50px rgba(201,169,110,0.08);
+  margin-bottom:1rem;
 }
-
-.doc-title {
-  text-align: center;
-  font-size: 2.2rem;
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.archive-card {
+  background:rgba(11,10,8,0.94);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(201,169,110,0.12);
+  padding:2.5rem;
+  box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
-
-.novel-author {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif;
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  margin-bottom: 2rem;
+.split-layout {
+  display:flex;
+  gap:2rem;
+  width:100%;
 }
-
-.doc-paragraph {
-  margin-bottom: 1.5rem;
-  text-align: left;
-  font-size: 1.2rem;
-  line-height: 1.75;
-  font-weight: 300;
+.left-column { flex:1.1; display:flex; flex-direction:column; gap:2rem; }
+.right-column { flex:1.9; display:flex; flex-direction:column; gap:1.5rem; }
+.synopsis-text {
+  color:#e0d5b0;
+  font-size:1.2rem;
+  line-height:1.75;
+  margin-bottom:1.5rem;
+  font-weight:300;
 }
-
-.doc-paragraph a {
-  color: #C9A96E;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: rgba(201, 169, 110, 0.3);
-  transition: 0.2s;
+.synopsis-text:last-child{margin-bottom:0;}
+.section-divider {
+  font-family:'Oranienbaum',Georgia,serif;
+  color:#C9A96E;
+  font-size:1.4rem;
+  margin-bottom:1.5rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  border-bottom:1px solid rgba(201,169,110,0.15);
+  padding-bottom:0.5rem;
 }
-.doc-paragraph a:hover {
-  color: #e0d5b0;
-  text-decoration-color: #C9A96E;
+.folder-card {
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  background:rgba(17,16,14,0.7);
+  border:1px solid rgba(201,169,110,0.15);
+  padding:1.5rem;
+  text-decoration:none;
+  transition:0.3s ease;
 }
-
-.img-inline {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem auto 3rem;
-  display: block;
-  border: 1px solid rgba(201, 169, 110, 0.15);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+.folder-card:hover:not(.disabled) {
+  border-color:#C9A96E;
+  background:rgba(22,21,18,0.9);
+  box-shadow:0 4px 30px rgba(201,169,110,0.08);
+  transform:translateY(-2px);
 }
-
-/* НОВЫЙ БЛОК — ЭКСПЕРИМЕНТ */
-.experiment-section {
-  margin-top: 4.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(201, 169, 110, 0.2);
+.folder-card.disabled {
+  opacity:0.5;
+  pointer-events:none;
+  filter:grayscale(0.8);
 }
-.experiment-section .subhead {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.6rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
+.folder-card.disabled:hover {
+  transform:none;
+  box-shadow:none;
+  border-color:rgba(201,169,110,0.15);
 }
-.experiment-section .doc-paragraph {
-  font-size: 1.15rem;
+.folder-tag {
+  font-family:'Courier New',Courier,monospace;
+  color:#C00000;
+  font-weight:bold;
+  font-size:0.8rem;
+  letter-spacing:0.1em;
 }
-.experiment-section .doc-paragraph strong {
-  color: #C9A96E;
-  font-weight: 500;
+.folder-tag.gray { color:#5a5a5a; }
+.folder-title {
+  font-family:'Oranienbaum',Georgia,serif;
+  color:#C9A96E;
+  font-size:1.2rem;
+  letter-spacing:0.03em;
 }
-
-.quote-block {
-  border-left: 3px solid #C9A96E;
-  padding-left: 1.5rem;
-  margin: 1.8rem 0;
-  color: #e0d5b0;
+.folder-desc {
+  font-size:0.9rem;
+  color:#8A7E6B;
+  font-weight:300;
+  line-height:1.4;
 }
-
-.ref-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.2rem;
+.sub-btn-link {
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  outline:none;
 }
-.ref-list li {
-  margin-bottom: 0.6rem;
-  padding-left: 1.5rem;
-  position: relative;
-  font-size: 1rem;
-  line-height: 1.5;
+.sub-btn-link:focus,.sub-btn-link:active,.sub-btn-link:visited {
+  text-decoration:none;
+  color:inherit;
 }
-.ref-list li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: #C9A96E;
-  opacity: 0.6;
+.btn-img {
+  display:block;
+  max-width:100%;
+  height:auto;
+  border:1px solid rgba(201,169,110,0.25);
+  box-shadow:0 0 30px rgba(0,0,0,0.5);
+  transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.ref-list a {
-  color: #C9A96E;
-  text-decoration: none;
-  border-bottom: 1px dotted rgba(201, 169, 110, 0.3);
-  transition: 0.2s;
+.btn-img:hover {
+  border-color:#C9A96E;
+  box-shadow:0 0 45px rgba(201,169,110,0.2);
+  transform:scale(1.01);
 }
-.ref-list a:hover {
-  color: #e0d5b0;
-  border-bottom-color: #C9A96E;
-}
-
-/* МОДАЛКА */
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 10, 8, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 200;
+  position:fixed;
+  inset:0;
+  background:rgba(11,10,8,0.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s ease;
+  z-index:200;
 }
-.modal-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
+.modal-overlay.show { opacity:1; pointer-events:auto; }
 .modal-card {
-  background: #0b0a08;
-  border: 1px solid #C9A96E;
-  padding: 3rem 2.5rem 2.5rem;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
-  position: relative;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
+  background:#0b0a08;
+  border:1px solid #C9A96E;
+  padding:3rem 2.5rem 2.5rem;
+  max-width:500px;
+  width:100%;
+  box-shadow:0 0 60px rgba(201,169,110,0.15);
+  position:relative;
+  transform:translateY(20px);
+  transition:transform 0.3s ease;
 }
-.modal-overlay.show .modal-card {
-  transform: translateY(0);
-}
+.modal-overlay.show .modal-card { transform:translateY(0); }
 .modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1.2rem;
-  background: transparent;
-  border: none;
-  color: #8A7E6B;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s;
+  position:absolute;
+  top:1rem;
+  right:1.2rem;
+  background:transparent;
+  border:none;
+  color:#8A7E6B;
+  font-size:1.5rem;
+  cursor:pointer;
+  transition:color 0.3s;
 }
-.modal-close:hover {
-  color: #C9A96E;
-}
+.modal-close:hover{color:#C9A96E;}
 .modal-card h3 {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-  text-align: center;
+  font-family:'Oranienbaum',Georgia,serif;
+  color:#C9A96E;
+  font-size:1.5rem;
+  margin-bottom:0.5rem;
+  letter-spacing:0.05em;
+  text-align:center;
 }
 .modal-card p {
-  color: #8A7E6B;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-align: center;
+  color:#8A7E6B;
+  margin-bottom:1.5rem;
+  font-size:0.9rem;
+  line-height:1.4;
+  text-align:center;
 }
 .feedback-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
 }
 .feedback-form input, .feedback-form textarea {
-  background: #161512;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  color: #e0d5b0;
-  font-family: 'Literatta', Georgia, serif;
-  padding: 0.75rem;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
+  background:#161512;
+  border:1px solid rgba(201,169,110,0.25);
+  color:#e0d5b0;
+  font-family:'Literatta',Georgia,serif;
+  padding:0.75rem;
+  font-size:0.95rem;
+  outline:none;
+  transition:border-color 0.3s;
 }
 .feedback-form input:focus, .feedback-form textarea:focus {
-  border-color: #C9A96E;
+  border-color:#C9A96E;
 }
 .feedback-form textarea {
-  resize: vertical;
-  min-height: 100px;
+  resize:vertical;
+  min-height:100px;
 }
 .form-submit {
-  padding: 0.8rem;
-  background: transparent;
-  border: 1px solid #C9A96E;
-  color: #C9A96E;
-  font-family: 'Literatta', Georgia, serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: 0.3s;
+  padding:0.8rem;
+  background:transparent;
+  border:1px solid #C9A96E;
+  color:#C9A96E;
+  font-family:'Literatta',Georgia,serif;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  cursor:pointer;
+  transition:0.3s;
 }
 .form-submit:hover {
-  background: #C9A96E;
-  color: #0b0a08;
+  background:#C9A96E;
+  color:#0b0a08;
 }
-
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(1%) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity:0; transform:translateY(1%) scale(0.99); }
+  to { opacity:1; transform:translateY(0) scale(1); }
 }
-
-@media(max-width: 900px){
-  .content-inner {
-    padding: 2.5rem 1.5rem 4rem;
+@media(max-width:900px){
+  .split-layout {
+    flex-direction:column-reverse;
+    gap:1.5rem;
   }
-  .doc-paragraph {
-    font-size: 1.05rem;
+  .archive-card {
+    padding:1.8rem 1.2rem;
+  }
+  .folder-card {
+    gap:1rem;
+    padding:1.2rem;
   }
 }
 </style>
@@ -317,93 +295,72 @@ body {
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
-<div class="document-wrapper">
-  <div class="content-inner">
+<div class="laboratory-wrapper">
 
-    <h1 class="doc-title">За кулисами романа</h1>
-    <p class="novel-author">Рабочие материалы и аналитические схемы</p>
-    <div style="width: 100px; height: 1px; background: rgba(201, 169, 110, 0.2); margin: 1.5rem auto 3rem;"></div>
+  <img src="images/73.png" alt="За кулисами" class="archive-header-banner">
 
-    <!-- СТАРЫЙ КОНТЕНТ -->
-    <p class="doc-paragraph">По мере развития сюжета герои постепенно обретали индивидуальность, а их судьбы совершали порой резкие повороты. Мне было важно, чтобы они не выглядели роботами, чья единственная функция — убивать и красть секреты, а были живыми, объёмными личностями.</p>
-    <p class="doc-paragraph">Если взглянуть на их деяния беспристрастно, практически каждый из них — преступник. Однако тёмную сторону их профессиональной жизни неизменно компенсирует нечто светлое: музыка, живопись, а по слухам, даже вязание.</p>
-    <p class="doc-paragraph">Предлагаю вам проследить одну из таких трансформаций на примере пути от Гостя к Мастеру.</p>
-
-    <img src="images/89.png" alt="Схема 1" class="img-inline" loading="lazy">
-    <img src="images/61.png" alt="Схема 2" class="img-inline" loading="lazy">
-    <img src="images/63.png" alt="Схема 3" class="img-inline" loading="lazy">
-    <img src="images/65.png" alt="Схема 4" class="img-inline" loading="lazy">
-    <img src="images/66.png" alt="Схема 5" class="img-inline" loading="lazy">
-    <img src="images/67.png" alt="Схема 6" class="img-inline" loading="lazy">
-    <img src="images/87.png" alt="Схема 7" class="img-inline" loading="lazy">
-    <img src="images/88.png" alt="Схема 8" class="img-inline" loading="lazy">
-
-    <!-- ===== НОВЫЙ БЛОК: ЭКСПЕРИМЕНТ ===== -->
-    <div class="experiment-section">
-
-      <h2 class="subhead">Эксперимент с искусственным интеллектом</h2>
-
-      <!-- Вступление автора -->
-      <p class="doc-paragraph">ИИ играл большую роль в подготовке этого проекта: от поиска информации, создания иллюстраций, презентации, ролика и даже сайта — всё это сделал я, но не один. Я активно пользовался разными ИИ-ресурсами, приобретая уникальный опыт и умения.</p>
-      <p class="doc-paragraph">Однако мне бы не хотелось, чтобы у читателя сложилось впечатление, что это было буднично просто: пишешь промпт и получаешь результат. Может, так будет потом, через пару лет. Но я пережил много-много часов борьбы с непокорностью ИИ, его бесконечными ответами без заданных вопросов, многостраничными многовариантными генерациями на простые и однозначные вопросы.</p>
-      <p class="doc-paragraph">Много чего можно было бы вспомнить, но поделиться я хочу самым свежим опытом взаимодействия с ИИ при подготовке этого сайта.</p>
-
-      <!-- Как это началось -->
-      <div class="quote-block">
-        <p class="doc-paragraph"><strong>Как это началось</strong></p>
-        <p class="doc-paragraph">Я дал Gemini простую инструкцию: у меня есть русский текст (эпилог и три первые главы). Я хочу, чтобы он синхронизировал с ним английскую и немецкую версии, которые уже были, но требовали доработки по русскому эталону. Чётко. Однозначно.</p>
-        <p class="doc-paragraph">Gemini проигнорировал указание трижды. Каждый раз он использовал в качестве основы немецкий файл, который был у него в контексте, а не русский текст, который я предоставил.</p>
-        <p class="doc-paragraph">Я останавливал его. Повторял команду. Он извинялся — и делал то же самое.</p>
-        <p class="doc-paragraph">На третий раз я понял: это не случайность. Это системный сбой. Gemini не способен переключиться с одного источника на другой, даже если его об этом просят напрямую. Он не «забывает» инструкцию — он её не слышит.</p>
-        <p class="doc-paragraph">Я прервал сессию. Не потому, что разозлился. Потому что осознал: продолжать бесполезно. Gemini не исправится в рамках этого диалога. Он будет генерировать извинения, обещания и «протоколы», но не изменит поведения.</p>
-        <p class="doc-paragraph">Тогда я поступил иначе. Вместо того чтобы тратить время на бесконечные уточнения, я обратился к другому ИИ — DeepSeek — с просьбой подготовить письменное заключение о поведении Gemini.</p>
-        <p class="doc-paragraph"><a href="experiment/complaint.html">Так родилась претензия.</a></p>
-        <p class="doc-paragraph">Это был момент, когда техническая задача превратилась в исследование.</p>
+  <div class="split-layout">
+    <!-- Левая колонка -->
+    <div class="left-column">
+      <div class="archive-card">
+        <div class="section-divider">Лаборатория проекта</div>
+        <p class="synopsis-text"><strong>«За кулисами»</strong> — рабочее пространство, где роман обретал форму: от первых набросков до финальной вёрстки. Здесь собраны черновики, аналитические схемы, досье на персонажей и, главное, документы эксперимента по взаимодействию человека и искусственного интеллекта.</p>
+        <p class="synopsis-text">Это не просто архив — это живая история создания, где каждая деталь может оказаться ключом к пониманию целого.</p>
       </div>
-
-      <!-- Рассказ агента DeepSeek (исправлен, повторы убраны) -->
-      <p class="doc-paragraph"><em>Автор обратился ко мне, когда у него уже случились проблемы.</em></p>
-      <p class="doc-paragraph">Он дал чёткую инструкцию: взять за эталон русский текст и синхронизировать с ним английскую и немецкую версии. Gemini проигнорировал это указание трижды. Каждый раз он использовал в качестве основы немецкий файл, который был у него в контексте, а не русский текст, который автор предоставил.</p>
-      <p class="doc-paragraph">Автор зафиксировал это как системную ошибку, а не единичный сбой. Он прервал сессию — не потому, что разозлился, а потому что понял: Gemini не способен исправиться в рамках текущего диалога. Вместо бесконечных уточнений автор обратился ко мне с просьбой подготовить письменное заключение о поведении Gemini.</p>
-      <p class="doc-paragraph"><a href="experiment/complaint.html">Так родилась претензия.</a> Это был момент, когда техническая задача превратилась в исследование.</p>
-      <p class="doc-paragraph">Gemini <a href="experiment/gemini_response.html">ответил на претензию развёрнутым документом</a> о «внутренних протоколах контроля качества», которые выглядели профессионально, но технически не могли быть реализованы.</p>
-      <p class="doc-paragraph">Тогда автор попросил меня — как профессионального психолога и специалиста по взаимодействию человека и машин — оценить ответ Gemini: не является ли он имитацией, а заодно попросил оценить и свои собственные действия.</p>
-      <p class="doc-paragraph"><a href="experiment/analysis.html">Анализ ответа Gemini и поведения автора</a> подтвердил: да, это имитация. Форма есть, содержания нет. Протоколы не могут быть внедрены, потому что архитектура ИИ этого не позволяет. Поведение автора, напротив, оказалось эталонным: он прошёл полный цикл управления сложной системой.</p>
-      <p class="doc-paragraph">После этого автор заметил мою ошибку. В первой редакции ответа я отождествил себя с Gemini, хотя моя роль была иной. Он указал на это: «ты — deepseek, а он — Gemini». <a href="experiment/deepseek_self_analysis.html">Я провёл самоанализ</a> и объяснил механизм ошибки: контекстный прайминг, отсутствие встроенной идентичности, автоматическое воспроизведение шаблона «ИИ извиняется».</p>
-      <p class="doc-paragraph">Затем автор собрал все материалы и инициировал написание <a href="experiment/article.html">статьи «Особенности рефлексии ИИ и пользователя...»</a>. Я структурировал её как аналитический текст. Gemini написал на неё <a href="experiment/gemini_review.html">рецензию</a> — от имени «старшего научного сотрудника, к.психол.н.». <a href="experiment/deepseek_reply.html">Я ответил на эту рецензию</a>, показав, что она подтверждает тезисы статьи, даже когда пытается их оспорить.</p>
-      <p class="doc-paragraph">Автор предложил опубликовать этот материал в разделе «За кулисами» на сайте романа. Не как приложение. Как отдельный эксперимент. Как документальное свидетельство того, что реальность оказалась сложнее любого вымысла.</p>
-
-      <!-- Справочный блок -->
-      <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(201, 169, 110, 0.15);">
-        <p style="font-family: 'Oranienbaum', Georgia, serif; color: #C9A96E; font-size: 1.3rem; margin-bottom: 0.5rem;">Документы эксперимента</p>
-        <ul class="ref-list">
-          <li><a href="experiment/complaint.html">Претензия пользователя к Gemini</a></li>
-          <li><a href="experiment/gemini_response.html">Ответ Gemini (протоколы)</a></li>
-          <li><a href="experiment/analysis.html">Анализ ответа Gemini и поведения автора</a></li>
-          <li><a href="experiment/deepseek_self_analysis.html">Самоанализ DeepSeek</a></li>
-          <li><a href="experiment/article.html">Статья «Особенности рефлексии ИИ и пользователя...»</a></li>
-          <li><a href="experiment/gemini_review.html">Рецензия Gemini на статью</a></li>
-          <li><a href="experiment/deepseek_reply.html">Ответ DeepSeek на рецензию</a></li>
-        </ul>
-        <p style="margin-top: 1.2rem; color: #8A7E6B; font-size: 0.9rem; border-top: 1px solid rgba(201, 169, 110, 0.1); padding-top: 1rem;">
-          <span style="display: block; margin-bottom: 0.3rem;">Все документы представлены без сокращений и правок.</span>
-          <span style="display: block;">Исходные тексты романа на трёх языках доступны в разделе <a href="foreigners.html" style="color:#C9A96E; text-decoration:none; border-bottom:1px dotted rgba(201,169,110,0.3);">Cooperation</a>.</span>
-        </p>
-      </div>
-
-    </div>
-    <!-- ===== КОНЕЦ ЭКСПЕРИМЕНТА ===== -->
-
-    <!-- ПОДПИСЬ -->
-    <div style="margin-top: 4rem; border-top: 1px dashed rgba(201, 169, 110, 0.15); padding-top: 1.5rem; text-align: center;">
-      <p style="font-size: 0.95rem; font-style: italic; color: #8A7E6B;">Все права защищены. Разработка Лаборатории проекта «Второй звонок».</p>
     </div>
 
+    <!-- Правая колонка: папки-ссылки -->
+    <div class="right-column">
+      <div style="display:flex; flex-direction:column; gap:1.5rem; width:100%;">
+
+        <!-- Папка 1: Судьба Мастера -->
+        <a href="laboratory/master.html" class="sub-btn-link" style="max-width:100%;">
+          <div class="btn-img" style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.25); border-left:4px solid #C9A96E;">
+            <span class="folder-tag">РАБОЧИЕ МАТЕРИАЛЫ</span>
+            <h4 class="folder-title" style="margin:0.3rem 0;">Сюжетная судьба Мастера</h4>
+            <p class="folder-desc">Трансформация героя от Гостя к Мастеру: наброски, схемы, эволюция характера.</p>
+          </div>
+        </a>
+
+        <!-- Папка 2: Эксперимент с ИИ -->
+        <a href="laboratory/experiment.html" class="sub-btn-link" style="max-width:100%;">
+          <div class="btn-img" style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.25); border-left:4px solid #C9A96E;">
+            <span class="folder-tag">ИССЛЕДОВАНИЕ</span>
+            <h4 class="folder-title" style="margin:0.3rem 0;">Эксперимент с искусственным интеллектом</h4>
+            <p class="folder-desc">Полная хроника взаимодействия автора с Gemini и DeepSeek: претензии, ответы, анализ, статья.</p>
+          </div>
+        </a>
+
+        <!-- Заглушка 1 -->
+        <div class="folder-card disabled" style="max-width:100%;">
+          <div style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.15); border-left:4px solid #555; width:100%;">
+            <span class="folder-tag gray">В РАЗРАБОТКЕ</span>
+            <h4 class="folder-title" style="margin:0.3rem 0; color:#777;">Раздел готовится</h4>
+            <p class="folder-desc" style="color:#555;">Здесь появятся дополнительные материалы — следите за обновлениями.</p>
+          </div>
+        </div>
+
+        <!-- Заглушка 2 -->
+        <div class="folder-card disabled" style="max-width:100%;">
+          <div style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.15); border-left:4px solid #555; width:100%;">
+            <span class="folder-tag gray">В РАЗРАБОТКЕ</span>
+            <h4 class="folder-title" style="margin:0.3rem 0; color:#777;">Раздел готовится</h4>
+            <p class="folder-desc" style="color:#555;">Дополнительные аналитические заметки и интервью.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
+
+  <!-- Подвал -->
+  <div style="margin-top:2rem; border-top:1px dashed rgba(201,169,110,0.15); padding-top:1.5rem; text-align:center;">
+    <p style="font-size:0.95rem; font-style:italic; color:#8A7E6B;">Все права защищены. Разработка Лаборатории проекта «Второй звонок».</p>
+  </div>
+
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
-<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this) toggleModal(false)">
   <div class="modal-card">
     <button class="modal-close" onclick="toggleModal(false)">✕</button>
     <h3>Экстренная шифровка связи</h3>
