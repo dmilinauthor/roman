@@ -1,15 +1,3 @@
-title: Второй звонок
-baseurl: "/roman"
-url: "https://dmilinauthor.github.io"
-
 collections:
   chapters:
-    output: true
-
-# Исключаем папки, которые конфликтуют с именами HTML-файлов
-exclude:
-  - materials/
-  - laboratory/
-  - experiment/
-  - vendor/
-  - .github/
+    output: false
