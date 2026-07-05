@@ -7,9 +7,31 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ЗАГОЛОВОК И ОПИСАНИЕ ДЛЯ ПОИСКОВИКОВ -->
-<title>Второй звонок — Дмитрий Ильин. Шпионский роман и архив</title>
-<meta name="description" content="«Второй звонок» — роман Дмитрия Ильина о шпионах, документах и стратегиях в Берне 1946–1948. Архив материалов, секретные рапорты и исторические справки.">
+<!-- ТЕХНИЧЕСКАЯ ОПТИМИЗАЦИЯ ДЛЯ РОБОТОВ -->
+<title>Второй звонок — Дмитрий Ильин. Литературный цифровой проект</title>
+<meta name="description" content="«Второй звонок» — шпионский роман Дмитрия Ильина и цифровое пространство: архив документов Берна 1946–1948, секретные рапорты и лаборатория смыслов.">
+<link rel="canonical" href="https://dmilinauthor.github.io/roman/">
+
+<!-- ДАННЫЕ ДЛЯ ИИ И ПОИСКОВЫХ СИСТЕМ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Второй звонок",
+  "author": {
+    "@type": "Person",
+    "name": "Дмитрий Ильин",
+    "url": "https://dmilinauthor.github.io/roman/"
+  },
+  "description": "Цифровой литературный проект, включающий шпионский роман, архив исторических документов и творческую лабораторию.",
+  "genre": "Шпионский роман, Цифровая литература",
+  "url": "https://dmilinauthor.github.io/roman/",
+  "hasPart": [
+    { "@type": "CreativeWork", "name": "Архив материалов" },
+    { "@type": "CreativeWork", "name": "Лаборатория (За кулисами)" }
+  ]
+}
+</script>
 
 <!-- ДАННЫЕ ДЛЯ СОЦСЕТЕЙ (Open Graph) -->
 <meta property="og:title" content="Второй звонок — Дмитрий Ильин">
@@ -26,7 +48,7 @@ layout: null
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background-color: #050505; /* ГЛУБОКИЙ ЧИСТЫЙ ЧЕРНЫЙ ФОН */
+  background-color: #050505; 
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
@@ -34,6 +56,18 @@ body{
   overflow-y:auto;
   display:flex;
   flex-direction:column;
+}
+
+/* СКРЫТЫЙ ЗАГОЛОВОК ДЛЯ РОБОТОВ И ИИ (НЕ ВИДЕН ГЛАЗОМ) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 /* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
@@ -68,7 +102,7 @@ body{
   color: #C9A96E;
 }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР (СДВИГАЕМ НА 55px ВНИЗ ПОД МЕНЮ) */
+/* ГЛАВНЫЙ КОНТЕЙНЕР */
 .main-wrapper {
   display: flex;
   width: 100%;
@@ -81,7 +115,6 @@ body{
   animation: fadeIn 1.8s ease-out;
 }
 
-/* АДАПТИВНЫЙ КОНТЕЙНЕР ДЛЯ КАРТИНЫ И КНОПКИ */
 .image-container {
   position: relative;
   width: 100%;
@@ -89,7 +122,6 @@ body{
   display: inline-block;
 }
 
-/* ОСНОВНАЯ КАРТИНА 85.png */
 .main-image {
   display: block;
   width: 100%;
@@ -98,20 +130,18 @@ body{
   box-shadow: 0 0 70px rgba(201, 169, 110, 0.08);
 }
 
-/* ПОЗИЦИОНИРОВАНИЕ СГЕНЕРИРОВАННОЙ КНОПКИ */
 .read-btn-position {
   position: absolute;
-  left: 10.8%; /* Выравниваем ровно по левому краю текста на картинке */
-  bottom: 4%; /* СДЕЛАЛИ ОТСТУП НИЖЕ, ЧТОБЫ ОТДАЛИТЬ ОТ БУКВ */
+  left: 10.8%; 
+  bottom: 4%; 
   z-index: 10;
 }
 
-/* СТИЛИЗАЦИЯ СГЕНЕРИРОВАННОЙ КНОПКИ */
 .custom-read-btn {
   display: inline-block;
   padding: 0.75rem 2.2rem;
-  background: rgba(11, 10, 8, 0.55); /* Полупрозрачный фон, сквозь который дышит дым */
-  border: 1.5px solid rgba(201, 169, 110, 0.5); /* Тонкая золотистая рамка */
+  background: rgba(11, 10, 8, 0.55); 
+  border: 1.5px solid rgba(201, 169, 110, 0.5); 
   color: #C9A96E;
   font-family: 'Literatta', Georgia, serif;
   font-size: 0.92rem;
@@ -129,7 +159,7 @@ body{
   transform: translateY(-1px);
 }
 
-/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
+/* МОДАЛЬНОЕ ОКНО */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -236,52 +266,53 @@ body{
   to { opacity: 1; transform: scale(1); }
 }
 
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media(max-width: 900px) {
-  .home-grid {
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-    padding: 2rem 1.5rem;
+  .top-navbar {
+    gap: 1rem;
+    padding: 0 0.5rem;
   }
-  .left-pane, .right-pane {
-    width: 100%;
-    max-width: 100%;
-    flex: none;
-    min-height: auto;
+  .nav-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+  .main-wrapper {
+    padding: 2rem 1rem;
   }
   .read-btn-position {
-    bottom: 3.5%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .custom-read-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
   }
 }
 </style>
 </head>
 <body>
 
-<!-- ВЕРХНЕЕ МЕНЮ НА УЗКОЙ ЧЕРНОЙ ПОЛОСКЕ (ТЕКСТ ЗАМЕНЕН НА COOPERATION) -->
+<!-- СКРЫТЫЙ ЗАГОЛОВОК ДЛЯ AI-МОДЕЛЕЙ И ПОИСКОВИКОВ -->
+<h1 class="visually-hidden">Второй звонок: Литературный проект Дмитрия Ильина</h1>
+
 <nav class="top-navbar">
   <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link active">Cooperation</a> <!-- ЗАМЕНА ЗДЕСЬ -->
+  <a href="foreigners.html" class="nav-link">Cooperation</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
-<!-- ГЛАВНЫЙ МАКЕТ С КАРТИНОЙ И КНОПКОЙ ЧИТАТЬ ВНУТРИ -->
 <main class="main-wrapper">
   <div class="image-container">
-    <!-- Изображение 85.png по центру -->
-    <!-- Добавлен атрибут alt для описания картинки поисковикам -->
-    <img src="images/85.png" alt="Обложка романа «Второй звонок» Дмитрия Ильина. Шпионский роман и архив документов." class="main-image">
+    <img src="images/85.png" alt="Обложка романа «Второй звонок» Дмитрия Ильина. Шпионский роман, архив и лаборатория смыслов." class="main-image">
     
-    <!-- СГЕНЕРИРОВАННАЯ КНОПКА «ЧИТАТЬ» С НУЖНЫМ ОТСТУПОМ -->
     <div class="read-btn-position">
       <a href="reader.html" class="custom-read-btn">Читать</a>
     </div>
   </div>
 </main>
 
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
 <div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
   <div class="modal-card">
     <button class="modal-close" onclick="toggleModal(false)">✕</button>
