@@ -6,521 +6,284 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cooperation — Второй звонок</title>
-<link class="foreign" rel="icon" href="images/51.png" type="image/png">
+
+<!-- МЕТА-ДАННЫЕ ДЛЯ ПОИСКОВИКОВ И АГЕНТОВ -->
+<title>Cooperation — Второй звонок. Партнерство и права</title>
+<meta name="description" content="Сотрудничество с проектом «Второй звонок»: издательские права, экранизация, переводы на иностранные языки. Автор Дмитрий Ильин.">
+<link rel="canonical" href="https://dmilinauthor.github.io/roman/foreigners.html">
+
+<!-- ДАННЫЕ ДЛЯ ИИ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Дмитрий Ильин",
+  "url": "https://dmilinauthor.github.io/roman/",
+  "jobTitle": "Автор, Писатель",
+  "workExample": {
+    "@type": "CreativeWork",
+    "name": "Второй звонок",
+    "genre": "Шпионский роман"
+  }
+}
+</script>
+
+<link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
   background:#0b0a08 url('images/62.png') no-repeat center center fixed;
   background-size: cover;
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
-  overflow-x:hidden;
-  overflow-y:auto;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:3rem 1.5rem;
 }
 
-/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
+/* ЕДИНОЕ МЕНЮ */
 .top-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.8rem;
   z-index: 150;
+  padding: 0 1rem;
 }
 .nav-link {
   color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
 }
-.nav-link:hover, .nav-link.active {
-  color: #C9A96E;
-}
+.nav-link:hover, .nav-link.active { color: #C9A96E; }
+.nav-link.highlight { color: #C9A96E; font-weight: 500; }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР (СДВИГАЕМ НА 55px ВНИЗ ПОД МЕНЮ) */
-.archive-wrapper {
+/* КОНТЕЙНЕР */
+.wrapper {
   max-width: 1200px;
   width: 100%;
-  margin: 55px auto 0;
-  padding: 3rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  margin-top: 80px;
+  padding: 0 1.5rem 5rem;
   animation: fadeIn 1.5s ease-out;
 }
 
-/* ГРАФИЧЕСКАЯ ПЛАШКА-ЗАГЛОВОК 72.png */
-.archive-header-banner {
+.banner {
   display: block;
   width: 100%;
-  max-width: 1200px;
   height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.3);
-  box-shadow: 0 0 50px rgba(201, 169, 110, 0.08);
-  margin-bottom: 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  margin-bottom: 2rem;
 }
 
-/* ЧЕРНАЯ ПОДЛОЖКА ТЕКСТА С ТЕНЬЮ И РАМКОЙ */
-.content-inner {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 4rem 3.5rem 6rem;
-  background: #0b0a08; /* СПЛОШНОЙ ЧЕРНЫЙ ФОН */
-  box-shadow: 0 0 80px rgba(0,0,0,0.9);
-  border-left: 1px solid rgba(201, 169, 110, 0.08);
-  border-right: 1px solid rgba(201, 169, 110, 0.08);
-}
+.split-layout { display: flex; gap: 2rem; }
+.left-column { flex: 1.2; }
+.right-column { flex: 1.8; display: flex; flex-direction: column; gap: 1.5rem; }
 
-/* ШАБЛОН ОБЪЯСНЕНИЯ (ПИТЧ-ХУК) */
-.pitch-box {
-  background: rgba(17, 16, 14, 0.95);
-  border: 1px solid #C9A96E;
+.card {
+  background: rgba(11, 10, 8, 0.95);
+  border: 1px solid rgba(201, 169, 110, 0.12);
   padding: 2.5rem;
-  margin-bottom: 3.5rem;
-  box-shadow: 0 0 35px rgba(201, 169, 110, 0.05);
-}
-.pitch-tag {
-  font-family: 'Courier New', Courier, monospace;
-  color: #C00000;
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-}
-.pitch-title {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-.pitch-text {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #b0a68d;
-  font-weight: 300;
-  text-align: left;
-}
-
-.synopsis-text {
-  color: #e0d5b0;
-  font-size: 1.2rem;
-  line-height: 1.75;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
   margin-bottom: 1.5rem;
-  font-weight: 300;
-  text-align: left;
-}
-.synopsis-text:last-child {
-  margin-bottom: 0;
 }
 
 .section-divider {
-  font-family: 'Oranienbaum', Georgia, serif;
+  font-family: 'Oranienbaum', serif;
   color: #C9A96E;
-  font-size: 1.4rem;
-  margin: 3rem 0 1.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   padding-bottom: 0.5rem;
 }
 
-/* СТРОГИЙ СПИСОК С ОДНОТОННЫМИ ОСЯМИ-РАЗДЕЛИТЕЛЯМИ */
-.coop-list {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.coop-item {
-  padding-bottom: 1.2rem;
+/* СТИЛЬ ПАПОК (Для подразделов сотрудничества) */
+.folder-box {
+  background: rgba(17, 16, 14, 0.7);
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-left: 4px solid #C9A96E;
   margin-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
 }
-.coop-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+.folder-tag {
+  font-family: 'Courier New', monospace;
+  color: #C00000;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
-.coop-item-title {
-  font-family: 'Oranienbaum', Georgia, serif;
+.folder-title {
+  font-family: 'Oranienbaum', serif;
   color: #C9A96E;
   font-size: 1.25rem;
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.03em;
+  margin: 0.4rem 0;
 }
-.coop-item-desc {
-  font-size: 0.95rem;
-  color: #8A7E6B;
-  font-weight: 300;
-  line-height: 1.4;
-  text-align: left;
-}
+.folder-desc { font-size: 0.9rem; color: #8A7E6B; line-height: 1.5; }
 
-/* КНОПКИ ВЫБОРА ЯЗЫКА (ГРАФИЧЕСКИЕ КНОПКИ) */
-.language-tabs {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  width: 100%;
-  margin: 2rem 0;
+/* КНОПКИ ПЕРЕВОДА */
+.lang-box {
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  padding: 1.5rem;
+  background: rgba(11, 10, 8, 0.5);
 }
-.tab-img-btn {
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  flex: 1;
-  max-width: 200px;
-  display: block;
+.lang-intro { font-style: italic; color: #b0a68d; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6; }
+
+.lang-link {
+  display: inline-block;
+  color: #C9A96E;
   text-decoration: none;
-  transition: transform 0.3s ease;
-}
-.btn-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
-}
-.tab-img-btn.active .btn-img, .tab-img-btn:hover .btn-img {
-  border-color: #C9A96E;
-  box-shadow: 0 0 45px rgba(201, 169, 110, 0.25);
-  transform: scale(1.03);
-}
-
-/* КОНТЕЙНЕРЫ ДЛЯ МИНИ-ЧИТАЛОК */
-.mini-reader {
-  display: none;
-}
-.mini-reader.active {
-  display: block;
-}
-
-.novel-title{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2.5rem;text-align:center;margin-bottom:.5rem;letter-spacing:.15em}
-.novel-author{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:1.1rem;text-align:center;margin-bottom:.5rem;letter-spacing:.1em}
-.novel-sub{font-family:'Literatta',Georgia,serif;color:#8A7E6B;font-size:.9rem;text-align:center;margin-bottom:3rem;letter-spacing:.15em;text-transform:uppercase;opacity:.7}
-.chapter-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:2rem;text-align:center;margin:4rem 0 2rem;letter-spacing:.12em;text-transform:uppercase}
-.prologue-heading{font-family:'Oranienbaum',Georgia,serif;color:#C9A96E;font-size:1.5rem;text-align:center;margin:2rem 0 1.5rem;letter-spacing:.08em}
-
-.novel-text{color:#e0d5b0;font-size:1.35rem;line-height:1.8;margin-bottom:1.8rem;text-indent:0;font-weight:300}
-.novel-text.no-indent{text-indent:0}
-
-/* === ДОКУМЕНТЫ === */
-.document{background:#f4e4bc;color:#1a1a1a;font-family:'Courier New',Courier,monospace;font-weight:700;font-size:1.15rem;line-height:1.3;padding:2rem 2.2rem;margin:2.5rem 0;border-left:4px solid #C9A96E;box-shadow:0 4px 30px rgba(0,0,0,.6);position:relative}
-.document::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none}
-.doc-line{margin-bottom:.5rem;position:relative;z-index:1;font-weight:700}
-.doc-line.stamp{color:#C00000;font-weight:900;font-size:1.2rem;letter-spacing:0.12em;text-transform:uppercase}
-
-.img-inline{max-width:100%;height:auto;margin:3rem auto;display:block;border:1px solid rgba(201, 169, 110,.15);box-shadow:0 4px 20px rgba(0,0,0,.4)}
-
-/* КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА */
-.advantages-box {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-.advantage-item {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
-}
-.advantage-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.advantage-num {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.6rem;
-  font-style: italic;
-  line-height: 1;
-}
-.advantage-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-.advantage-title {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.25rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.advantage-desc {
+  font-family: 'Oranienbaum', serif;
   font-size: 1.1rem;
-  color: #8A7E6B;
-  font-weight: 300;
-  line-height: 1.6;
-  text-align: left;
-}
-
-/* МОДАЛЬНОЕ ОКНО КОНТАКТОВ */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 10, 8, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 200;
-}
-.modal-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-.modal-card {
-  background: #0b0a08;
   border: 1px solid #C9A96E;
-  padding: 3rem 2.5rem 2.5rem;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 0 60px rgba(201, 169, 110, 0.15);
-  position: relative;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-}
-.modal-overlay.show .modal-card {
-  transform: translateY(0);
-}
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1.2rem;
-  background: transparent;
-  border: none;
-  color: #8A7E6B;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.modal-close:hover {
-  color: #C9A96E;
-}
-.modal-card h3 {
-  font-family: 'Oranienbaum', Georgia, serif;
-  color: #C9A96E;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-  text-align: center;
-}
-.modal-card p {
-  color: #8A7E6B;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  text-align: center;
-}
-
-/* БЛАНК ШИФРОВКИ */
-.feedback-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.feedback-form input, .feedback-form textarea {
-  background: #161512;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  color: #e0d5b0;
-  font-family: 'Literatta', Georgia, serif;
-  padding: 0.75rem;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
-}
-.feedback-form input:focus, .feedback-form textarea:focus {
-  border-color: #C9A96E;
-}
-.feedback-form textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.form-submit {
-  padding: 0.8rem;
-  background: transparent;
-  border: 1px solid #C9A96E;
-  color: #C9A96E;
-  font-family: 'Literatta', Georgia, serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
+  padding: 0.6rem 1.5rem;
   transition: 0.3s;
 }
-.form-submit:hover {
-  background: #C9A96E;
-  color: #0b0a08;
+.lang-link:hover { background: #C9A96E; color: #0b0a08; }
+
+.author-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 2rem;
+  border: 1px solid rgba(201, 169, 110, 0.3);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(1%) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+/* МОДАЛЬНОЕ ОКНО */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(11, 10, 8, 0.95);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease; z-index: 200;
 }
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal-card { background: #0b0a08; border: 1px solid #C9A96E; padding: 2.5rem; max-width: 450px; width: 90%; position: relative; }
+.modal-close { position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: #8A7E6B; font-size: 1.5rem; cursor: pointer; }
+
+.feedback-form { display: flex; flex-direction: column; gap: 1rem; }
+.feedback-form input, .feedback-form textarea { background: #161512; border: 1px solid rgba(201, 169, 110, 0.2); color: #e0d5b0; padding: 0.8rem; font-family: inherit; }
+.form-submit { padding: 0.8rem; background: transparent; border: 1px solid #C9A96E; color: #C9A96E; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+.form-submit:hover { background: #C9A96E; color: #0b0a08; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 @media(max-width: 900px){
-  .content-inner {
-    padding: 2.5rem 1.5rem 4rem;
-  }
-  .language-tabs {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .tab-img-btn {
-    width: 100%;
-    max-width: 260px;
-  }
+  .split-layout { flex-direction: column; }
+  .wrapper { margin-top: 70px; }
 }
 </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) -->
 <nav class="top-navbar">
-  <a href="index.html" class="nav-link">Домой</a>
-  <a href="reader.html" class="nav-link">Читать</a>
+  <a href="index.html" class="nav-link">Главная</a>
+  <a href="reader.html" class="nav-link highlight">Читать</a>
   <a href="materials.html" class="nav-link">Архив</a>
   <a href="foreigners.html" class="nav-link active">Cooperation</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
-<div class="foreign-wrapper">
-  <!-- Графическая плашка Cooperation 72.png -->
-  <img src="images/72.png" alt="Cooperation" class="archive-header-banner">
+<div class="wrapper">
+  <img src="images/72.png" alt="Cooperation" class="banner">
   
-  <div class="content-inner">
+  <div class="split-layout">
     
-    <!-- Портрет Автора (94.png) -->
-    <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="img-inline" style="margin-top: 0; margin-bottom: 3rem; max-width: 480px; border: 1px solid rgba(201,169,110,0.2); box-shadow: 0 0 40px rgba(0,0,0,0.6);">
-    
-    <!-- РАЗДЕЛ: О ПРОЕКТЕ -->
-    <div class="section-divider">О проекте</div>
-    <p class="synopsis-text">Проект <strong>«Второй звонок»</strong> представляет собой интеллектуальный шпионский роман Дмитрия Ильина, соединяющий в себе психологическую драму, глубокую историческую реконструкцию и выверенную визуальную эстетику. Действие книги разворачивается в послевоенной Европе в период с декабря 1946 по май 1948 года.</p>
-    <p class="synopsis-text">В рамках развития проекта автор и его представители заинтересованы в установлении долгосрочных партнерских контактов на российском и международном рынках. Мы приглашаем к открытому диалогу литературных агентов, издательства, переводчиков и представителей киноиндустрии.</p>
+    <!-- ЛЕВАЯ КОЛОНКА (Российский рынок и Автор) -->
+    <div class="left-column">
+      <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-img">
+      
+      <section class="card">
+        <h2 class="section-divider">О проекте</h2>
+        <p style="font-size: 1.05rem; line-height: 1.7; font-weight: 300;">
+          Проект <strong>«Второй звонок»</strong> — это интеллектуальный шпионский роман, соединяющий психологическую драму и историческую реконструкцию Берна 1946-1948 гг. Мы открыты к диалогу с профессиональным сообществом.
+        </p>
+      </section>
 
-    <!-- РАЗДЕЛ: РУССКОЯЗЫЧНЫЙ СЕГМЕНТ -->
-    <div class="section-divider">Русскоязычный сегмент</div>
-    <div class="coop-list">
-      <!-- Пункт 1 -->
-      <div class="coop-item">
-        <h4 class="coop-item-title">⬥ Издание</h4>
-        <p class="coop-item-desc">Публикация текста, подготовка дополнительных материалов, создание интерактивного сайта-дополнения и ведение авторских колонок.</p>
+      <div class="folder-box">
+        <span class="folder-tag">Издание</span>
+        <h3 class="folder-title">Книжная публикация</h3>
+        <p class="folder-desc">Текст полностью завершен. Рассматриваем сотрудничество с издательствами и лит. агентами.</p>
       </div>
-      
-      <!-- Пункт 2 -->
-      <div class="coop-item">
-        <h4 class="coop-item-title">⬥ Адаптация</h4>
-        <p class="coop-item-desc">Разработка киносценария, сериальной адаптации, театральной постановки или масштабного радиоспектакля.</p>
+
+      <div class="folder-box">
+        <span class="folder-tag">Адаптация</span>
+        <h3 class="folder-title">Кино и сериалы</h3>
+        <p class="folder-desc">Панорамная структура глав и плотная драматургия проекта идеально подходят для экранизации.</p>
       </div>
-      
-      <!-- Пункт 3 -->
-      <div class="coop-item">
-        <h4 class="coop-item-title">⬥ Аудиоформаты</h4>
-        <p class="coop-item-desc">Создание аудиокниги, подкаст-сериала или профессиональной многоголосой радиопостановки.</p>
-      </div>
-      
-      <!-- Пункт 4 -->
-      <div class="coop-item">
-        <h4 class="coop-item-title">⬥ Медиа-сопровождение</h4>
-        <p class="coop-item-desc">Рецензирование и публикации в профильных СМИ, участие в книжных ярмарках, фестивалях и продвижение авторского бренда.</p>
+
+      <div class="folder-box">
+        <span class="folder-tag">Аудио</span>
+        <h3 class="folder-title">Радиоспектакли и подкасты</h3>
+        <p class="folder-desc">Создание многоголосых аудиокниг и атмосферного саунд-дизайна на основе романа.</p>
       </div>
     </div>
-
-    <!-- РАЗДЕЛ: МЕЖДУНАРОДНЫЙ СЕГМЕНТ -->
-    <div class="section-divider">Международный сегмент</div>
-    <p class="synopsis-text" style="font-size: 1.05rem; line-height: 1.6; color: #8A7E6B; margin-bottom: 1.5rem;">
-      Приоритетные направления сотрудничества — переводы и зарубежное издание. Ознакомиться с подробным описанием и фрагментами текста на английском, немецком и французском языках вы можете по кнопкам ниже (каждая кнопка ведет в соответствующий зарубежный раздел):
-    </p>
     
-    <!-- ЯЗЫКОВЫЕ ВКЛАДКИ (ГРАФИЧЕСКИЕ КНОПКИ-ССЫЛКИ) -->
-    <div class="language-tabs">
-      <a href="materials/en-cooperation.html" class="tab-img-btn">
-        <img src="images/91.png" alt="English" class="btn-img">
-      </a>
-      <a href="materials/de-cooperation.html" class="tab-img-btn">
-        <img src="images/92.png" alt="Deutsch" class="btn-img">
-      </a>
-      <a href="materials/fr-cooperation.html" class="tab-img-btn">
-        <img src="images/93.png" alt="Français" class="btn-img">
-      </a>
-    </div>
+    <!-- ПРАВАЯ КОЛОНКА (Международный рынок) -->
+    <div class="right-column">
+      <section class="card">
+        <h2 class="section-divider">International Cooperation</h2>
+        
+        <!-- English Section -->
+        <div class="lang-box" style="margin-bottom: 2rem;">
+          <p class="lang-intro">
+            "Second Call" is a spy-noir novel set in post-war Switzerland. We invite publishers and agents to explore translation and foreign rights opportunities.
+          </p>
+          <a href="materials/en-cooperation.html" class="lang-link">English Materials →</a>
+        </div>
 
-    <!-- КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА -->
-    <div class="section-divider" style="margin-top: 4rem;">Ключевые преимущества проекта</div>
-    <div class="advantages-box">
-      <!-- Преимущество 1 -->
-      <div class="advantage-item">
-        <div class="advantage-num">01</div>
-        <div class="advantage-info">
-          <span class="advantage-title">Финальная редакция</span>
-          <span class="advantage-desc">Роман полностью завершен, выверен и готов к публикации в книжном формате, не требуя редакторских правок.</span>
+        <!-- German Section -->
+        <div class="lang-box" style="margin-bottom: 2rem;">
+          <p class="lang-intro">
+            Bern, 1946. Ein atmosphärischer Spionageroman über Geheimarchive und das Schicksal der Agenten. Wir suchen Partner für die deutschsprachige Ausgabe.
+          </p>
+          <a href="materials/de-cooperation.html" class="lang-link">Deutsche Materialien →</a>
         </div>
-      </div>
-      <!-- Преимущество 2 -->
-      <div class="advantage-item">
-        <div class="advantage-num">02</div>
-        <div class="advantage-info">
-          <span class="advantage-title">Быстрый старт</span>
-          <span class="advantage-desc">Первые демонстрационные главы уже переведены на три европейских языка для предметной работы с агентами.</span>
-        </div>
-      </div>
-      <!-- Преимущество 3 -->
-      <div class="advantage-item">
-        <div class="advantage-num">03</div>
-        <div class="advantage-info">
-          <span class="advantage-title">Кинематографичность</span>
-          <span class="advantage-desc">Благодаря панорамной структуре сцен и плотной драматургии текст идеально адаптирован для экранизации и аудиоспектаклей.</span>
-        </div>
-      </div>
-    </div>
 
+        <!-- French Section -->
+        <div class="lang-box">
+          <p class="lang-intro">
+            Un roman d'espionnage intellectuel se déroulant à Berne après la guerre. Dossiers secrets et destins brisés. Disponible pour traduction.
+          </p>
+          <a href="materials/fr-cooperation.html" class="lang-link">Documents en Français →</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-divider">Преимущества</h2>
+        <ul style="list-style: none; color: #8A7E6B; font-size: 0.95rem; line-height: 1.6;">
+          <li style="margin-bottom: 1rem;">⬥ <strong>Завершенность:</strong> Роман не требует редактуры и готов к печати.</li>
+          <li>⬥ <strong>Мультиязычность:</strong> Демо-материалы уже переведены на три языка.</li>
+        </ul>
+      </section>
+    </div>
+    
   </div>
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
 <div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
   <div class="modal-card">
     <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
-    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
+    <h2>Связь с автором</h2>
     <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
-      <textarea name="message" placeholder="Содержание донесения" required></textarea>
+      <input type="text" name="name" placeholder="Ваш позывной" required>
+      <input type="email" name="email" placeholder="Ваша почта" required>
+      <textarea name="message" placeholder="Донесение" required></textarea>
       <button type="submit" class="form-submit">Передать по каналу связи</button>
     </form>
   </div>
@@ -528,8 +291,7 @@ body{
 
 <script>
 function toggleModal(show) {
-  const modal = document.getElementById('contactModal');
-  modal.classList.toggle('show', show);
+  document.getElementById('contactModal').classList.toggle('show', show);
 }
 </script>
 
