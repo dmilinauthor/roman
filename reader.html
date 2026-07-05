@@ -6,72 +6,56 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Читать: Второй звонок</title>
-
-<link rel="icon" href="images/51.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:wght@300;400;700&display=swap" rel="stylesheet">
-
+<title>ЧТЕНИЕ: Второй звонок</title>
 <style>
-  /* БАЗОВЫЕ НАСТРОЙКИ */
-  *{margin:0;padding:0;box-sizing:border-box}
   body {
-    background: #0b0a08 url('images/69.png') no-repeat center center fixed;
-    background-size: cover;
+    background: #0b0a08; /* Плотный черный фон */
     color: #e0d5b0;
-    font-family: 'Literatta', serif;
-    min-height: 100vh;
+    font-family: serif;
+    margin: 0;
+    padding: 0;
   }
-
-  /* МЕНЮ */
   .top-navbar {
-    position: fixed;
-    top: 0; left: 0; right: 0; height: 60px;
+    height: 60px;
     background: #000;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.3);
-    display: flex; justify-content: center; align-items: center;
-    gap: 1.5rem; z-index: 1000;
+    border-bottom: 1px solid #C9A96E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .nav-link {
-    color: #8A7E6B; text-decoration: none; text-transform: uppercase;
-    font-size: 0.75rem; letter-spacing: 0.1em;
+  .top-navbar a {
+    color: #8A7E6B;
+    margin: 0 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
   }
-  .nav-link:hover, .nav-link.active { color: #C9A96E; }
-
-  /* КОНТЕЙНЕР ТЕКСТА (ЧЕРНЫЙ БЛОК) */
   .main-content {
-    margin: 60px auto 0;
-    max-width: 900px;
-    background: #0b0a08; /* ПЛОТНЫЙ ЧЕРНЫЙ ФОН */
-    min-height: 100vh;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 40px;
-    box-shadow: 0 0 100px #000;
-    border-left: 1px solid rgba(201, 169, 110, 0.1);
-    border-right: 1px solid rgba(201, 169, 110, 0.1);
-    position: relative;
-    z-index: 10;
+    background: #000; /* Резервный черный фон */
+    border: 1px solid #222;
   }
+  h1 { color: #C9A96E; text-align: center; font-size: 2rem; }
+  p { font-size: 1.3rem; line-height: 1.8; margin-bottom: 20px; }
+  img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #333; }
+</style>
+</head>
+<body>
 
-  /* ТЕКСТ РОМАНА */
-  .chapter-title {
-    font-family: 'Oranienbaum', serif;
-    color: #C9A96E;
-    font-size: 2.2rem;
-    text-align: center;
-    margin: 2rem 0 3rem;
-  }
-  .novel-text {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-  }
+<nav class="top-navbar">
+  <a href="index.html">Главная</a>
+  <a href="reader.html" style="color: #C9A96E;">Читать</a>
+  <a href="materials.html">Архив</a>
+  <a href="laboratory.html">За кулисами</a>
+</nav>
 
-  /* КАРТИНКИ ВНУТРИ ТЕКСТА */
-  .img-inline {
-    display: block;
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 2.5rem auto;
-    border: 1px solid rgba(201,
+<div class="main-content">
+  <h1>ПРОЛОГ</h1>
+  <br>
+  
+  <!-- ВАШ ТЕКСТ ВРУЧНУЮ (Для проверки) -->
+  <img src="images/51.png" alt="Обложка">
+
+  <p>К декабрю 1946 года Европа превратилась в гигантский шпионский полигон, где старые правила игры окончательно перестали действовать. Эпоха «аристократов духа», для которых шпионаж был делом чести, теснила
