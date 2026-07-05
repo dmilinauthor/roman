@@ -7,12 +7,12 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ЗАГОЛОВОК И ОПИСАНИЕ (Одобрено всеми экспертами) -->
+<!-- ЗАГОЛОВОК И ОПИСАНИЕ -->
 <title>Второй звонок — Дмитрий Ильин. Шпионский роман и архив</title>
 <meta name="description" content="«Второй звонок» — шпионский роман Дмитрия Ильина о Берне 1946–1948. Цифровой архив документов, секретные рапорты и лаборатория смыслов.">
 <link rel="canonical" href="https://dmilinauthor.github.io/roman/">
 
-<!-- ДАННЫЕ ДЛЯ ИИ И МОДЕЛЕЙ (JSON-LD) -->
+<!-- ДАННЫЕ ДЛЯ ИИ И ПОИСКОВИКОВ (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,16 +25,21 @@ layout: null
   "description": "Шпионский роман-архив. Берн, 1946 год. История резидентуры, Вальтера и таинственной Королевы.",
   "genre": "Spy Fiction, Digital Literature",
   "url": "https://dmilinauthor.github.io/roman/",
-  "about": "Берн 1946, послевоенная разведка, архивные документы"
+  "hasPart": [
+    { "@type": "CreativeWork", "name": "Текст романа", "url": "https://dmilinauthor.github.io/roman/reader.html" },
+    { "@type": "CreativeWork", "name": "Архив материалов", "url": "https://dmilinauthor.github.io/roman/materials.html" },
+    { "@type": "CreativeWork", "name": "Кооперация", "url": "https://dmilinauthor.github.io/roman/foreigners.html" }
+  ]
 }
 </script>
 
-<!-- ДАННЫЕ ДЛЯ СОЦСЕТЕЙ (Open Graph) -->
+<!-- СОЦСЕТИ И TWITTER (по 4-му мнению) -->
 <meta property="og:title" content="Второй звонок — Дмитрий Ильин">
 <meta property="og:description" content="Роман-расследование о послевоенном Берне. Архив документов и игра с реальностью.">
 <meta property="og:image" content="https://dmilinauthor.github.io/roman/images/85.png">
 <meta property="og:url" content="https://dmilinauthor.github.io/roman/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,12 +54,10 @@ body{
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
   overflow-x:hidden;
-  overflow-y:auto;
   display:flex;
   flex-direction:column;
 }
 
-/* Скрытый заголовок для SEO */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -66,44 +69,51 @@ body{
   border: 0;
 }
 
-/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ */
+/* ЕДИНАЯ ВЕРХНЯЯ ПАНЕЛЬ НАВИГАЦИИ */
 .top-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.8rem;
   z-index: 150;
+  padding: 0 1rem;
 }
 .nav-link {
   color: #8A7E6B;
   font-family: 'Literatta', Georgia, serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
   background: transparent;
   border: none;
+  white-space: nowrap;
 }
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
   color: #C9A96E;
+}
+/* Выделение ссылки "Читать" в меню */
+.nav-link.highlight {
+  color: #C9A96E;
+  font-weight: 500;
 }
 
 /* ГЛАВНЫЙ КОНТЕЙНЕР */
 .main-wrapper {
   display: flex;
-  flex-direction: column; /* Изменено, чтобы текст был под картинкой */
+  flex-direction: column;
   width: 100%;
   max-width: 1200px;
-  margin: 55px auto 0;
+  margin: 60px auto 0;
   padding: 3rem 1.5rem;
   align-items: center;
   z-index: 10;
@@ -122,7 +132,6 @@ body{
   width: 100%;
   height: auto;
   border: 1px solid rgba(201, 169, 110, 0.25);
-  box-shadow: 0 0 70px rgba(201, 169, 110, 0.08);
 }
 
 .read-btn-position {
@@ -143,15 +152,12 @@ body{
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 .custom-read-btn:hover {
   background: #C9A96E;
   color: #0b0a08;
-  transform: translateY(-1px);
 }
 
-/* СТИЛИЗАЦИЯ ТЕКСТОВОГО БЛОКА ПОД ОБЛОЖКОЙ */
 .site-description-text {
   text-align: center;
   color: #8A7E6B;
@@ -160,8 +166,6 @@ body{
   font-size: 1.05rem;
   line-height: 1.7;
   font-style: italic;
-  font-weight: 300;
-  letter-spacing: 0.02em;
 }
 
 /* МОДАЛЬНОЕ ОКНО */
@@ -178,10 +182,7 @@ body{
   transition: opacity 0.3s ease;
   z-index: 200;
 }
-.modal-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
 .modal-card {
   background: #0b0a08;
   border: 1px solid #C9A96E;
@@ -190,7 +191,6 @@ body{
   width: 100%;
   position: relative;
 }
-
 .modal-close {
   position: absolute;
   top: 1rem;
@@ -201,22 +201,19 @@ body{
   font-size: 1.5rem;
   cursor: pointer;
 }
-
-.modal-card h3 {
+.modal-card h2 { /* Исправлено с h3 на h2 */
   font-family: 'Oranienbaum', serif;
   color: #C9A96E;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
-
 .modal-card p {
   color: #8A7E6B;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
   text-align: center;
 }
-
 .feedback-form {
   display: flex;
   flex-direction: column;
@@ -229,7 +226,6 @@ body{
   padding: 0.75rem;
   font-family: inherit;
 }
-
 .form-submit {
   padding: 0.8rem;
   background: transparent;
@@ -237,11 +233,6 @@ body{
   color: #C9A96E;
   text-transform: uppercase;
   cursor: pointer;
-  transition: 0.3s;
-}
-.form-submit:hover {
-  background: #C9A96E;
-  color: #0b0a08;
 }
 
 @keyframes fadeIn {
@@ -249,33 +240,30 @@ body{
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* МОБИЛЬНАЯ АДАПТАЦИЯ */
 @media(max-width: 900px) {
-  .top-navbar { gap: 1rem; }
-  .nav-link { font-size: 0.7rem; }
-  .site-description-text { font-size: 0.95rem; padding: 0 1rem; }
-  .read-btn-position {
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  .top-navbar { gap: 0.8rem; }
+  .nav-link { font-size: 0.65rem; letter-spacing: 0.05em; }
+  .read-btn-position { bottom: 5%; left: 50%; transform: translateX(-50%); }
 }
 </style>
 </head>
 <body>
 
+<!-- Скрытый заголовок для SEO -->
 <h1 class="visually-hidden">Второй звонок — шпионский роман и архив Дмитрия Ильина</h1>
 
+<!-- ЕДИНОЕ МЕНЮ (теперь включает Главную и Читать) -->
 <nav class="top-navbar">
+  <a href="index.html" class="nav-link active">Главная</a>
+  <a href="reader.html" class="nav-link highlight">Читать</a>
   <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link" title="Cooperation and Foreign Affairs">Cooperation</a>
+  <a href="foreigners.html" class="nav-link">Cooperation</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
 <main class="main-wrapper">
   <div class="image-container">
-    <!-- Текст alt дополнен деталями для поиска картинок -->
     <img src="images/85.png" alt="Обложка романа Дмитрий Ильин «Второй звонок». Сюжет: Берн, 1946 год, шпионаж, архив документов." class="main-image">
     
     <div class="read-btn-position">
@@ -283,7 +271,6 @@ body{
     </div>
   </div>
 
-  <!-- НОВЫЙ ТЕКСТОВЫЙ БЛОК (для людей и поисковиков) -->
   <section class="site-description-text">
     <p>Берн, 1946 год. Послевоенная Европа — гигантский полигон для шпионов. 
     Хозяин бернской резидентуры получает сигнал: его раскрыли. За ним следуют тени прошлого — 
@@ -295,7 +282,7 @@ body{
 <div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
   <div class="modal-card">
     <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
+    <h2>Экстренная шифровка связи</h2>
     <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
     <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
       <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
