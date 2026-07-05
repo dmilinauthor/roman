@@ -7,24 +7,17 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- МЕТА-ДАННЫЕ ДЛЯ ПОИСКОВИКОВ И АГЕНТОВ -->
 <title>Cooperation — Второй звонок. Партнерство и права</title>
-<meta name="description" content="Сотрудничество с проектом «Второй звонок»: издательские права, экранизация, переводы на иностранные языки. Автор Дмитрий Ильин.">
+<meta name="description" content="Сотрудничество с проектом «Второй звонок»: издательские права, экранизация, переводы на иностранные языки.">
 <link rel="canonical" href="https://dmilinauthor.github.io/roman/foreigners.html">
 
-<!-- ДАННЫЕ ДЛЯ ИИ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Дмитрий Ильин",
-  "url": "https://dmilinauthor.github.io/roman/",
-  "jobTitle": "Автор, Писатель",
-  "workExample": {
-    "@type": "CreativeWork",
-    "name": "Второй звонок",
-    "genre": "Шпионский роман"
-  }
+  "@type": "CreativeWork",
+  "name": "Второй звонок",
+  "author": { "@type": "Person", "name": "Дмитрий Ильин" },
+  "description": "Интеллектуальный шпионский роман. Предложения по изданию и адаптации."
 }
 </script>
 
@@ -46,30 +39,18 @@ body{
   align-items:center;
 }
 
-/* ЕДИНОЕ МЕНЮ */
+/* СКВОЗНОЕ МЕНЮ */
 .top-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
+  top: 0; left: 0; right: 0; height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.8rem;
-  z-index: 150;
-  padding: 0 1rem;
+  display: flex; justify-content: center; align-items: center;
+  gap: 1.8rem; z-index: 150; padding: 0 1rem;
 }
 .nav-link {
-  color: #8A7E6B;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: pointer;
+  color: #8A7E6B; font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; text-decoration: none; transition: color 0.3s ease;
 }
 .nav-link:hover, .nav-link.active { color: #C9A96E; }
 .nav-link.highlight { color: #C9A96E; font-weight: 500; }
@@ -84,86 +65,60 @@ body{
 }
 
 .banner {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block; width: 100%; height: auto;
   border: 1px solid rgba(201, 169, 110, 0.2);
   margin-bottom: 2rem;
 }
 
 .split-layout { display: flex; gap: 2rem; }
-.left-column { flex: 1.2; }
-.right-column { flex: 1.8; display: flex; flex-direction: column; gap: 1.5rem; }
+.column { flex: 1; display: flex; flex-direction: column; gap: 1.5rem; }
 
 .card {
   background: rgba(11, 10, 8, 0.95);
   border: 1px solid rgba(201, 169, 110, 0.12);
-  padding: 2.5rem;
+  padding: 2.2rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-  margin-bottom: 1.5rem;
 }
 
 .section-divider {
   font-family: 'Oranienbaum', serif;
-  color: #C9A96E;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: #C9A96E; font-size: 1.3rem; margin-bottom: 1.5rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   padding-bottom: 0.5rem;
 }
 
-/* СТИЛЬ ПАПОК (Для подразделов сотрудничества) */
+/* СТИЛЬ ПОДРАЗДЕЛОВ (ПАПКИ) */
 .folder-box {
   background: rgba(17, 16, 14, 0.7);
   padding: 1.5rem;
   border: 1px solid rgba(201, 169, 110, 0.15);
   border-left: 4px solid #C9A96E;
-  margin-bottom: 1.2rem;
 }
 .folder-tag {
   font-family: 'Courier New', monospace;
-  color: #C00000;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-transform: uppercase;
+  color: #C00000; font-weight: bold; font-size: 0.75rem; text-transform: uppercase;
 }
 .folder-title {
   font-family: 'Oranienbaum', serif;
-  color: #C9A96E;
-  font-size: 1.25rem;
-  margin: 0.4rem 0;
+  color: #C9A96E; font-size: 1.2rem; margin: 0.4rem 0;
 }
 .folder-desc { font-size: 0.9rem; color: #8A7E6B; line-height: 1.5; }
 
 /* КНОПКИ ПЕРЕВОДА */
 .lang-box {
-  border: 1px solid rgba(201, 169, 110, 0.2);
-  padding: 1.5rem;
-  background: rgba(11, 10, 8, 0.5);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  padding: 1.2rem;
+  background: rgba(11, 10, 8, 0.4);
+  margin-bottom: 1.2rem;
 }
-.lang-intro { font-style: italic; color: #b0a68d; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6; }
-
+.lang-intro { font-style: italic; color: #b0a68d; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.5; }
 .lang-link {
   display: inline-block;
-  color: #C9A96E;
-  text-decoration: none;
-  font-family: 'Oranienbaum', serif;
-  font-size: 1.1rem;
-  border: 1px solid #C9A96E;
-  padding: 0.6rem 1.5rem;
-  transition: 0.3s;
+  color: #C9A96E; text-decoration: none; font-family: 'Oranienbaum', serif;
+  font-size: 1rem; border: 1px solid #C9A96E; padding: 0.5rem 1.2rem; transition: 0.3s;
 }
 .lang-link:hover { background: #C9A96E; color: #0b0a08; }
-
-.author-img {
-  width: 100%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto 2rem;
-  border: 1px solid rgba(201, 169, 110, 0.3);
-}
 
 /* МОДАЛЬНОЕ ОКНО */
 .modal-overlay {
@@ -204,72 +159,60 @@ body{
   
   <div class="split-layout">
     
-    <!-- ЛЕВАЯ КОЛОНКА (Российский рынок и Автор) -->
-    <div class="left-column">
-      <img src="images/94.png" alt="Дмитрий Ильин — Автор" class="author-img">
-      
+    <!-- ЛЕВАЯ КОЛОНКА -->
+    <div class="column">
       <section class="card">
         <h2 class="section-divider">О проекте</h2>
-        <p style="font-size: 1.05rem; line-height: 1.7; font-weight: 300;">
-          Проект <strong>«Второй звонок»</strong> — это интеллектуальный шпионский роман, соединяющий психологическую драму и историческую реконструкцию Берна 1946-1948 гг. Мы открыты к диалогу с профессиональным сообществом.
+        <p style="font-size: 1rem; line-height: 1.7; font-weight: 300;">
+          <strong>«Второй звонок»</strong> — интеллектуальный шпионский роман, соединяющий психологическую драму и историческую реконструкцию. 
+          Роман полностью завершен в финальной редакции и готов к публикации. Мы открыты к предложениям литературных агентов и издательств.
         </p>
       </section>
 
       <div class="folder-box">
         <span class="folder-tag">Издание</span>
         <h3 class="folder-title">Книжная публикация</h3>
-        <p class="folder-desc">Текст полностью завершен. Рассматриваем сотрудничество с издательствами и лит. агентами.</p>
+        <p class="folder-desc">Рассматриваем сотрудничество по изданию бумажной и электронной версии текста в РФ.</p>
       </div>
 
       <div class="folder-box">
         <span class="folder-tag">Адаптация</span>
         <h3 class="folder-title">Кино и сериалы</h3>
-        <p class="folder-desc">Панорамная структура глав и плотная драматургия проекта идеально подходят для экранизации.</p>
+        <p class="folder-desc">Плотная драматургия и панорамная структура глав проекта подготовлены для экранизации.</p>
       </div>
 
       <div class="folder-box">
         <span class="folder-tag">Аудио</span>
-        <h3 class="folder-title">Радиоспектакли и подкасты</h3>
-        <p class="folder-desc">Создание многоголосых аудиокниг и атмосферного саунд-дизайна на основе романа.</p>
+        <h3 class="folder-title">Радиоспектакли</h3>
+        <p class="folder-desc">Создание многоголосых аудиокниг и атмосферного саунд-дизайна на основе произведения.</p>
       </div>
     </div>
     
-    <!-- ПРАВАЯ КОЛОНКА (Международный рынок) -->
-    <div class="right-column">
-      <section class="card">
+    <!-- ПРАВАЯ КОЛОНКА -->
+    <div class="column">
+      <section class="card" style="height: 100%;">
         <h2 class="section-divider">International Cooperation</h2>
+        <p style="font-size: 0.95rem; color: #8A7E6B; margin-bottom: 1.5rem; line-height: 1.6;">
+          Demo materials (synopsis and chapters) are available in three European languages for translation and foreign rights inquiries.
+        </p>
         
-        <!-- English Section -->
-        <div class="lang-box" style="margin-bottom: 2rem;">
-          <p class="lang-intro">
-            "Second Call" is a spy-noir novel set in post-war Switzerland. We invite publishers and agents to explore translation and foreign rights opportunities.
-          </p>
+        <!-- English -->
+        <div class="lang-box">
+          <p class="lang-intro">"Second Call" — a spy-noir novel set in post-war Switzerland. We invite publishers to explore translation opportunities.</p>
           <a href="materials/en-cooperation.html" class="lang-link">English Materials →</a>
         </div>
 
-        <!-- German Section -->
-        <div class="lang-box" style="margin-bottom: 2rem;">
-          <p class="lang-intro">
-            Bern, 1946. Ein atmosphärischer Spionageroman über Geheimarchive und das Schicksal der Agenten. Wir suchen Partner für die deutschsprachige Ausgabe.
-          </p>
+        <!-- German -->
+        <div class="lang-box">
+          <p class="lang-intro">Bern, 1946. Ein atmosphärischer Spionageroman über Geheimarchive. Partner für die deutschsprachige Ausgabe gesucht.</p>
           <a href="materials/de-cooperation.html" class="lang-link">Deutsche Materialien →</a>
         </div>
 
-        <!-- French Section -->
+        <!-- French -->
         <div class="lang-box">
-          <p class="lang-intro">
-            Un roman d'espionnage intellectuel se déroulant à Berne après la guerre. Dossiers secrets et destins brisés. Disponible pour traduction.
-          </p>
+          <p class="lang-intro">Un roman d'espionnage intellectuel se déroulant à Berne. Dossiers secrets et destins brisés. Disponible pour traduction.</p>
           <a href="materials/fr-cooperation.html" class="lang-link">Documents en Français →</a>
         </div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-divider">Преимущества</h2>
-        <ul style="list-style: none; color: #8A7E6B; font-size: 0.95rem; line-height: 1.6;">
-          <li style="margin-bottom: 1rem;">⬥ <strong>Завершенность:</strong> Роман не требует редактуры и готов к печати.</li>
-          <li>⬥ <strong>Мультиязычность:</strong> Демо-материалы уже переведены на три языка.</li>
-        </ul>
       </section>
     </div>
     
@@ -284,7 +227,7 @@ body{
       <input type="text" name="name" placeholder="Ваш позывной" required>
       <input type="email" name="email" placeholder="Ваша почта" required>
       <textarea name="message" placeholder="Донесение" required></textarea>
-      <button type="submit" class="form-submit">Передать по каналу связи</button>
+      <button type="submit" class="form-submit">Передать</button>
     </form>
   </div>
 </div>
