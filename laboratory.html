@@ -300,7 +300,6 @@ body{
   <img src="images/73.png" alt="За кулисами" class="archive-header-banner">
 
   <div class="split-layout">
-    <!-- Левая колонка -->
     <div class="left-column">
       <div class="archive-card">
         <div class="section-divider">Лаборатория проекта</div>
@@ -309,11 +308,9 @@ body{
       </div>
     </div>
 
-    <!-- Правая колонка: папки-ссылки -->
     <div class="right-column">
       <div style="display:flex; flex-direction:column; gap:1.5rem; width:100%;">
 
-        <!-- Папка 1: Судьба Мастера -->
         <a href="laboratory/master.html" class="sub-btn-link" style="max-width:100%;">
           <div class="btn-img" style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.25); border-left:4px solid #C9A96E;">
             <span class="folder-tag">РАБОЧИЕ МАТЕРИАЛЫ</span>
@@ -322,7 +319,6 @@ body{
           </div>
         </a>
 
-        <!-- Папка 2: Эксперимент с ИИ -->
         <a href="laboratory/experiment.html" class="sub-btn-link" style="max-width:100%;">
           <div class="btn-img" style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.25); border-left:4px solid #C9A96E;">
             <span class="folder-tag">ИССЛЕДОВАНИЕ</span>
@@ -331,55 +327,15 @@ body{
           </div>
         </a>
 
-        <!-- Заглушка 1 -->
+        <a href="laboratory/stolen.html" class="sub-btn-link" style="max-width:100%;">
+          <div class="btn-img" style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.25); border-left:4px solid #C9A96E;">
+            <span class="folder-tag">СВИДЕТЕЛЬСТВА</span>
+            <h4 class="folder-title" style="margin:0.3rem 0;">У меня украли</h4>
+            <p class="folder-desc">Хроника утраты: от первых перебоев доступа до осознания кражи контента.</p>
+          </div>
+        </a>
+
         <div class="folder-card disabled" style="max-width:100%;">
           <div style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.15); border-left:4px solid #555; width:100%;">
             <span class="folder-tag gray">В РАЗРАБОТКЕ</span>
             <h4 class="folder-title" style="margin:0.3rem 0; color:#777;">Раздел готовится</h4>
-            <p class="folder-desc" style="color:#555;">Здесь появятся дополнительные материалы — следите за обновлениями.</p>
-          </div>
-        </div>
-
-        <!-- Заглушка 2 -->
-        <div class="folder-card disabled" style="max-width:100%;">
-          <div style="background:#11100e; padding:1.5rem; border:1px solid rgba(201,169,110,0.15); border-left:4px solid #555; width:100%;">
-            <span class="folder-tag gray">В РАЗРАБОТКЕ</span>
-            <h4 class="folder-title" style="margin:0.3rem 0; color:#777;">Раздел готовится</h4>
-            <p class="folder-desc" style="color:#555;">Дополнительные аналитические заметки и интервью.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Подвал -->
-  <div style="margin-top:2rem; border-top:1px dashed rgba(201,169,110,0.15); padding-top:1.5rem; text-align:center;">
-    <p style="font-size:0.95rem; font-style:italic; color:#8A7E6B;">Все права защищены. Разработка Лаборатории проекта «Второй звонок».</p>
-  </div>
-
-</div>
-
-<div class="modal-overlay" id="contactModal" onclick="if(event.target===this) toggleModal(false)">
-  <div class="modal-card">
-    <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
-    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
-    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
-      <textarea name="message" placeholder="Содержание донесения" required></textarea>
-      <button type="submit" class="form-submit">Передать по каналу связи</button>
-    </form>
-  </div>
-</div>
-
-<script>
-function toggleModal(show) {
-  const modal = document.getElementById('contactModal');
-  modal.classList.toggle('show', show);
-}
-</script>
-
-</body>
-</html>
