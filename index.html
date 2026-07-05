@@ -7,40 +7,21 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ЗАГОЛОВОК И ОПИСАНИЕ -->
 <title>Второй звонок — Дмитрий Ильин. Шпионский роман и архив</title>
 <meta name="description" content="«Второй звонок» — шпионский роман Дмитрия Ильина о Берне 1946–1948. Цифровой архив документов, секретные рапорты и лаборатория смыслов.">
 <link rel="canonical" href="https://dmilinauthor.github.io/roman/">
 
-<!-- ДАННЫЕ ДЛЯ ИИ И ПОИСКОВИКОВ (JSON-LD) -->
+<!-- ДАННЫЕ ДЛЯ ИИ И ПОИСКОВИКОВ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
   "name": "Второй звонок",
-  "author": {
-    "@type": "Person",
-    "name": "Дмитрий Ильин"
-  },
-  "description": "Шпионский роман-архив. Берн, 1946 год. История резидентуры, Вальтера и таинственной Королевы.",
-  "genre": "Spy Fiction, Digital Literature",
-  "url": "https://dmilinauthor.github.io/roman/",
-  "hasPart": [
-    { "@type": "CreativeWork", "name": "Текст романа", "url": "https://dmilinauthor.github.io/roman/reader.html" },
-    { "@type": "CreativeWork", "name": "Архив материалов", "url": "https://dmilinauthor.github.io/roman/materials.html" },
-    { "@type": "CreativeWork", "name": "Кооперация", "url": "https://dmilinauthor.github.io/roman/foreigners.html" },
-    { "@type": "CreativeWork", "name": "Лаборатория", "url": "https://dmilinauthor.github.io/roman/laboratory.html" }
-  ]
+  "author": { "@type": "Person", "name": "Дмитрий Ильин" },
+  "genre": "Spy Fiction",
+  "url": "https://dmilinauthor.github.io/roman/"
 }
 </script>
-
-<!-- СОЦСЕТИ И TWITTER -->
-<meta property="og:title" content="Второй звонок — Дмитрий Ильин">
-<meta property="og:description" content="Роман-расследование о послевоенном Берне. Архив документов и игра с реальностью.">
-<meta property="og:image" content="https://dmilinauthor.github.io/roman/images/85.png">
-<meta property="og:url" content="https://dmilinauthor.github.io/roman/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,30 +33,22 @@ layout: null
 body{
   background-color: #050505; 
   color:#e0d5b0;
-  font-family:'Literatta',Georgia,serif;
+  font-family:'Literatta', Georgia, serif;
   min-height:100vh;
-  overflow-x:hidden;
   display:flex;
   flex-direction:column;
 }
 
+/* СКРЫТЫЙ ЗАГОЛОВОК ДЛЯ SEO */
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0,0,0,0); border: 0;
 }
 
-/* ЕДИНАЯ ВЕРХНЯЯ ПАНЕЛЬ НАВИГАЦИИ */
+/* ВЕРХНЯЯ ПАНЕЛЬ */
 .top-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
@@ -84,8 +57,130 @@ body{
   align-items: center;
   gap: 1.8rem;
   z-index: 150;
-  padding: 0 1rem;
 }
 .nav-link {
   color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-link:hover, .nav-link.active { color: #C9A96E; }
+
+/* ОСНОВНОЙ БЛОК */
+.main-wrapper {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+}
+
+.main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+/* КНОПКА ЧИТАТЬ ПОВЕРХ КАРТИНКИ */
+.read-btn-position {
+  position: absolute;
+  left: 10.8%; 
+  bottom: 4%; 
+}
+.custom-read-btn {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  background: rgba(0, 0, 0, 0.7); 
+  border: 1.5px solid rgba(201, 169, 110, 0.5); 
+  color: #C9A96E;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.custom-read-btn:hover {
+  background: #C9A96E;
+  color: #000;
+}
+
+.site-description-text {
+  text-align: center;
+  color: #8A7E6B;
+  max-width: 700px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+/* МОДАЛЬНОЕ ОКНО */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+  display: none; align-items: center; justify-content: center; z-index: 200;
+}
+.modal-card {
+  background: #0b0a08; border: 1px solid #C9A96E; padding: 2.5rem;
+  max-width: 450px; width: 90%; position: relative;
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: transparent; border: none; color: #8A7E6B; font-size: 1.5rem; cursor: pointer;
+}
+
+@media(max-width: 900px) {
+  .top-navbar { gap: 0.8rem; }
+  .nav-link { font-size: 0.65rem; }
+  .read-btn-position { left: 50%; transform: translateX(-50%); bottom: 10%; }
+}
+</style>
+</head>
+<body>
+
+<h1 class="visually-hidden">Второй звонок — шпионский роман Дмитрия Ильина</h1>
+
+<nav class="top-navbar">
+  <a href="index.html" class="nav-link active">Главная</a>
+  <a href="reader.html" class="nav-link">Читать</a>
+  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="foreigners.html" class="nav-link">Cooperation</a>
+  <a href="laboratory.html" class="nav-link">За кулисами</a>
+  <button class="nav-link" onclick="document.getElementById('contactModal').style.display='flex'">Контакты</button>
+</nav>
+
+<main class="main-wrapper">
+  <div class="image-container">
+    <img src="images/85.png" alt="Обложка романа Второй звонок" class="main-image">
+    <div class="read-btn-position">
+      <a href="reader.html" class="custom-read-btn">Читать</a>
+    </div>
+  </div>
+
+  <section class="site-description-text">
+    <p>Берн, 1946 год. Послевоенная Европа — гигантский полигон для шпионов. 
+    Хозяин бернской резидентуры получает сигнал: его раскрыли. За ним следуют тени прошлого — 
+    Вальтер, Мастер и таинственная Королева. «Второй звонок» — это роман-архив, 
+    где каждый документ хранит тайну, а каждая сцена — шифр.</p>
+  </section>
+</main>
+
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="document.getElementById('contactModal').style.display='none'">✕</button>
+    <h2 style="color:#C9A96E; text-align:center; margin-bottom:1rem; font-family:'Oranienbaum',serif;">Контакты</h2>
+    <form style="display:flex; flex-direction:column; gap:1rem;" action="https://formspree.io/f/mgojzbba" method="POST">
+      <input type="text" name="name" placeholder="Ваш позывной" required style="background:#161512; border:1px solid #333; color:#e0d5b0; padding:0.8rem;">
+      <input type="email" name="email" placeholder="Ваша почта" required style="bac
