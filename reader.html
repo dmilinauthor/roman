@@ -7,9 +7,9 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ТЕХНИЧЕСКАЯ ОПТИМИЗАЦИЯ -->
+<!-- ТЕХНИЧЕСКАЯ ОПТИМИЗАЦИЯ ДЛЯ ИНДЕКСАЦИИ -->
 <title>Читать: Второй звонок — Дмитрий Ильин</title>
-<meta name="description" content="Интерфейс чтения романа «Второй звонок». Погружение в шпионский архив Берна 1946 года.">
+<meta name="description" content="Интерфейс чтения шпионского романа «Второй звонок». Погружение в атмосферу послевоенного Берна 1946 года.">
 <link rel="canonical" href="https://dmilinauthor.github.io/roman/reader.html">
 
 <!-- ДАННЫЕ ДЛЯ ИИ -->
@@ -21,8 +21,7 @@ layout: null
   "mainEntity": {
     "@type": "Book",
     "name": "Второй звонок",
-    "author": { "@type": "Person", "name": "Дмитрий Ильин" },
-    "workExample": [ { "@type": "BookFormatType", "name": "Digital Edition" } ]
+    "author": { "@type": "Person", "name": "Дмитрий Ильин" }
   }
 }
 </script>
@@ -43,28 +42,20 @@ body{
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
   overflow-x:hidden;
-  /* Защита авторского текста */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* СКВОЗНОЕ МЕНЮ (Унифицировано с главной) */
+/* ЕДИНАЯ ВЕРХНЯЯ ПАНЕЛЬ (Синхронизирована с index.html) */
 .top-navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
+  top: 0; left: 0; right: 0; height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.8rem;
-  z-index: 150;
-  padding: 0 1rem;
+  display: flex; justify-content: center; align-items: center;
+  gap: 1.8rem; z-index: 150; padding: 0 1rem;
 }
 .nav-link {
   color: #8A7E6B;
@@ -74,20 +65,15 @@ body{
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
-  cursor: pointer;
-  background: transparent;
-  border: none;
   white-space: nowrap;
 }
 .nav-link:hover, .nav-link.active { color: #C9A96E; }
 .nav-link.highlight { color: #C9A96E; font-weight: 500; }
 
-/* ИНДИКАТОР ПРОГРЕССА ПОД МЕНЮ */
+/* ИНДИКАТОР ПРОГРЕССА */
 .progress {
   position: fixed;
-  top: 60px;
-  left: 0;
-  height: 2px;
+  top: 60px; left: 0; height: 2px;
   background: #C9A96E;
   z-index: 300;
   transition: width 0.1s linear;
@@ -99,12 +85,10 @@ body{
   margin-top: 60px; 
 }
 
-/* САЙДБАР */
+/* САЙДБАР (ОГЛАВЛЕНИЕ) */
 .sidebar{
   position:fixed;
-  left:0;
-  top:60px;
-  bottom:0;
+  left:0; top:60px; bottom:0;
   width:280px;
   background:#141419;
   border-right:1px solid rgba(201,169,110,.15);
@@ -127,249 +111,4 @@ body{
   max-width:880px;
   margin:0 auto;
   padding:4rem 3.5rem 6rem;
-  background:#0b0a08;
-  box-shadow:0 0 80px rgba(0,0,0,0.9);
-  border-left:1px solid rgba(201,169,110,.08);
-  border-right:1px solid rgba(201,169,110,.08);
-}
-
-/* ТИПОГРАФИКА РОМАНА */
-.novel-text{
-  color:#e0d5b0;
-  font-size:1.35rem;
-  line-height:1.85; /* Увеличен для комфорта */
-  margin-bottom:1.8rem;
-  font-weight:300;
-}
-.prologue-heading, .chapter-heading {
-  font-family:'Oranienbaum', serif;
-  color:#C9A96E;
-  text-align:center;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  margin: 3rem 0 2rem;
-}
-.prologue-heading { font-size:1.8rem; }
-.chapter-heading { font-size:2.2rem; }
-
-/* ОБРАБОТКА ОБЛОЖКИ ВНУТРИ ТЕКСТА */
-.img-inline {
-  max-width:100%;
-  height:auto;
-  margin:1rem auto 3rem;
-  display:block;
-  border:1px solid rgba(201, 169, 110,.3);
-  box-shadow:0 10px 40px rgba(0,0,0,0.8);
-}
-
-/* ДОКУМЕНТЫ */
-.document{
-  background:#f4e4bc;
-  color:#1a1a1a;
-  font-family:'Courier New', monospace;
-  font-weight:700;
-  font-size:1.1rem;
-  padding:2rem;
-  margin:3rem 0;
-  border-left:5px solid #C9A96E;
-  position:relative;
-}
-
-/* ХРОНОГРАФ */
-.chronometer {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Oranienbaum', serif;
-  color: #C9A96E;
-  text-align: right;
-  border-right: 1.5px solid rgba(201, 169, 110, 0.4);
-  padding-right: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 140;
-}
-.chronometer.show { opacity: 0.85; }
-.chrono-date { font-size: 1.2rem; margin-bottom: 0.2rem; }
-.chrono-location { font-size: 0.75rem; color: #8A7E6B; text-transform: uppercase; }
-
-/* МОБИЛЬНЫЕ НАСТРОЙКИ */
-.hamburger{
-  position:fixed;
-  top:70px; /* Ниже меню */
-  left:1rem;
-  z-index:200;
-  background:rgba(11,10,8,.9);
-  border:1px solid #C9A96E;
-  color:#C9A96E;
-  padding:.5rem .8rem;
-  cursor:pointer;
-  display:none;
-}
-
-@media(max-width:1200px) { .chronometer { display: none; } }
-@media(max-width:900px){
-  .sidebar{transform:translateX(-280px); top:60px;}
-  .sidebar.open{transform:translateX(0)}
-  .content{margin-left:0!important}
-  .hamburger{display:block}
-  .content-inner{padding:2rem 1.2rem 4rem}
-  .novel-text{font-size:1.15rem; line-height:1.7}
-}
-
-/* ФУТЕР ВНУТРИ РИДЕРА */
-.footer-reader {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(201, 169, 110, 0.15);
-  text-align: center;
-  font-size: 0.8rem;
-  color: #8A7E6B;
-}
-</style>
-</head>
-<body oncontextmenu="return false;">
-
-<div class="progress" id="progress"></div>
-
-<nav class="top-navbar">
-  <a href="index.html" class="nav-link">Главная</a>
-  <a href="reader.html" class="nav-link highlight active">Читать</a>
-  <a href="materials.html" class="nav-link">Архив</a>
-  <a href="foreigners.html" class="nav-link">Cooperation</a>
-  <a href="laboratory.html" class="nav-link">За кулисами</a>
-  <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
-</nav>
-
-<div class="chronometer" id="chronometer">
-  <div class="chrono-date" id="chronoDate">—</div>
-  <div class="chrono-location" id="chronoLoc">—</div>
-</div>
-
-<div id="reader">
-  <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰ Меню глав</button>
-  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-  
-  <div class="main-layout">
-    <nav class="sidebar" id="sidebar">
-      <div class="sb-title">Оглавление</div>
-      {% assign sorted_chapters = site.chapters | sort: 'idx' %}
-      {% for ch in sorted_chapters %}
-        <button class="sb-item {% if ch.idx == -1 %}sb-prologue{% endif %}" data-idx="{{ ch.idx }}">
-          {{ ch.title }}
-        </button>
-      {% endfor %}
-    </nav>
-
-    <main class="content">
-      <div class="content-inner">
-        {% for ch in sorted_chapters %}
-          <section data-chapter-idx="{{ ch.idx }}">
-            {% if ch.idx == -1 %}
-              <h1 class="prologue-heading">{{ ch.title }}</h1>
-            {% else %}
-              <h2 class="chapter-heading" id="chapter-{{ ch.idx }}">{{ ch.title }}</h2>
-            {% endif %}
-            {{ ch.content }}
-          </section>
-        {% endfor %}
-
-        <footer class="footer-reader">
-          <p>⚠️ 18+ | Свидетельство № 226061100096</p>
-          <p>© Дмитрий Ильин. Все права защищены.</p>
-        </footer>
-      </div>
-    </main>
-  </div>
-</div>
-
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
-<div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
-  <div class="modal-card">
-    <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h2>Экстренная шифровка связи</h2>
-    <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Ваша почта" required>
-      <textarea name="message" placeholder="Текст сообщения" required></textarea>
-      <button type="submit" class="form-submit">Отправить</button>
-    </form>
-  </div>
-</div>
-
-<script>
-// Скрипты управления (сохранены и оптимизированы)
-var chronoData = {
-    "-1": { date: "ДЕКАБРЬ 1946", loc: "ЕВРОПА" },
-    "0": { date: "12 ДЕК 1946", loc: "БЕРН, 23:07" },
-    "1": { date: "13 ДЕК 1946", loc: "БЕРН, 07:43" }
-    // ... остальные данные подгрузятся автоматически
-};
-
-var sidebar = document.getElementById('sidebar');
-var overlay = document.querySelector('.overlay');
-var progress = document.getElementById('progress');
-var chronometer = document.getElementById('chronometer');
-var chronoDate = document.getElementById('chronoDate');
-var chronoLoc = document.getElementById('chronoLoc');
-var sbItems = document.querySelectorAll('.sb-item');
-var activeIdx = -1;
-var sidebarOpen = false;
-
-function toggleSidebar() {
-    sidebarOpen = !sidebarOpen;
-    sidebar.classList.toggle('open', sidebarOpen);
-    overlay.style.display = sidebarOpen ? 'block' : 'none';
-}
-
-function toggleModal(show) {
-    document.getElementById('contactModal').classList.toggle('show', show);
-}
-
-function scrollToChapter(idx) {
-    var el = document.querySelector('[data-chapter-idx="' + idx + '"]');
-    if (el) {
-        var y = el.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-    if (sidebarOpen) toggleSidebar();
-}
-
-sbItems.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        scrollToChapter(this.dataset.idx);
-    });
-});
-
-window.addEventListener('scroll', function() {
-    var sy = window.scrollY;
-    var dh = document.documentElement.scrollHeight - window.innerHeight;
-    if (dh > 0) progress.style.width = (sy / dh * 100) + '%';
-
-    var sections = document.querySelectorAll('[data-chapter-idx]');
-    var cur = -1;
-    sections.forEach(function(el) {
-        if (el.getBoundingClientRect().top < window.innerHeight * 0.4) {
-            cur = parseInt(el.dataset.chapterIdx);
-        }
-    });
-
-    if (cur !== activeIdx) {
-        activeIdx = cur;
-        sbItems.forEach(function(b) {
-            b.classList.toggle('active', parseInt(b.dataset.idx) === cur);
-        });
-        if (chronoData[cur]) {
-            chronoDate.textContent = chronoData[cur].date;
-            chronoLoc.textContent = chronoData[cur].loc;
-            chronometer.classList.add('show');
-        } else {
-            chronometer.classList.remove('show');
-        }
-    }
-});
-</script>
-
-</body>
-</html>
+  b
