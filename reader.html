@@ -6,25 +6,7 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ТЕХНИЧЕСКАЯ ОПТИМИЗАЦИЯ ДЛЯ ИНДЕКСАЦИИ -->
 <title>Читать: Второй звонок — Дмитрий Ильин</title>
-<meta name="description" content="Интерфейс чтения шпионского романа «Второй звонок». Погружение в атмосферу послевоенного Берна 1946 года.">
-<link rel="canonical" href="https://dmilinauthor.github.io/roman/reader.html">
-
-<!-- ДАННЫЕ ДЛЯ ИИ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Интерфейс чтения романа Второй звонок",
-  "mainEntity": {
-    "@type": "Book",
-    "name": "Второй звонок",
-    "author": { "@type": "Person", "name": "Дмитрий Ильин" }
-  }
-}
-</script>
 
 <link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,76 +21,125 @@ body{
   background:#0b0a08 url('images/69.png') no-repeat center center fixed;
   background-size: cover;
   color:#e0d5b0;
-  font-family:'Literatta',Georgia,serif;
+  font-family:'Literatta', Georgia, serif;
   min-height:100vh;
-  overflow-x:hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-/* ЕДИНАЯ ВЕРХНЯЯ ПАНЕЛЬ (Синхронизирована с index.html) */
+/* МЕНЮ */
 .top-navbar {
   position: fixed;
   top: 0; left: 0; right: 0; height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   display: flex; justify-content: center; align-items: center;
-  gap: 1.8rem; z-index: 150; padding: 0 1rem;
+  gap: 1.8rem; z-index: 150;
 }
 .nav-link {
-  color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  white-space: nowrap;
+  color: #8A7E6B; font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; text-decoration: none;
 }
 .nav-link:hover, .nav-link.active { color: #C9A96E; }
-.nav-link.highlight { color: #C9A96E; font-weight: 500; }
 
-/* ИНДИКАТОР ПРОГРЕССА */
-.progress {
+/* ОСНОВНАЯ СЕТКА */
+.main-layout {
+  display: flex;
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+}
+
+/* САЙДБАР (Оглавление) */
+.sidebar {
+  width: 280px;
+  background: rgba(11, 10, 8, 0.9);
+  border-right: 1px solid rgba(201, 169, 110, 0.15);
   position: fixed;
-  top: 60px; left: 0; height: 2px;
-  background: #C9A96E;
-  z-index: 300;
-  transition: width 0.1s linear;
+  top: 60px; bottom: 0;
+  overflow-y: auto;
+  padding: 2rem 1rem;
+  z-index: 100;
+}
+.sb-item {
+  display: block; width: 100%; padding: 0.8rem;
+  background: transparent; border: none;
+  color: #8A7E6B; text-align: left; cursor: pointer;
+  font-family: inherit; font-size: 0.9rem;
+}
+.sb-item:hover { color: #C9A96E; }
+
+/* КОНТЕНТ */
+.content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-inner {
+  max-width: 800px;
+  width: 100%;
+  background: #0b0a08; /* Черный фон для текста */
+  padding: 3rem;
+  box-shadow: 0 0 50px rgba(0,0,0,1);
+  border: 1px solid rgba(201, 169, 110, 0.1);
 }
 
-.main-layout{
-  display:flex;
-  min-height:100vh;
-  margin-top: 60px; 
+.novel-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.chapter-title {
+  font-family: 'Oranienbaum', serif;
+  color: #C9A96E;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-/* САЙДБАР (ОГЛАВЛЕНИЕ) */
-.sidebar{
-  position:fixed;
-  left:0; top:60px; bottom:0;
-  width:280px;
-  background:#141419;
-  border-right:1px solid rgba(201,169,110,.15);
-  overflow-y:auto;
-  z-index:100;
-  padding:2rem 0;
-  transition:transform .35s;
+@media(max-width: 900px) {
+  .sidebar { display: none; }
+  .content { margin-left: 0; }
+  .content-inner { padding: 1.5rem; }
 }
-.sidebar::-webkit-scrollbar{width:4px}
-.sidebar::-webkit-scrollbar-thumb{background:#8A7E6B;border-radius:2px}
+</style>
+</head>
+<body>
 
-.sb-title{font-family:'Oranienbaum',serif;color:#C9A96E;font-size:1.3rem;padding:0 1.5rem 1.5rem;border-bottom:1px solid rgba(201,169,110,.15);margin-bottom:.5rem;letter-spacing:.05em}
-.sb-item{display:block;width:100%;text-align:left;padding:.55rem 1.5rem;color:#8A7E6B;font-family:inherit;font-size:.88rem;background:0 0;border:none;border-left:2px solid transparent;cursor:pointer;transition:.2s;}
-.sb-item:hover{color:#C9A96E;background:rgba(201,169,110,.06)}
-.sb-item.active{color:#C9A96E;border-left-color:#C9A96E;background:rgba(201,169,110,.08);padding-left:1.3rem}
+<nav class="top-navbar">
+  <a href="index.html" class="nav-link">Главная</a>
+  <a href="reader.html" class="nav-link active">Читать</a>
+  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="foreigners.html" class="nav-link">Cooperation</a>
+  <a href="laboratory.html" class="nav-link">За кулисами</a>
+</nav>
 
-/* ОСНОВНОЙ КОНТЕНТ */
-.content{flex:1;margin-left:280px;transition:margin-left .35s}
-.content-inner{
-  max-width:880px;
-  margin:0 auto;
-  padding:4rem 3.5rem 6rem;
-  b
+<div class="main-layout">
+  <!-- Оглавление -->
+  <aside class="sidebar">
+    <div style="color:#C9A96E; margin-bottom: 1rem; font-family:'Oranienbaum', serif;">Оглавление</div>
+    {% assign sorted_chapters = site.chapters | sort: 'idx' %}
+    {% for ch in sorted_chapters %}
+      <button class="sb-item" onclick="document.getElementById('ch-{{ ch.idx }}').scrollIntoView({behavior:'smooth'})">
+        {{ ch.title }}
+      </button>
+    {% endfor %}
+  </aside>
+
+  <!-- Текст романа -->
+  <main class="content">
+    <div class="content-inner">
+      {% for ch in sorted_chapters %}
+        <section id="ch-{{ ch.idx }}" style="margin-bottom: 5rem;">
+          <h2 class="chapter-title">{{ ch.title }}</h2>
+          <div class="novel-content">
+            {{ ch.content }}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
