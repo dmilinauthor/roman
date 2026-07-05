@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: https://dmilinauthor.github.io
+Sitemap: https://dmilinauthor.github.io/roman/sitemap.xml
