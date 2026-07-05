@@ -1,3 +1,20 @@
+title: Второй звонок
+description: Цифровой литературный проект Дмитрия Ильина
+url: "https://dmilinauthor.github.io"
+baseurl: "/roman"
+
+# Настройка коллекций (глав романа)
 collections:
   chapters:
     output: true
+    permalink: /chapters/:path
+
+# Технические исключения
+exclude:
+  - README.md
+  - vendor
+  - sitemap.html # Исключаем старый файл, если он остался
+
+# Настройки парсера
+markdown: kramdown
+highlighter: rouge
