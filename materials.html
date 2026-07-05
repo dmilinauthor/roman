@@ -6,11 +6,39 @@ layout: null
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Архив дела — Второй звонок</title>
+
+<!-- МЕТА-ДАННЫЕ -->
+<title>Архив материалов дела — Второй звонок</title>
+<meta name="description" content="Документальное пространство романа «Второй звонок»: аналитические записки, рапорты, досье персонажей и исторические справки о Берне 1946 года.">
+<link rel="canonical" href="https://dmilinauthor.github.io/roman/materials.html">
+
+<!-- РАЗМЕТКА ДЛЯ ИИ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Архив материалов дела: Второй звонок",
+  "description": "Собрание документов, досье и исторических справок к роману Дмитрий Ильина.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Дмитрий Ильин"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Аналитическая записка № 11/С" },
+      { "@type": "ListItem", "position": 2, "name": "Рапорт Мастера № 47/Б" },
+      { "@type": "ListItem", "position": 3, "name": "Досье персонажей" }
+    ]
+  }
+}
+</script>
+
 <link rel="icon" href="images/51.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oranibaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Literatta:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -19,114 +47,78 @@ body{
   color:#e0d5b0;
   font-family:'Literatta',Georgia,serif;
   min-height:100vh;
-  overflow-x:hidden;
-  overflow-y:auto;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:3rem 1.5rem;
 }
 
-/* УЗКАЯ ЧЕРНАЯ ПОЛОСКА МЕНЮ СВЕРХУ */
+/* СКВОЗНОЕ МЕНЮ (Унифицировано) */
 .top-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 60px;
   background: #000000;
   border-bottom: 1px solid rgba(201, 169, 110, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.8rem;
   z-index: 150;
+  padding: 0 1rem;
 }
 .nav-link {
   color: #8A7E6B;
-  font-family: 'Literatta', Georgia, serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  font-family: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
   background: transparent;
   border: none;
-  outline: none;
 }
-.nav-link:hover {
-  color: #C9A96E;
-}
+.nav-link:hover, .nav-link.active { color: #C9A96E; }
+.nav-link.highlight { color: #C9A96E; font-weight: 500; }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР (СДВИГАЕМ НА 55px ВНИЗ ПОД МЕНЮ) */
+/* КОНТЕЙНЕР АРХИВА */
 .archive-wrapper {
   max-width: 1200px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 55px; /* ОТСТУП ПОД МЕНЮ */
+  margin-top: 80px; 
+  padding: 0 1.5rem 5rem;
   animation: fadeIn 1.5s ease-out;
 }
 
-/* ГРАФИЧЕСКАЯ ПЛАШКА-ЗАГЛОВОК */
 .archive-header-banner {
   display: block;
   width: 100%;
-  max-width: 1200px;
   height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.3);
-  box-shadow: 0 0 50px rgba(201, 169, 110, 0.08);
-  margin-bottom: 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  margin-bottom: 2rem;
 }
 
-/* ГЛУХАЯ ПОЛУПРОЗРАЧНАЯ ПОДЛОЖКА-КАРТОЧКА */
+.split-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.left-column { flex: 1.1; }
+.right-column { flex: 1.9; display: flex; flex-direction: column; gap: 1.5rem; }
+
 .archive-card {
-  background: rgba(11, 10, 8, 0.94); /* 94% ТЕМНОТЫ ДЛЯ ИДЕАЛЬНОЙ ЧИТАЕМОСТИ */
-  backdrop-filter: blur(12px); /* ЭФФЕКТ МАТОВОГО СТЕКЛА */
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(11, 10, 8, 0.95);
   border: 1px solid rgba(201, 169, 110, 0.12);
   padding: 2.5rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* ДВУХКОЛОНОЧНЫЙ СТОЛ НА ПК */
-.split-layout {
-  display: flex;
-  gap: 2rem;
-  width: 100%;
-}
-
-.left-column {
-  flex: 1.1; /* МЕНЬШАЯ КОЛОНКА ПОД СИНОПСИС */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.right-column {
-  flex: 1.9; /* БОЛЬШАЯ КОЛОНКА ПОД ПАПКИ И ВИДЕОПЛЕЕР */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.synopsis-text {
-  color: #e0d5b0;
-  font-size: 1.2rem;
-  line-height: 1.75;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
-.synopsis-text:last-child {
-  margin-bottom: 0;
-}
-
 .section-divider {
-  font-family: 'Oranienbaum', Georgia, serif;
+  font-family: 'Oranienbaum', serif;
   color: #C9A96E;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -134,230 +126,180 @@ body{
   padding-bottom: 0.5rem;
 }
 
-/* СЕТКА ПАПОК-ДОКУМЕНТОВ */
-.folder-card {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  background: rgba(17, 16, 14, 0.7);
-  border: 1px solid rgba(201, 169, 110, 0.15);
+.synopsis-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* СТИЛИЗАЦИЯ ПАПОК */
+.sub-btn-link { text-decoration: none; color: inherit; display: block; }
+.folder-box {
+  background: #11100e;
   padding: 1.5rem;
-  text-decoration: none;
-  transition: 0.3s ease;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-left: 4px solid #C9A96E;
+  transition: all 0.3s ease;
 }
-.folder-card:hover {
+.folder-box:hover {
   border-color: #C9A96E;
-  background: rgba(22, 21, 18, 0.9);
-  box-shadow: 0 4px 30px rgba(201, 169, 110, 0.08);
   transform: translateY(-2px);
-}
-
-.folder-icon {
-  font-size: 2.2rem;
-  color: #C9A96E;
-  opacity: 0.8;
-}
-
-.folder-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  background: #161512;
 }
 
 .folder-tag {
-  font-family: 'Courier New', Courier, monospace;
-  color: #C00000; /* архивный красный гриф */
+  font-family: 'Courier New', monospace;
+  color: #C00000;
   font-weight: bold;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
-
 .folder-title {
-  font-family: 'Oranienbaum', Georgia, serif;
+  font-family: 'Oranienbaum', serif;
   color: #C9A96E;
-  font-size: 1.2rem;
-  letter-spacing: 0.03em;
+  font-size: 1.25rem;
+  margin: 0.4rem 0;
 }
+.folder-desc { font-size: 0.9rem; color: #8A7E6B; line-height: 1.4; }
 
-.folder-desc {
-  font-size: 0.9rem;
-  color: #8A7E6B;
-  font-weight: 300;
-  line-height: 1.4;
-}
-
-/* УБИРАЕМ СИНЕЕ И ФИОЛЕТОВОЕ ПОДЧЕРКИВАНИЕ ССЫЛОК */
-.sub-btn-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  outline: none;
-}
-.sub-btn-link:focus, .sub-btn-link:active, .sub-btn-link:visited {
-  text-decoration: none;
-  color: inherit;
-}
-.btn-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: 1px solid rgba(201, 169, 110, 0.25);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.btn-img:hover {
-  border-color: #C9A96E;
-  box-shadow: 0 0 45px rgba(201, 169, 110, 0.2);
-  transform: scale(1.01);
-}
-
-/* ВИДЕОПЛЕЕР СРАЗУ ПОД ПАПКАМИ */
-.video-section {
-  width: 100%;
-  margin-top: 1rem;
-}
+/* ВИДЕО */
 .promo-video-wrap {
-  position: relative;
   width: 100%;
-  background: #0d0c09;
   border: 1px solid #C9A96E;
+  background: #000;
 }
-.promo-video-wrap video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+video { width: 100%; display: block; }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(1%) scale(0.99); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+/* МОДАЛЬНОЕ ОКНО (Исправлено) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 8, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
 }
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal-card {
+  background: #0b0a08;
+  border: 1px solid #C9A96E;
+  padding: 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: transparent; border: none; color: #8A7E6B; font-size: 1.5rem; cursor: pointer;
+}
+.modal-card h2 { font-family: 'Oranienbaum', serif; color: #C9A96E; text-align: center; margin-bottom: 1rem; }
+
+.feedback-form { display: flex; flex-direction: column; gap: 1rem; }
+.feedback-form input, .feedback-form textarea {
+  background: #161512; border: 1px solid rgba(201, 169, 110, 0.2); color: #e0d5b0; padding: 0.8rem; font-family: inherit;
+}
+.form-submit {
+  padding: 0.8rem; background: transparent; border: 1px solid #C9A96E; color: #C9A96E; text-transform: uppercase; cursor: pointer;
+}
+.form-submit:hover { background: #C9A96E; color: #0b0a08; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 @media(max-width: 900px){
-  .split-layout {
-    flex-direction: column-reverse; /* НА ТЕЛЕФОНАХ ПАПКИ ПОДНИМАЮТСЯ НАВЕРХ */
-    gap: 1.5rem;
-  }
-  .archive-card {
-    padding: 1.8rem 1.2rem;
-  }
-  .folder-card {
-    gap: 1rem;
-    padding: 1.2rem;
-  }
+  .split-layout { flex-direction: column; }
+  .archive-wrapper { margin-top: 70px; }
 }
 </style>
 </head>
 <body oncontextmenu="return false;">
 
-<!-- ВЕРХНЕЕ МЕНЮ (НАВИГАТОР) С КНОПКОЙ «ЧИТАТЬ» -->
 <nav class="top-navbar">
-  <a href="index.html" class="nav-link">Домой</a>
-  <a href="reader.html" class="nav-link">Читать</a> <!-- ДОБАВЛЕНА КНОПКА «ЧИТАТЬ» -->
-  <a href="materials.html" class="nav-link">Архив</a>
+  <a href="index.html" class="nav-link">Главная</a>
+  <a href="reader.html" class="nav-link highlight">Читать</a>
+  <a href="materials.html" class="nav-link active">Архив</a>
   <a href="foreigners.html" class="nav-link">Cooperation</a>
   <a href="laboratory.html" class="nav-link">За кулисами</a>
   <button class="nav-link" onclick="toggleModal(true)">Контакты</button>
 </nav>
 
 <div class="archive-wrapper">
-  <!-- Графическая плашка-заголовок 71.png по ширине всего блока -->
-  <img src="images/71.png" alt="Архив материалов дела" class="archive-header-banner">
+  <img src="images/71.png" alt="Архив материалов дела: Второй звонок" class="archive-header-banner">
   
   <div class="split-layout">
-    
-    <!-- ЛЕВАЯ КОЛОНКА (АКТУАЛИЗИРОВАННЫЙ И СОКРАЩЕННЫЙ СИНОПСИС) -->
     <div class="left-column">
-      <div class="archive-card">
-        <div class="section-divider">Краткий синопсис</div>
+      <section class="archive-card">
+        <h2 class="section-divider">Синопсис проекта</h2>
         <p class="synopsis-text"><strong>«Второй звонок»</strong> — интеллектуальный шпионский нуар, разворачивающийся в послевоенной Европе с декабря 1946 по май 1948 года.</p>
-        <p class="synopsis-text">На фоне Швейцарии, ставшей транзитным узлом для нацистских капиталов, сталкиваются уходящая эпоха «аристократов духа» и «Сетка» — новая безликая система, торгующая информацией по холодным алгоритмам. В центре интриги — папка Канариса, некогда бесценный компромат, превратившийся в смертельный груз.</p>
-        <p class="synopsis-text">Это история о фигурах безжалостной игры, выходящих за рамки протоколов ради обретения имени, и о праве человека не ждать сигнала к действию, а просто начать жить дальше — без оглядки.</p>
-      </div>
+        <p class="synopsis-text">Это история о фигурах безжалостной игры, выходящих за рамки протоколов ради обретения имени, и о праве человека не ждать сигнала к действию, а просто начать жить дальше.</p>
+      </section>
     </div>
     
-    <!-- ПРАВАЯ КОЛОНКА (ИНТЕРАКТИВНЫЕ ПАПКИ И ВИДЕОПЛЕЕР СРАЗУ ПОД НИМИ) -->
     <div class="right-column">
-      <div class="bottom-row" style="display: flex; flex-direction: column; gap: 1.5rem; justify-content: flex-start; max-width: 100%;">
-        <!-- Папка 1 -->
-        <a href="materials/note.html" class="sub-btn-link" style="max-width: 100%;">
-          <div class="btn-img" style="background: #11100e; padding: 1.5rem; border: 1px solid rgba(201, 169, 110, 0.25); border-left: 4px solid #C9A96E;">
-            <span class="folder-tag">ОСОБАЯ ПАПКА &middot; СОВ. СЕКРЕТНО</span>
-            <h4 class="folder-title" style="margin: 0.3rem 0;">ДЕЛО № 11/С: Аналитическая записка</h4>
-            <p class="folder-desc">Оценка оперативной обстановки в Берне, транзит активов рейха и операция «Скрепка».</p>
-          </div>
-        </a>
-        
-        <!-- Папка 2 -->
-        <a href="materials/report.html" class="sub-btn-link" style="max-width: 100%;">
-          <div class="btn-img" style="background: #11100e; padding: 1.5rem; border: 1px solid rgba(201, 169, 110, 0.25); border-left: 4px solid #C9A96E;">
-            <span class="folder-tag">ЛИЧНО ЦЕНТРУ &middot; СОВ. СЕКРЕТНО</span>
-            <h4 class="folder-title" style="margin: 0.3rem 0;">ДЕЛО № 47/Б: Рапорт Мастера</h4>
-            <p class="folder-desc">Детальный отчет о ликвидации Объекта «Аргентинец» на охоте и причинах провала Вальтера.</p>
-          </div>
-        </a>
-        
-        <!-- Папка 3 -->
-        <a href="materials/reference.html" class="sub-btn-link" style="max-width: 100%;">
-          <div class="btn-img" style="background: #11100e; padding: 1.5rem; border: 1px solid rgba(201, 169, 110, 0.25); border-left: 4px solid #C9A96E;">
-            <span class="folder-tag">СПРАВОЧНЫЕ МАТЕРИАЛЫ &middot; ДЛЯ ИЗУЧЕНИЯ</span>
-            <h4 class="folder-title" style="margin: 0.3rem 0;">Исторический комментарий</h4>
-            <p class="folder-desc">Подлинная судьба архива Абвера («папки Канариса»), Парижские мирные договоры и кризис 1948 года.</p>
-          </div>
-        </a>
-        
-        <!-- Папка 4 -->
-        <a href="materials/dossier_characters.html" class="sub-btn-link" style="max-width: 100%;">
-          <div class="btn-img" style="background: #11100e; padding: 1.5rem; border: 1px solid rgba(201, 169, 110, 0.25); border-left: 4px solid #C9A96E;">
-            <span class="folder-tag">ЛИЧНЫЕ ДЕЛА &middot; СЕТКА</span>
-            <h4 class="folder-title" style="margin: 0.3rem 0;">Dramatis Personae: Действующие лица</h4>
-            <p class="folder-desc">Развернутые досье на Алекса, Мастера, Виолетту, Майю-Розу и второстепенных персонажей романа.</p>
-          </div>
-        </a>
-        
-        <!-- Папка 5 -->
-        <a href="materials/literary_essay.html" class="sub-btn-link" style="max-width: 100%;">
-          <div class="btn-img" style="background: #11100e; padding: 1.5rem; border: 1px solid rgba(201, 169, 110, 0.25); border-left: 4px solid #C9A96E;">
-            <span class="folder-tag">ЛИТЕРАТУРОВЕДЧЕСКИЙ ОЧЕРК</span>
-            <h4 class="folder-title" style="margin: 0.3rem 0;">Художественная архитектура и смыслы</h4>
-            <p class="folder-desc">Литературный анализ метафоры «второго звонка», эволюции музыки, кодов и психо-эмоциональной градации.</p>
-          </div>
-        </a>
-      </div>
-      
-      <!-- ВИДЕОПЛЕЕР СРАЗУ ПОД ПАПКАМИ -->
-      <div class="video-section archive-card">
-        <div class="section-divider">Промо-видеопрезентация</div>
+      <a href="materials/note.html" class="sub-btn-link">
+        <div class="folder-box">
+          <span class="folder-tag">ОСОБАЯ ПАПКА &middot; СОВ. СЕКРЕТНО</span>
+          <h3 class="folder-title">ДЕЛО № 11/С: Аналитическая записка</h3>
+          <p class="folder-desc">Оценка оперативной обстановки в Берне, транзит активов рейха.</p>
+        </div>
+      </a>
+
+      <a href="materials/report.html" class="sub-btn-link">
+        <div class="folder-box">
+          <span class="folder-tag">ЛИЧНО ЦЕНТРУ &middot; СОВ. СЕКРЕТНО</span>
+          <h3 class="folder-title">ДЕЛО № 47/Б: Рапорт Мастера</h3>
+          <p class="folder-desc">Детальный отчет о ликвидации Объекта и причинах провала Вальтера.</p>
+        </div>
+      </a>
+
+      <a href="materials/reference.html" class="sub-btn-link">
+        <div class="folder-box">
+          <span class="folder-tag">СПРАВОЧНЫЕ МАТЕРИАЛЫ</span>
+          <h3 class="folder-title">Исторический комментарий</h3>
+          <p class="folder-desc">Подлинная судьба «папки Канариса» и кризис 1948 года.</p>
+        </div>
+      </a>
+
+      <a href="materials/dossier_characters.html" class="sub-btn-link">
+        <div class="folder-box">
+          <span class="folder-tag">ЛИЧНЫЕ ДЕЛА &middot; СЕТКА</span>
+          <h3 class="folder-title">Dramatis Personae: Действующие лица</h3>
+          <p class="folder-desc">Развернутые досье на Алекса, Мастера, Виолетту и Майю-Розу.</p>
+        </div>
+      </a>
+
+      <section class="archive-card">
+        <h2 class="section-divider">Промо-презентация</h2>
         <div class="promo-video-wrap">
           <video controls loop playsinline>
             <source src="Промо Второй звонок.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
+      </section>
     </div>
-    
   </div>
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО КОНТАКТОВ -->
 <div class="modal-overlay" id="contactModal" onclick="if(event.target === this) toggleModal(false)">
   <div class="modal-card">
     <button class="modal-close" onclick="toggleModal(false)">✕</button>
-    <h3>Экстренная шифровка связи</h3>
-    <p>Направьте ваше донесение напрямую автору. Канал обратной связи зашифрован.</p>
+    <h2>Связь с автором</h2>
     <form class="feedback-form" action="https://formspree.io/f/mgojzbba" method="POST">
-      <input type="text" name="name" placeholder="Ваш оперативный позывной" required>
-      <input type="email" name="email" placeholder="Канал связи (Ваша почта)" required>
-      <textarea name="message" placeholder="Содержание донесения" required></textarea>
-      <button type="submit" class="form-submit">Передать по каналу связи</button>
+      <input type="text" name="name" placeholder="Ваш позывной" required>
+      <input type="email" name="email" placeholder="Ваша почта" required>
+      <textarea name="message" placeholder="Донесение" required></textarea>
+      <button type="submit" class="form-submit">Передать</button>
     </form>
   </div>
 </div>
 
 <script>
 function toggleModal(show) {
-  const modal = document.getElementById('contactModal');
-  modal.classList.toggle('show', show);
+  document.getElementById('contactModal').classList.toggle('show', show);
 }
 </script>
 
