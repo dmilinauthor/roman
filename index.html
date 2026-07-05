@@ -11,6 +11,7 @@ layout: null
 <meta name="description" content="«Второй звонок» — шпионский роман Дмитрия Ильина о Берне 1946–1948. Цифровой архив документов, секретные рапорты и лаборатория смыслов.">
 <link rel="canonical" href="https://dmilinauthor.github.io/roman/">
 
+<!-- ДАННЫЕ ДЛЯ ИИ И ПОИСКОВИКОВ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,42 +85,18 @@ body{
   position: relative;
 }
 
-/* КОНТЕЙНЕР ДЛЯ ДВУХ КАРТИНОК (ДЫМ КАК ФОН) */
-.image-container {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin-bottom: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ДЫМ (74.png) — ТЕПЕРЬ ПРОСТО ФОН ЗА ПЛАШКОЙ */
-.main-image-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.8;
-  border: 1px solid rgba(201, 169, 110, 0.1);
-}
-
-/* НАЗВАНИЕ В РАМКЕ (78.png) — ГЛАВНЫЙ ЭЛЕМЕНТ */
-.main-image-title {
-  position: relative;
-  z-index: 1;
+/* КАРТИНКА 64.png (ПОЛНОСТЬЮ ГОТОВАЯ ОБЛОЖКА) */
+.cover-image {
   display: block;
-  width: 75%;
-  max-width: 700px;
+  width: 100%;
+  max-width: 1100px;
   height: auto;
-  box-shadow: 0 0 60px rgba(0,0,0,0.9); /* Глубокое отделение от фона */
+  border: 1px solid rgba(201, 169, 110, 0.1);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+  margin-bottom: 3rem;
 }
 
-/* КНОПКА ЧИТАТЬ (без лишнего текста между плашкой и кнопкой) */
+/* КНОПКА ЧИТАТЬ (ТЕКСТОВАЯ, С ЗОЛОТОЙ РАМКОЙ) */
 .custom-read-btn {
   display: inline-block;
   padding: 0.8rem 2.8rem;
@@ -158,14 +135,17 @@ body{
 @media(max-width: 900px) {
   .top-navbar { gap: 0.8rem; }
   .nav-link { font-size: 0.65rem; }
-  .main-image-title { width: 95%; }
-  .image-container { margin-bottom: 2.5rem; }
 }
 </style>
 </head>
 <body>
 
 <h1 class="visually-hidden">Второй звонок — шпионский роман Дмитрия Ильина</h1>
+
+<!-- СКРЫТЫЙ ТЕКСТ ДЛЯ ПОИСКОВИКОВ (ДУБЛИКАТ ТЕКСТА С КАРТИНКИ) -->
+<div class="visually-hidden">
+  <p>Берн, 1946 год. Послевоенная Европа — гигантский полигон для шпионов. Хозяин бернской резидентуры получает сигнал: его раскрыли. За ним следуют тени прошлого — Вальтер, Мастер и таинственная Королева. «Второй звонок» — это роман-архив, где каждый документ хранит тайну, а каждая сцена — шифр.</p>
+</div>
 
 <nav class="top-navbar">
   <a href="index.html" class="nav-link active">Главная</a>
@@ -177,11 +157,8 @@ body{
 </nav>
 
 <main class="main-wrapper">
-  <div class="image-container">
-    <img src="images/74.png" alt="" class="main-image-bg">
-    <img src="images/78.png" alt="Дмитрий Ильин — Второй звонок" class="main-image-title">
-  </div>
-
+  <img src="images/64.png" alt="Второй звонок — шпионский роман Дмитрия Ильина. Берн, 1946." class="cover-image">
+  
   <a href="reader.html" class="custom-read-btn">Читать</a>
 </main>
 
